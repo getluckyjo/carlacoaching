@@ -1,0 +1,18 @@
+---
+import BaseLayout from "~/components/layout/BaseLayout.astro";
+---
+<BaseLayout title="Page not found" description="That page doesn't exist." noindex>
+  <section class="container-page section text-center">
+    <p class="eyebrow">404</p>
+    <h1 class="display-l mt-7 mx-auto max-w-[20ch]">That page doesn't exist.</h1>
+    <p class="lead mt-8 mx-auto !max-w-[44ch]">
+      Which is either a broken link on my side or a typo on yours. Either way,
+      here's the way back.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3 justify-center">
+      <a href="/" class="btn btn-primary">Homepage</a>
+      <a href="/work" class="btn btn-ghost">Work</a>
+      <a href="/contact" class="btn btn-ghost">Contact</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from "~/components/layout/BaseLayout.astro";
+import Hero from "~/components/home/Hero.astro";
+import Clients from "~/components/home/Clients.astro";
+import Problem from "~/components/home/Problem.astro";
+import WhatIDo from "~/components/home/WhatIDo.astro";
+import Numbers from "~/components/home/Numbers.astro";
+import HowIWork from "~/components/home/HowIWork.astro";
+import SelectedWork from "~/components/home/SelectedWork.astro";
+import Bridge from "~/components/home/Bridge.astro";
+import WayIThink from "~/components/home/WayIThink.astro";
+import AboutPreview from "~/components/home/AboutPreview.astro";
+import JournalPreview from "~/components/home/JournalPreview.astro";
+import BigCTA from "~/components/home/BigCTA.astro";
+import { websiteSchema, personSchema, organisationSchema, serviceSchemas } from "~/lib/seo";
+
+/*
+ * Section order follows PROJECT.md §7.1 — the Website.pdf draft's own sequence,
+ * plus the client wall (Sharma: credibility before offer) and the numbers strip
+ * (Female Founders: make a soft proposition concrete).
+ *
+ * Background rhythm alternates paper → linen → paper, with exactly two night
+ * moments: Numbers and the closing CTA.
+ */
+---
+<BaseLayout
+  title="Carla le Roux | Leadership &amp; Capability Transformation"
+  rawTitle
+  jsonLd={[websiteSchema, personSchema, organisationSchema, ...serviceSchemas]}
+>
+  <Hero />
+  <Clients />
+  <Problem />
+  <WhatIDo />
+  <Numbers />
+  <HowIWork />
+  <SelectedWork />
+  <Bridge />
+  <WayIThink />
+  <AboutPreview />
+  <JournalPreview />
+  <BigCTA />
+</BaseLayout>

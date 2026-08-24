@@ -1,0 +1,30 @@
+{
+  "name": "carlaleroux",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "a11y": "node scripts/a11y.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^5.18.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.6.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "axe-core": "^4.13.0",
+    "playwright": "^1.62.1"
+  }
+}

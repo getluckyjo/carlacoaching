@@ -1,0 +1,152 @@
+---
+import BaseLayout from "~/components/layout/BaseLayout.astro";
+import SectionHeader from "~/components/ui/SectionHeader.astro";
+import BigCTA from "~/components/home/BigCTA.astro";
+import { coachingFaqs, development, site } from "~/data/site";
+import { breadcrumbSchema, coachingFaqSchema } from "~/lib/seo";
+
+const forWhom = [
+  "Leaders stepping into a role bigger than the last one.",
+  "Executives carrying a decision they keep circling.",
+  "Managers who have had the feedback and can't yet act on it.",
+  "People navigating a transformation they didn't design.",
+];
+
+const formats = [
+  {
+    name: "One-to-one coaching",
+    body: "A standing conversation over a defined period. Space to think properly about the things there is never room for between meetings.",
+  },
+  {
+    name: "Team coaching",
+    body: "Working with a leadership team as a unit — surfacing what the group is avoiding, and building the habits that let it decide together.",
+  },
+  {
+    name: "Programme-embedded coaching",
+    body: "Coaching built into a wider development programme, so that insight from the room gets converted into changed practice back at work.",
+  },
+];
+
+const credentials = development.filter((d) => d.name.includes("Coaching"));
+---
+<BaseLayout
+  title="Coaching"
+  description="Integrative coaching for leaders — creating the space to think differently, navigate complexity, and turn development into changed behaviour. Cape Town and remote."
+  jsonLd={[
+    coachingFaqSchema,
+    breadcrumbSchema([
+      { name: "Home", url: site.domain },
+      { name: "Coaching", url: `${site.domain}/coaching` },
+    ]),
+  ]}
+>
+  <section class="container-page pt-16 pb-8 md:pt-24">
+    <p class="eyebrow eyebrow-ruled reveal">Coaching</p>
+    <h1 class="display-xl mt-8 max-w-[15ch] reveal">
+      Turning insight into <span class="display-italic display-accent">action</span>.
+    </h1>
+    <p class="lead mt-8 reveal">
+      Coaching creates the space to think differently, navigate complexity, and
+      translate development into meaningful changes in behaviour and leadership
+      practice.
+    </p>
+  </section>
+
+  <!-- What it's for -->
+  <section class="container-page section-tight">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <SectionHeader eyebrow="What it's for" title="Most leaders don't need more information." />
+      </div>
+      <div class="md:col-span-6 md:col-start-7 space-y-6 text-[var(--color-ink-soft)] measure reveal">
+        <p>
+          They have read the book, been on the programme, received the feedback.
+          What's missing is the room to work out what any of it means in their
+          particular situation, with their particular constraints, and the
+          accountability to actually do something differently on Monday.
+        </p>
+        <p>
+          My coaching is <em class="not-italic font-medium text-[var(--color-ink)]">integrative</em>:
+          it draws on organisational and systems thinking as much as on individual
+          development. Leaders don't operate in isolation from the systems around
+          them, and coaching that pretends otherwise tends to produce insight that
+          evaporates on contact with the organisation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who -->
+  <section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
+    <div class="container-page section">
+      <SectionHeader eyebrow="Who I coach" />
+      <ul class="mt-12 grid gap-px bg-[var(--color-rule)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden md:grid-cols-2">
+        {forWhom.map((w) => (
+          <li class="bg-[var(--color-linen)] p-8 text-[1.05rem] reveal">{w}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Formats -->
+  <section class="container-page section">
+    <SectionHeader eyebrow="Formats" title="Three shapes this takes." />
+    <ul class="mt-14 grid gap-8 md:grid-cols-3">
+      {formats.map((f) => (
+        <li class="card reveal">
+          <h3>{f.name}</h3>
+          <p class="mt-3 text-[15px] text-[var(--color-ink-soft)]">{f.body}</p>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-10 text-[15px] text-[var(--color-muted)] reveal">
+      Session length, engagement length and fees are set per engagement —
+      <a href="/contact" class="link">get in touch</a> and we'll work out what fits.
+    </p>
+  </section>
+
+  <!-- Credentials -->
+  <section class="bg-[var(--color-sand)] border-y border-[var(--color-rule)]">
+    <div class="container-page section-tight">
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <p class="eyebrow eyebrow-ruled reveal">Credentials</p>
+          <h2 class="display-l mt-7 reveal">Trained, and still training.</h2>
+        </div>
+        <div class="md:col-span-6 md:col-start-7 reveal">
+          <dl>
+            {credentials.map((c) => (
+              <div class="border-b border-[var(--color-rule-strong)] py-5 flex justify-between gap-6">
+                <dt class="font-medium">{c.name}</dt>
+                <dd class="text-[15px] text-[var(--color-muted)] whitespace-nowrap">{c.year}</dd>
+              </div>
+            ))}
+          </dl>
+          <p class="mt-6 text-[15px] text-[var(--color-ink-soft)]">
+            Alongside a decade of coaching leaders through development and change as
+            part of executive education and leadership programmes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="container-page section">
+    <SectionHeader eyebrow="Questions" />
+    <dl class="mt-12 max-w-3xl">
+      {coachingFaqs.map((f) => (
+        <div class="border-t border-[var(--color-rule)] last:border-b py-7 reveal">
+          <dt class="text-[1.05rem] font-semibold">{f.q}</dt>
+          <dd class="mt-3 text-[var(--color-ink-soft)]">{f.a}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <BigCTA
+    eyebrow="Coaching"
+    title="Want to talk about coaching?"
+    body="A first conversation is just that — a conversation. We'll work out whether coaching is the right thing, and whether I'm the right person for it."
+  />
+</BaseLayout>

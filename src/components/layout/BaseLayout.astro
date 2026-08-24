@@ -1,0 +1,99 @@
+---
+import "@fontsource/instrument-serif/400.css";
+import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource-variable/geist";
+import "~/styles/global.css";
+
+import Nav from "./Nav.astro";
+import Footer from "./Footer.astro";
+import CookieBanner from "./CookieBanner.astro";
+import { site } from "~/data/site";
+import { pageTitle, canonical } from "~/lib/seo";
+
+interface Props {
+  title?: string;
+  rawTitle?: boolean;
+  description?: string;
+  jsonLd?: unknown[];
+  /** Sets a dark page chrome — used by /tarot. */
+  night?: boolean;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  rawTitle = false,
+  description = site.description,
+  jsonLd = [],
+  night = false,
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = pageTitle(title, { raw: rawTitle });
+const url = canonical(Astro.url.pathname);
+---
+
+<!doctype html>
+<html lang="en-ZA" class={night ? "is-night" : ""}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content={night ? "#1A1018" : "#FBF9F5"} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.brand} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:locale" content="en_ZA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+
+    {jsonLd.map((schema) => (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+  </head>
+
+  <body class={night ? "on-night" : ""}>
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:btn focus:btn-primary">
+      Skip to content
+    </a>
+
+    <Nav night={night} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer night={night} />
+    <CookieBanner />
+
+    <script>
+      // Reveal-on-scroll. 600ms, 12px rise. The CSS handles reduced-motion,
+      // but bail early too so we don't run an observer nobody benefits from.
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const items = document.querySelectorAll<HTMLElement>(".reveal");
+
+      if (reduced || !("IntersectionObserver" in window)) {
+        items.forEach((el) => el.classList.add("reveal-in"));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("reveal-in");
+              io.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+        );
+        items.forEach((el) => io.observe(el));
+      }
+    </script>
+  </body>
+</html>

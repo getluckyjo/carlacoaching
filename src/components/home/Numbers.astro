@@ -1,0 +1,34 @@
+---
+import { metrics } from "~/data/site";
+import AnimatedNumber from "~/components/ui/AnimatedNumber.astro";
+
+/*
+ * Night ground is not decorative here — it's a contrast requirement.
+ * Brass numerals fail WCAG on linen (2.81) and sand (2.48); on night they
+ * clear AA at 5.66. See PROJECT.md §5.1.
+ */
+---
+<section class="on-night">
+  <div class="container-page section">
+    <p class="eyebrow eyebrow-ruled reveal">The numbers</p>
+    <h2 class="display-l display-spaced mt-7 reveal" aria-label="A decade designing for complexity">
+      A decade designing for complexity
+    </h2>
+
+    <dl class="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      {metrics.map((m) => (
+        <div class="reveal min-w-0">
+          <dt class="sr-only">{m.label}</dt>
+          <dd>
+            <span class="block text-[var(--color-brass)]">
+              <AnimatedNumber value={m.value} prefix={m.prefix} suffix={m.suffix} />
+            </span>
+            <span class="mt-4 block text-[15px] leading-snug max-w-[24ch] text-[color-mix(in_srgb,var(--color-paper)_78%,transparent)]">
+              {m.label}
+            </span>
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

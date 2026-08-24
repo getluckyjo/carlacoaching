@@ -1,0 +1,86 @@
+---
+import BaseLayout from "~/components/layout/BaseLayout.astro";
+import { site } from "~/data/site";
+
+const updated = "August 2026";
+---
+<BaseLayout
+  title="Privacy"
+  description="How this site handles your personal information, in line with South Africa's Protection of Personal Information Act."
+>
+  <section class="container-prose pt-16 pb-8 md:pt-24">
+    <p class="eyebrow eyebrow-ruled">Privacy</p>
+    <h1 class="display-l mt-7">Privacy notice</h1>
+    <p class="mt-5 text-[14px] text-[var(--color-muted)]">Last updated {updated}</p>
+  </section>
+
+  <section class="container-prose pb-24">
+    <div class="prose">
+      <p>
+        This notice explains what personal information this website collects, why,
+        and what happens to it. It is written to comply with South Africa's
+        Protection of Personal Information Act (POPIA).
+      </p>
+
+      <h2>Who is responsible</h2>
+      <p>
+        {site.legal.operator}, {site.location}. The Information Officer is
+        {site.legal.informationOfficer}, contactable at
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>What is collected</h2>
+      <p>
+        Only what you type into the contact form: your name, email address,
+        optionally your organisation, what your enquiry is about, your message,
+        and any times you suggest for a conversation.
+      </p>
+      <p>
+        The site sets <strong>no analytics, advertising or tracking cookies</strong>.
+        A single value is stored in your browser's local storage to remember that
+        you dismissed the privacy notice. It never leaves your device.
+      </p>
+
+      <h2>Why it is collected</h2>
+      <p>
+        To reply to you. That's the whole purpose. Your details are not sold, not
+        shared with third parties for their own purposes, and not added to any
+        mailing list without you asking to be on one.
+      </p>
+
+      <h2>Who processes it</h2>
+      <p>
+        Form submissions are delivered by <a href="https://formsubmit.co" rel="noopener nofollow" target="_blank">FormSubmit</a>,
+        which forwards the message to my email inbox. Email is hosted by Google
+        (Gmail). Both process the data on my behalf in order to deliver and store
+        the message.
+      </p>
+
+      <h2>How long it is kept</h2>
+      <p>
+        Enquiry correspondence is kept for as long as it is useful to the working
+        relationship, and no longer than three years after our last contact unless
+        we have an ongoing engagement or I am required to keep it for longer.
+      </p>
+
+      <h2>Your rights</h2>
+      <p>Under POPIA you may ask me to:</p>
+      <ul>
+        <li>confirm what personal information I hold about you;</li>
+        <li>correct anything that is wrong;</li>
+        <li>delete it, where I have no lawful reason to keep it.</li>
+      </ul>
+      <p>
+        Email <a href={`mailto:${site.email}`}>{site.email}</a> and I will action it.
+        You also have the right to complain to the Information Regulator of South
+        Africa.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If this notice changes — in particular if analytics are ever added, which
+        would require your consent first — the updated date above will change with it.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

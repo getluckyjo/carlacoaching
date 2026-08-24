@@ -1,0 +1,41 @@
+---
+/*
+ * POPIA-minded notice. The site sets no analytics or marketing cookies today,
+ * so this is a notice with an acknowledgement — not a consent gate. If analytics
+ * are ever added, this must become a real opt-in that gates the script, and the
+ * privacy page needs updating to match. Don't add a tracker without doing both.
+ */
+---
+<div
+  id="cookie-notice"
+  hidden
+  class="surface-light fixed bottom-4 inset-x-4 z-50 mx-auto max-w-2xl rounded-[var(--radius-lg)] border border-[var(--color-rule-strong)] bg-[var(--color-paper)] p-5 shadow-lg"
+  role="region"
+  aria-label="Privacy notice"
+>
+  <p class="text-[14px] text-[var(--color-ink-soft)]">
+    This site uses no tracking or advertising cookies. It stores a single local
+    preference so this notice stays dismissed. See the
+    <a href="/privacy" class="link">privacy page</a>.
+  </p>
+  <div class="mt-4 flex justify-end">
+    <button id="cookie-dismiss" class="btn btn-primary !py-2.5 !px-5" type="button">Got it</button>
+  </div>
+</div>
+
+<script>
+  const KEY = "clr-notice-dismissed";
+  const el = document.getElementById("cookie-notice");
+  const btn = document.getElementById("cookie-dismiss");
+
+  // localStorage throws in some privacy modes — a notice must never break the page.
+  let dismissed = false;
+  try { dismissed = localStorage.getItem(KEY) === "1"; } catch { dismissed = false; }
+
+  if (el && !dismissed) el.hidden = false;
+
+  btn?.addEventListener("click", () => {
+    if (el) el.hidden = true;
+    try { localStorage.setItem(KEY, "1"); } catch { /* nothing to do */ }
+  });
+</script>

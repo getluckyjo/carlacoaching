@@ -1,0 +1,29 @@
+---
+import { site } from "~/data/site";
+import ImagePlaceholder from "~/components/ui/ImagePlaceholder.astro";
+---
+<section class="container-page pt-16 pb-20 md:pt-28 md:pb-28">
+  <div class="grid gap-12 md:grid-cols-12 md:items-end">
+    <div class="md:col-span-7">
+      <p class="eyebrow eyebrow-ruled reveal">{site.location} · {site.reach}</p>
+      <h1 class="display-xl mt-8 max-w-[13ch] reveal">
+        Turn strategy into <span class="display-italic display-accent">capability</span>.
+      </h1>
+      <p class="mt-8 text-[15px] text-[var(--color-muted)] max-w-[52ch] reveal">
+        {site.strapline}
+      </p>
+      <p class="lead mt-7 reveal">
+        I help organisations translate strategic priorities into the leadership
+        capability, programmes and organisational change needed to make them real.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-3 reveal">
+        <a href="/contact" class="btn btn-primary">Start a conversation</a>
+        <a href="/work" class="btn btn-ghost">See the work</a>
+      </div>
+    </div>
+
+    <div class="md:col-span-5 reveal">
+      <ImagePlaceholder label="Portrait — Carla, 3:4 vertical. Natural colour, warm, unfiltered." ratio="3 / 4" />
+    </div>
+  </div>
+</section>

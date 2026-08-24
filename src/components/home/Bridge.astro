@@ -1,0 +1,46 @@
+---
+import { bridge } from "~/data/site";
+
+/*
+ * The bridge. Positioning section — Carla works both directions of a market
+ * that mostly talks past itself. Sand ground so it reads as a distinct claim
+ * rather than another service list.
+ */
+---
+<section class="bg-[var(--color-sand)] border-y border-[var(--color-rule)]">
+  <div class="container-page section">
+    <p class="eyebrow eyebrow-ruled reveal">The bridge</p>
+    <h2 class="display-l mt-7 max-w-[22ch] reveal">
+      Africa and Europe, in <span class="display-italic display-accent">both</span> directions.
+    </h2>
+    <p class="lead mt-8 reveal">
+      European institutions are looking to Africa as the growth market. African
+      organisations are looking outward for current skills and innovation. Both
+      journeys need someone who has actually delivered on the other side.
+    </p>
+
+    <ul class="mt-16 grid gap-8 md:grid-cols-2">
+      {bridge.map((side) => (
+        <li class="card !bg-[var(--color-paper)] reveal">
+          <h3>{side.audience}</h3>
+          <p class="mt-4 text-[var(--color-ink-soft)]">
+            <span class="eyebrow !inline !tracking-[0.12em]">What they want</span><br />
+            <span class="mt-2 block">{side.want}</span>
+          </p>
+          <p class="mt-6 text-[var(--color-ink-soft)]">
+            <span class="eyebrow !inline !tracking-[0.12em]">What I bring</span><br />
+            <span class="mt-2 block">{side.offer}</span>
+          </p>
+          <ul class="mt-7 space-y-2.5 border-t border-[var(--color-rule)] pt-6">
+            {side.proof.map((p) => (
+              <li class="flex gap-3 text-[15px] text-[var(--color-ink-soft)]">
+                <span class="mt-2.5 h-px w-3 shrink-0 bg-[var(--color-brass)]" aria-hidden="true"></span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

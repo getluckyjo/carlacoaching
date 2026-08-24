@@ -1,0 +1,64 @@
+---
+import BaseLayout from "~/components/layout/BaseLayout.astro";
+import { site } from "~/data/site";
+
+const updated = "August 2026";
+---
+<BaseLayout title="Terms" description="Terms of use for this website.">
+  <section class="container-prose pt-16 pb-8 md:pt-24">
+    <p class="eyebrow eyebrow-ruled">Terms</p>
+    <h1 class="display-l mt-7">Terms of use</h1>
+    <p class="mt-5 text-[14px] text-[var(--color-muted)]">Last updated {updated}</p>
+  </section>
+
+  <section class="container-prose pb-24">
+    <div class="prose">
+      <h2>This website</h2>
+      <p>
+        This site is operated by {site.legal.legalEntity}, based in
+        {site.location}. By using it you agree to these terms.
+      </p>
+
+      <h2>Content</h2>
+      <p>
+        The text, design and images on this site are mine unless stated otherwise,
+        and are protected by copyright. You're welcome to quote from the journal
+        with attribution and a link. Please don't reproduce whole pieces without
+        asking first.
+      </p>
+      <p>
+        Client and institution names appear as a factual record of work done. Their
+        trademarks belong to them, and their appearance here is not an endorsement
+        of this site by them.
+      </p>
+
+      <h2>No advice</h2>
+      <p>
+        Everything published here is general commentary on organisational learning
+        and leadership development. It is not professional advice for your specific
+        situation, and it shouldn't be relied on as though it were. For that, get in
+        touch and we'll talk about your actual context.
+      </p>
+
+      <h2>Esoterica</h2>
+      <p>
+        Readings offered under Esoterica are provided as a reflective practice for
+        personal insight. They are not a prediction of future events, and they are
+        not a substitute for professional medical, psychological, legal or financial
+        advice. Decisions you take remain your own.
+      </p>
+
+      <h2>Availability</h2>
+      <p>
+        I try to keep the site accurate and available, but I don't guarantee that it
+        will be uninterrupted or error-free, and details of services may change.
+      </p>
+
+      <h2>Governing law</h2>
+      <p>These terms are governed by the laws of the Republic of South Africa.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about these terms: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    </div>
+  </section>
+</BaseLayout>

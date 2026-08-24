@@ -1,0 +1,158 @@
+---
+import BaseLayout from "~/components/layout/BaseLayout.astro";
+import SectionHeader from "~/components/ui/SectionHeader.astro";
+import ImagePlaceholder from "~/components/ui/ImagePlaceholder.astro";
+import BigCTA from "~/components/home/BigCTA.astro";
+import { experience, education, development, capabilities, site } from "~/data/site";
+import { breadcrumbSchema, personSchema } from "~/lib/seo";
+---
+<BaseLayout
+  title="About"
+  description="Carla le Roux — learning and capability strategist, programme designer and coach. A decade turning complex ideas into meaningful development experiences, from a starting point in publishing."
+  jsonLd={[
+    personSchema,
+    breadcrumbSchema([
+      { name: "Home", url: site.domain },
+      { name: "About", url: `${site.domain}/about` },
+    ]),
+  ]}
+>
+  <section class="container-page pt-16 pb-16 md:pt-24">
+    <div class="grid gap-12 md:grid-cols-12 md:items-end">
+      <div class="md:col-span-7">
+        <p class="eyebrow eyebrow-ruled reveal">About</p>
+        <h1 class="display-xl mt-8 reveal">Hi, I'm Carla.</h1>
+        <p class="lead mt-8 reveal">
+          I'm a learning and capability strategist, programme designer and coach
+          who has spent the past decade helping organisations turn complex ideas
+          into meaningful development experiences.
+        </p>
+      </div>
+      <div class="md:col-span-4 md:col-start-9 reveal">
+        <ImagePlaceholder label="Portrait — Carla, 3:4 vertical." ratio="3 / 4" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section class="container-page section-tight">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-6 md:col-start-4 space-y-6 text-[var(--color-ink-soft)] reveal">
+        <p>
+          My career has moved across learning design, executive education,
+          business development, international programme management and coaching.
+          That combination matters. It means I don't see learning as an isolated
+          function. I see it as a way of helping organisations build the capability
+          to do what they need to do next.
+        </p>
+        <p>
+          I'm particularly interested in the messy middle — the point where
+          strategy meets people, where capability meets culture, and where an
+          organisation needs to move from knowing what it wants to achieve to
+          actually being able to achieve it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The arc -->
+  <section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
+    <div class="container-page section">
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <SectionHeader eyebrow="The arc" title="I started as an editor." />
+        </div>
+        <div class="md:col-span-6 md:col-start-7 space-y-6 text-[var(--color-ink-soft)] measure reveal">
+          <p>
+            Before any of this there was an MA in English from Stellenbosch and four
+            years editing fiction and non-fiction — freelance, and for Random House
+            Struik and NB Publishers. Then an Honours in Creative Brand Leadership at
+            Vega, and a move into instructional design.
+          </p>
+          <p>
+            People treat that as a career change. It doesn't feel like one. Editing,
+            brand, instructional design, programme architecture, coaching — it's the
+            same problem approached from different angles: taking something complex
+            and making it land with a human being.
+          </p>
+          <p>
+            It's also why I'm sceptical of learning that is well-produced and
+            forgettable. A beautifully built programme that changes nothing is a
+            manuscript nobody finishes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I bring -->
+  <section class="container-page section">
+    <SectionHeader eyebrow="What I bring" title="Structure for ambiguity." />
+    <dl class="mt-14 grid gap-px bg-[var(--color-rule)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden md:grid-cols-2 lg:grid-cols-3">
+      {capabilities.map((c) => (
+        <div class="bg-[var(--color-paper)] p-8 reveal">
+          <dt class="font-semibold">{c.name}</dt>
+          <dd class="mt-2 text-[15px] text-[var(--color-ink-soft)]">{c.body}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <!-- Experience -->
+  <section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
+    <div class="container-page section">
+      <SectionHeader eyebrow="Experience" title="A decade designing for complexity." />
+      <ol class="mt-16 space-y-0">
+        {experience.map((role) => (
+          <li class="border-t border-[var(--color-rule)] last:border-b reveal">
+            <div class="grid gap-4 py-10 md:grid-cols-12 md:gap-10">
+              <p class="eyebrow md:col-span-3 md:pt-1.5">{role.years}</p>
+              <div class="md:col-span-4">
+                <h3 class="!text-[1.2rem]">{role.org}</h3>
+                <p class="mt-1.5 text-[15px] text-[var(--color-muted)]">{role.title}</p>
+              </div>
+              <ul class="md:col-span-5 space-y-2.5 text-[15px] text-[var(--color-ink-soft)]">
+                {role.points.map((p) => (
+                  <li class="flex gap-3">
+                    <span class="mt-2 h-px w-3 shrink-0 bg-[var(--color-brass)]" aria-hidden="true"></span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Education & development -->
+  <section class="container-page section">
+    <div class="grid gap-12 md:grid-cols-2">
+      <div>
+        <p class="eyebrow eyebrow-ruled reveal">Education</p>
+        <dl class="mt-7">
+          {education.map((e) => (
+            <div class="border-b border-[var(--color-rule)] py-5 reveal">
+              <dt class="font-semibold">{e.qualification}</dt>
+              <dd class="mt-1 text-[15px] text-[var(--color-ink-soft)]">{e.institution} · {e.year}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <div>
+        <p class="eyebrow eyebrow-ruled reveal">Professional development</p>
+        <dl class="mt-7">
+          {development.map((d) => (
+            <div class="border-b border-[var(--color-rule)] py-5 flex justify-between gap-6 reveal">
+              <dt class="font-medium">{d.name}</dt>
+              <dd class="text-[15px] text-[var(--color-muted)] whitespace-nowrap">{d.year}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <BigCTA />
+</BaseLayout>

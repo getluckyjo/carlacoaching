@@ -49,9 +49,29 @@ The four service lines are not four businesses. They are four depths of one prac
 | System | **Consulting** | An organisation that needs to be able to do something it currently can't |
 | Group | **Workshops** | A room of people who need to think differently by the time they leave |
 | Individual | **Coaching** | A leader turning insight into changed behaviour |
-| Question | **Tarot** | A person who hasn't yet articulated what they're actually asking |
+| Question | **Esoterica** | A person who hasn't yet articulated what they're actually asking |
 
 The through-line: **helping people and organisations move from knowing what they want to being able to do it.** The draft already says this, in the About section — *"where an organisation needs to move from knowing what it wants to achieve to actually being able to achieve it."* That sentence is the brand. It also happens to be what makes the tarot page defensible rather than a liability: it is the same practice at its most personal scale.
+
+### The bridge — Africa and Europe, both directions
+
+The sharpest commercial angle in the whole CV, and one neither source document
+draws out. Carla sits on both sides of a market that mostly talks past itself:
+
+| | Wants | She brings |
+| --- | --- | --- |
+| **European universities & business schools** | Access to Africa as the future growth market — credibly, with partners still there in year three | Programme design and partnership development that works on the ground in African markets, rather than exporting a European curriculum and hoping |
+| **African corporates & institutions** | The latest in skills, learning practice and innovation | Current international practice adapted properly — same rigour, local relevance, a design that survives contact with its context |
+
+The proof is already in the CV, on both sides. **Africa:** UCT GSB, African
+Management Institute (8 countries), AGRA (13 countries), SALGA, Tekano, Columba.
+**Europe:** Cambridge Judge, FutureLearn, University of Bristol, the Utrecht
+exchange, and directing the iXperience Lisbon programme while building university
+partnerships.
+
+Very few people have delivered credibly in both directions. This is a
+positioning claim, not a service line — it earns its own homepage section
+(`Bridge.astro`, on the sand ground) and shapes how `/work` is pitched.
 
 ### Who this is for
 
@@ -120,9 +140,11 @@ Two distinct products, and the page must separate them:
 
 `entrepreneurcoach/src/pages/workshop.astro` is a complete, working open-cohort page with seats and booking. Fork it.
 
-### 3.4 Tarot
+### 3.4 Esoterica
 
-**Confirmed direction: one site, own room.** Tarot lives on `/tarot`, in the main nav, sharing the typography, the booking system and the masthead — but flipping to the night palette so it reads as a distinct space.
+**Confirmed direction: one site, own room.** The tarot line trades as **Esoterica** and lives on `/esoterica`, in the main nav, sharing the typography, the booking system and the masthead — but flipping to the night palette so it reads as a distinct space.
+
+The name does real work. "Esoterica" sits in a nav beside Work and Coaching without announcing *tarot* to a corporate L&D buyer scanning the page, while being entirely honest to anyone who opens it. It also reads as a room or a cabinet rather than a service, which is the right register.
 
 The goop precedent is the argument: a credible masthead can hold a woo-adjacent offer without losing the serious audience, provided the offer is presented with the same production values as everything else. The failure mode is not "tarot on a consulting site" — it's *cheap-looking* tarot on a consulting site.
 
@@ -295,7 +317,7 @@ The design depends on real photography at scale. This is the single biggest exte
 /work             Consulting practice + selected work        ← edtech consulting lives here
 /coaching         Integrative coaching
 /workshops        Commissioned + open workshops
-/tarot            The room (night palette)
+/esoterica        The room (night palette) — trades as Esoterica
 /about            Bio, credentials, the publishing→learning arc
 /journal          Editorial index
 /journal/[slug]   Post
@@ -303,7 +325,7 @@ The design depends on real photography at scale. This is the single biggest exte
 /privacy /terms /thanks /404
 ```
 
-**Nav:** `Work · Coaching · Workshops · Tarot · About · Journal · Contact`
+**Nav:** `Work · Coaching · Workshops · Esoterica · About · Journal · Contact`
 
 Seven items is at the ceiling for a boutique site. If it feels crowded once built, Journal is the one to drop into the footer.
 
@@ -359,7 +381,7 @@ Mostly to be written. Existing seed: the draft's Coaching paragraph and the "Cre
 
 Fork `entrepreneurcoach/src/pages/workshop.astro` for the open-cohort half.
 
-### 7.5 `/tarot`
+### 7.5 `/esoterica`
 
 Night palette throughout. Same type system, same nav, same booking mechanics.
 
@@ -425,7 +447,9 @@ Fork the structure into this repo as a fresh Astro project — **do not** import
 
 ## 9. Build roadmap
 
-**Phase 0 — Decisions.** Resolve §10. Domain and photography are the two that block real progress.
+> **Status:** Phases 0–5 are built and on `claude/busy-pascal-lnryrb`. 15 routes, `astro check` clean, zero axe violations (WCAG 2.1 AA) across every route on desktop and mobile. Phase 6 is what remains — see the pre-launch list in [README.md](README.md).
+
+**Phase 0 — Decisions.** Resolve §10. Domain now confirmed; photography is the remaining blocker.
 
 **Phase 1 — Foundation.** Astro 5 + Tailwind 4 scaffold. `global.css` from the §5 tokens. Instrument Serif + Geist. `BaseLayout`, `Nav`, `Footer`. `src/data/site.ts` populated from the two PDFs.
 
@@ -447,10 +471,10 @@ Everything here needs Carla, and the first three block launch.
 
 **Identity**
 
-- [ ] **Domain.** Nothing is specified in either PDF. `carlaleroux.com`? `carlaleroux.co.za`? Something practice-named?
-- [ ] **Email.** The CV lists `carla.potgter@gmail.com` — which appears to contain a typo and shouldn't ship either way. A professional address on the chosen domain is needed.
-- [ ] **LinkedIn.** The CV points at `linkedin.com/in/carlapotgieter`, but the brand name throughout the site draft is **Carla le Roux**. Keep the handle and accept the mismatch, or migrate it?
-- [ ] Public-facing name confirmed as **Carla le Roux** (per the site draft). Confirm.
+- [x] **Domain.** `carlaleroux.com` (canonical) and `carlaleroux.co.za`, both registered. The `.co.za` and the apex should 301 to `https://www.carlaleroux.com`.
+- [x] **Email.** `hello@carlaleroux.com`, on Gmail. The CV's `carla.potgter@gmail.com` contains a typo and must never ship.
+- [ ] **LinkedIn.** The CV points at `linkedin.com/in/carlapotgieter`, but the brand name throughout is **Carla le Roux**. Keep the handle and accept the mismatch, or migrate it?
+- [x] Public-facing name: **Carla le Roux**.
 
 **Content**
 
@@ -480,3 +504,38 @@ Everything here needs Carla, and the first three block launch.
 | female-founders.org | Numbers device, manifesto voice, logo wall, team grid |
 | The Row / Toteme / Khaite / Glossier / Ellevate / Chief | Wider female-led brand research (§4) |
 | `getluckyjo/entrepreneurcoach` | Engineering patterns, SEO, OG pipeline, forms (§8) |
+
+---
+
+## 12. What the build corrected
+
+Three things in §5 were wrong as specified and were fixed against measurement,
+not judgement. They are recorded here because each will silently come back if
+someone edits the tokens without knowing why they hold.
+
+**1. The metric type scale collided.** `clamp(3.5rem, 8vw, 7rem)` put `R10M+`
+straight through its neighbour in the four-column numbers grid — at 1440px the
+third and fourth figures overlapped outright. The scale is now
+`clamp(2.75rem, 4.6vw, 4.5rem)`, sized to the widest value actually published,
+with `min-w-0` on the grid cells so a long value can't push its track wider than
+its share. Verified clear at 1600 / 1440 / 1280 / 1024.
+
+**2. Night sections needed token rebinding, not component restyling.** The
+original `.on-night` styled the elements we happened to think of — headings,
+eyebrow, lead, card. The shared `Footer` knew nothing about night mode, so on
+`/esoterica` it rendered `#3A332C` body text and `#3B2436` links on a `#1A1018`
+ground: seven nodes between 1.31:1 and 2.91:1, all serious failures, none
+visible to a casual look. `.on-night` now remaps the semantic `--color-*` tokens
+themselves, so anything nested adapts without a night variant of its own.
+
+**3. That fix created its own trap, and needed an escape hatch.** The fixed
+cookie notice is a *light* panel living inside `<body class="on-night">`, so it
+inherited the remap and painted brass on paper (3.11:1). `.surface-light`
+restores the base palette from immutable `--l-*` snapshots captured at `:root` —
+no hex is duplicated, and a remap deeper in the tree cannot reach them. Any light
+surface nested in a night context needs that class.
+
+The lesson generalises: **a design system that remaps tokens by context needs
+both directions of the mapping, and needs a machine checking it.** `npm run a11y`
+runs axe over every route at two viewports and is the reason all three were
+caught. Run it before any deploy that touches colour or layout.

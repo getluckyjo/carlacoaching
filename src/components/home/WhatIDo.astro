@@ -1,0 +1,33 @@
+---
+import SectionHeader from "~/components/ui/SectionHeader.astro";
+import { practiceAreas } from "~/data/site";
+---
+<section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
+  <div class="container-page section">
+    <SectionHeader
+      eyebrow="What I do"
+      title="From strategic priority to meaningful capability."
+    />
+
+    <ul class="mt-16 grid gap-px bg-[var(--color-rule)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden md:grid-cols-2">
+      {practiceAreas.map((area, i) => (
+        <li
+          class:list={[
+            "bg-[var(--color-linen)] p-8 md:p-10 reveal",
+            // Five items in a two-column grid leaves an orphan. Let the last
+            // one span the full width rather than sit next to a gap.
+            i === practiceAreas.length - 1 && practiceAreas.length % 2 === 1 ? "md:col-span-2" : "",
+          ]}
+        >
+          <p class="eyebrow">{String(i + 1).padStart(2, "0")}</p>
+          <h3 class="mt-4">{area.name}</h3>
+          <p class="mt-3 text-[var(--color-ink-soft)] measure">{area.body}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-12 reveal">
+      <a href="/work" class="btn btn-ghost">How this works in practice</a>
+    </div>
+  </div>
+</section>

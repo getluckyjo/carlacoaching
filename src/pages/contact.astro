@@ -1,0 +1,160 @@
+---
+import BaseLayout from "~/components/layout/BaseLayout.astro";
+import { site } from "~/data/site";
+import { breadcrumbSchema } from "~/lib/seo";
+
+/*
+ * Form delivery: formsubmit.co forwards every submission to site.email.
+ * No account, no env vars, no backend — the site stays fully static.
+ *
+ * ONE-TIME SETUP: the first submission triggers an activation email to
+ * hello@carlaleroux.com. Until that link is clicked, nothing is delivered.
+ * See README.
+ */
+const formAction = `https://formsubmit.co/${site.email}`;
+
+const enquiryTypes = [
+  { value: "consulting", label: "Consulting — a programme or capability challenge" },
+  { value: "coaching", label: "Coaching" },
+  { value: "workshop", label: "A workshop or facilitation" },
+  { value: "tarot", label: "Esoterica — a tarot reading" },
+  { value: "speaking", label: "Speaking or teaching" },
+  { value: "other", label: "Something else" },
+];
+---
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Carla le Roux. Bring the problem — you don't need the brief perfectly worked out. Cape Town, working globally."
+  jsonLd={[
+    breadcrumbSchema([
+      { name: "Home", url: site.domain },
+      { name: "Contact", url: `${site.domain}/contact` },
+    ]),
+  ]}
+>
+  <section class="container-page pt-16 pb-10 md:pt-24">
+    <p class="eyebrow eyebrow-ruled reveal">Contact</p>
+    <h1 class="display-xl mt-8 max-w-[14ch] reveal">
+      Bring the <span class="display-italic display-accent">problem</span>.
+    </h1>
+    <p class="lead mt-8 reveal">
+      You don't need to have the brief perfectly worked out before you get in
+      touch. We can figure out what kind of intervention — if any — will actually
+      help.
+    </p>
+  </section>
+
+  <section class="container-page pb-24 md:pb-32">
+    <div class="grid gap-10 md:grid-cols-12">
+      <!-- Form -->
+      <form
+        id="enquiry"
+        class="md:col-span-7 card !p-7 md:!p-9 space-y-5 reveal"
+        method="POST"
+        action={formAction}
+      >
+        <!-- formsubmit.co config -->
+        <input type="hidden" name="_subject" value="Website enquiry — carlaleroux.com" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value={`${site.domain}/thanks`} />
+        <!-- Honeypot: bots fill it, humans never see it. -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="field-label">
+            Name
+            <input class="field" name="name" type="text" required autocomplete="name" />
+          </label>
+          <label class="field-label">
+            Email
+            <input class="field" name="email" type="email" required autocomplete="email" />
+          </label>
+        </div>
+
+        <label class="field-label">
+          Organisation <span class="font-normal text-[var(--color-muted)]">(optional)</span>
+          <input class="field" name="organisation" type="text" autocomplete="organization" />
+        </label>
+
+        <label class="field-label">
+          What's this about?
+          <select class="field" id="about" name="about" required>
+            <option value="">Select…</option>
+            {enquiryTypes.map((t) => <option value={t.value}>{t.label}</option>)}
+          </select>
+        </label>
+
+        <label class="field-label">
+          What are you trying to achieve?
+          <textarea
+            class="field"
+            name="message"
+            rows="6"
+            required
+            placeholder="The situation, roughly. It doesn't need to be tidy."
+          ></textarea>
+        </label>
+
+        <label class="field-label">
+          Two times that suit you <span class="font-normal text-[var(--color-muted)]">(optional)</span>
+          <input class="field" name="times" type="text" placeholder="e.g. Tue 14:00 SAST, or Thu morning" />
+        </label>
+
+        <div id="book" class="pt-2 scroll-mt-24">
+          <button type="submit" class="btn btn-primary w-full sm:w-auto">Send enquiry</button>
+        </div>
+
+        <p class="text-[13px] text-[var(--color-muted)] pt-1">
+          Your details are used to reply to you and nothing else — never sold, never
+          added to a mailing list. See the <a href="/privacy" class="link">privacy page</a>.
+        </p>
+      </form>
+
+      <!-- Sidebar -->
+      <aside class="md:col-span-4 md:col-start-9 space-y-8 reveal">
+        <div>
+          <p class="eyebrow eyebrow-ruled">What happens next</p>
+          <ol class="mt-6 space-y-4 text-[15px] text-[var(--color-ink-soft)]">
+            <li class="flex gap-3">
+              <span class="eyebrow shrink-0 pt-0.5">01</span>
+              <span>I read it properly and reply within two working days.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="eyebrow shrink-0 pt-0.5">02</span>
+              <span>We have a conversation — no charge, no pitch deck.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="eyebrow shrink-0 pt-0.5">03</span>
+              <span>If I'm the right person for it, I'll propose something. If I'm not, I'll say so and point you somewhere better.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="border-t border-[var(--color-rule)] pt-8">
+          <p class="eyebrow">Direct</p>
+          <ul class="mt-4 space-y-2 text-[15px]">
+            <li><a class="link" href={`mailto:${site.email}`}>{site.email}</a></li>
+            <li><a class="link" href={site.social.linkedin} rel="noopener" target="_blank">LinkedIn</a></li>
+          </ul>
+          <p class="mt-6 text-[14px] text-[var(--color-muted)]">
+            {site.location}<br />{site.reach}
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <script>
+    // Pre-select the enquiry type when arriving from a service page
+    // (e.g. /contact?about=tarot). Falls back silently to the empty option.
+    const params = new URLSearchParams(window.location.search);
+    const about = params.get("about");
+    const select = document.getElementById("about") as HTMLSelectElement | null;
+
+    if (about && select) {
+      const match = Array.from(select.options).some((o) => o.value === about);
+      if (match) select.value = about;
+    }
+  </script>
+</BaseLayout>

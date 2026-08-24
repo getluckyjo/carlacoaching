@@ -1,0 +1,115 @@
+---
+import BaseLayout from "~/components/layout/BaseLayout.astro";
+import SectionHeader from "~/components/ui/SectionHeader.astro";
+import BigCTA from "~/components/home/BigCTA.astro";
+import { site } from "~/data/site";
+import { breadcrumbSchema } from "~/lib/seo";
+
+const commissioned = [
+  {
+    name: "Strategy into capability",
+    body: "A working session with a leadership team to translate a strategic priority into the specific capabilities, behaviours and decisions it actually requires.",
+  },
+  {
+    name: "Designing learning that lands",
+    body: "For L&D and people teams. How adults actually develop capability, and how to build programmes that survive contact with the organisation.",
+  },
+  {
+    name: "Leading through ambiguity",
+    body: "For managers and senior leaders working with competing stakeholders, unclear requirements and shifting definitions of success.",
+  },
+  {
+    name: "Reflective practice sessions",
+    body: "Facilitated integration sessions that turn a programme, a project or a hard quarter into something people have actually learned from.",
+  },
+];
+---
+<BaseLayout
+  title="Workshops"
+  description="Commissioned workshops and facilitation for leadership teams, L&D functions and executive programmes. Cape Town and internationally."
+  jsonLd={[
+    breadcrumbSchema([
+      { name: "Home", url: site.domain },
+      { name: "Workshops", url: `${site.domain}/workshops` },
+    ]),
+  ]}
+>
+  <section class="container-page pt-16 pb-8 md:pt-24">
+    <p class="eyebrow eyebrow-ruled reveal">Workshops</p>
+    <h1 class="display-xl mt-8 max-w-[16ch] reveal">
+      A room, a real problem, and <span class="display-italic display-accent">time</span> to think.
+    </h1>
+    <p class="lead mt-8 reveal">
+      Sessions designed around a challenge your organisation is actually facing —
+      not a curriculum delivered at you.
+    </p>
+  </section>
+
+  <!-- Commissioned -->
+  <section class="container-page section-tight">
+    <SectionHeader
+      eyebrow="Commissioned"
+      title="Designed for your group."
+      lead="Most workshops I run are built for a specific team and a specific problem. These are starting points, not a catalogue — every one gets reshaped around the room it's going into."
+    />
+    <ul class="mt-14 grid gap-8 md:grid-cols-2">
+      {commissioned.map((w) => (
+        <li class="card reveal">
+          <h3>{w.name}</h3>
+          <p class="mt-3 text-[var(--color-ink-soft)]">{w.body}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- How a session runs -->
+  <section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
+    <div class="container-page section">
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <SectionHeader eyebrow="How it runs" title="Designed before it's delivered." />
+        </div>
+        <div class="md:col-span-6 md:col-start-7 reveal">
+          <ol class="space-y-0">
+            {[
+              ["Scope", "A conversation about what the group is actually stuck on — which is often not what the request said."],
+              ["Design", "A session built around that, with the outcome defined before the activities are."],
+              ["Deliver", "Facilitated in person or online, for anywhere from eight people to a full cohort."],
+              ["Land it", "What happens after the room matters more than what happens in it. We agree that up front."],
+            ].map(([name, body], i) => (
+              <li class="flex gap-5 border-t border-[var(--color-rule)] py-6 last:border-b">
+                <span class="eyebrow pt-1 shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                <span>
+                  <span class="block font-semibold">{name}</span>
+                  <span class="mt-1.5 block text-[15px] text-[var(--color-ink-soft)]">{body}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open workshops -->
+  <section class="container-page section">
+    <SectionHeader eyebrow="Open workshops" title="Publicly bookable sessions." />
+    <div class="mt-12 card max-w-2xl reveal">
+      <p class="eyebrow">Coming soon</p>
+      <p class="mt-4 text-[var(--color-ink-soft)]">
+        Open sessions — bookable by individuals rather than commissioned by an
+        organisation — are in development. If you'd like to hear when dates are
+        announced, say so when you get in touch and I'll let you know first.
+      </p>
+      <div class="mt-7">
+        <a href="/contact" class="btn btn-primary">Tell me you're interested</a>
+      </div>
+    </div>
+  </section>
+
+  <BigCTA
+    eyebrow="Workshops"
+    title="Have a room that needs to think differently?"
+    body="Tell me who's in it and what they're stuck on. If a workshop is the right answer, I'll design one. If it isn't, I'll say so."
+  />
+</BaseLayout>

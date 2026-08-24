@@ -1,0 +1,31 @@
+---
+/*
+ * Stands in until the real shoot lands (PROJECT.md §5.5 — real photography only,
+ * no stock). Deliberately obvious: a flat tinted panel with a visible label, so
+ * nobody mistakes it for a design choice or ships it by accident.
+ */
+interface Props {
+  label: string;
+  ratio?: string;
+  class?: string;
+  tone?: "linen" | "sand" | "aubergine" | "night";
+}
+const { label, ratio = "3 / 4", class: className = "", tone = "linen" } = Astro.props;
+const bg = {
+  linen: "var(--color-linen)",
+  sand: "var(--color-sand)",
+  aubergine: "var(--color-aubergine-soft)",
+  // For night sections: a light panel here glares against the dark ground.
+  night: "color-mix(in srgb, var(--color-paper) 8%, transparent)",
+}[tone];
+const fg = tone === "night" ? "color-mix(in srgb, var(--color-paper) 72%, transparent)" : "var(--color-ink-soft)";
+---
+<div
+  class:list={["relative w-full overflow-hidden rounded-[var(--radius-lg)] border border-dashed border-[var(--color-rule-strong)]", className]}
+  style={`aspect-ratio: ${ratio}; background: ${bg};`}
+  role="img"
+  aria-label={`Placeholder: ${label}`}
+>
+  <span class="absolute left-4 top-4 eyebrow !text-[var(--color-muted)]">Placeholder</span>
+  <span class="absolute inset-x-4 bottom-4 text-[14px]" style={`color: ${fg}`}>{label}</span>
+</div>

@@ -1,0 +1,53 @@
+---
+interface Props {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  /** Tween duration in ms. */
+  duration?: number;
+}
+const { value, prefix = "", suffix = "", duration = 1400 } = Astro.props;
+---
+<span class="metric" data-count={value} data-duration={duration}>
+  {prefix}<span data-count-target>{value}</span>{suffix}
+</span>
+
+<script>
+  // Counter tween. tabular-nums in .metric prevents layout shift while it runs.
+  const els = document.querySelectorAll<HTMLElement>("[data-count]");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // With reduced motion (or no observer) the final value is already in the DOM
+  // from SSR, so there is nothing to do — never leave a 0 on screen.
+  if (!reduced && "IntersectionObserver" in window) {
+    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const run = (el: HTMLElement) => {
+      const target = Number(el.dataset.count ?? 0);
+      const duration = Number(el.dataset.duration ?? 1400);
+      const out = el.querySelector<HTMLElement>("[data-count-target]");
+      if (!out || !Number.isFinite(target)) return;
+
+      const start = performance.now();
+      const step = (now: number) => {
+        const t = Math.min(1, (now - start) / duration);
+        out.textContent = String(Math.round(easeOut(t) * target));
+        if (t < 1) requestAnimationFrame(step);
+      };
+      out.textContent = "0";
+      requestAnimationFrame(step);
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          run(e.target as HTMLElement);
+          io.unobserve(e.target);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    els.forEach((el) => io.observe(el));
+  }
+</script>

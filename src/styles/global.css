@@ -1,0 +1,336 @@
+@import "tailwindcss";
+
+/*
+  Single source of truth for the visual system.
+  Everything here maps to PROJECT.md §5 — edit PROJECT.md first, then this file.
+
+  Fonts are self-hosted via Fontsource (imported in BaseLayout), not Google's CDN:
+  one less third-party request, and no visitor IP handed to Google (POPIA §72).
+*/
+
+@theme {
+  /* —— Surfaces —— */
+  --color-paper:        #FBF9F5;  /* warm ivory ground */
+  --color-linen:        #F2EDE5;  /* panels, cards */
+  --color-sand:         #E6DFD3;  /* secondary panel */
+  --color-night:        #1A1018;  /* full-bleed dark: tarot + closing CTA */
+
+  /* —— Rules —— */
+  --color-rule:         #DDD5C8;
+  --color-rule-strong:  #C9BFAE;
+
+  /* —— Ink —— */
+  --color-ink:          #1B1714;  /* warm near-black, body */
+  --color-ink-soft:     #3A332C;
+  /* #665E54, not a lighter grey: eyebrows are 12px and sit on three different
+     grounds. The lighter #7A7166 scores 4.11 on linen and 3.62 on sand — both
+     fail AA for small text. This clears AA on paper (6.06), linen (5.47) and
+     sand (4.81). See PROJECT.md §5.1. */
+  --color-muted:        #665E54;
+
+  /* —— Primary accent: aubergine —— */
+  --color-aubergine:      #3B2436;
+  --color-aubergine-deep: #2A1826;
+  --color-aubergine-soft: #EFE7EC;
+
+  /* —— Secondary: brass ——
+     Structure and number only. Never a CTA. Numerals on night or paper only —
+     brass fails contrast on linen (2.81) and sand (2.48). */
+  --color-brass:        #B08748;
+  --color-brass-soft:   #F0E6D4;
+
+  /* —— Type families —— */
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-sans:    "Geist Variable", "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* —— Tracking —— */
+  --tracking-display: -0.02em;
+  --tracking-tight:   -0.015em;
+  --tracking-normal:  0;
+  --tracking-eyebrow: 0.2em;
+
+  /* —— Radius —— */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+
+@layer base {
+  /* Immutable snapshots of the light palette, resolved at :root. Contexts that
+     remap the semantic --color-* tokens (see .on-night) cannot reach these, so
+     .surface-light can always restore a true light surface from them.
+     No hex is repeated: these read from @theme once, here. */
+  :root {
+    --l-ink:         var(--color-ink);
+    --l-ink-soft:    var(--color-ink-soft);
+    --l-muted:       var(--color-muted);
+    --l-rule:        var(--color-rule);
+    --l-rule-strong: var(--color-rule-strong);
+    --l-aubergine:   var(--color-aubergine);
+    --l-linen:       var(--color-linen);
+  }
+
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  body { font-size: 17px; line-height: 1.65; }
+
+  ::selection     { background: var(--color-aubergine); color: var(--color-paper); }
+  ::-moz-selection{ background: var(--color-aubergine); color: var(--color-paper); }
+
+  h1, h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: var(--tracking-display);
+    color: var(--color-ink);
+  }
+  h3, h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-ink);
+  }
+
+  h1 { font-size: clamp(3rem, 6.5vw, 6rem);      line-height: 1.02; }
+  h2 { font-size: clamp(1.9rem, 3vw, 2.9rem);    line-height: 1.12; letter-spacing: var(--tracking-tight); }
+  h3 { font-size: clamp(1.25rem, 1.6vw, 1.6rem); line-height: 1.25; }
+
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible {
+    outline: 2px solid var(--color-aubergine);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  hr { border: 0; border-top: 1px solid var(--color-rule); }
+}
+
+@layer components {
+
+  /* —— Containers ——
+     Wider margins than a standard marketing site. Composure is the brand. */
+  .container-page {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+  @media (min-width: 768px)  { .container-page { padding-inline: 48px; } }
+  @media (min-width: 1280px) { .container-page { padding-inline: 80px; } }
+
+  .container-prose { max-width: 680px; margin-inline: auto; padding-inline: 24px; }
+
+  /* —— Section rhythm —— */
+  .section      { padding-block: 96px; }
+  @media (min-width: 768px) { .section { padding-block: 160px; } }
+  .section-tight{ padding-block: 64px; }
+  @media (min-width: 768px) { .section-tight { padding-block: 96px; } }
+
+  /* —— Display scale —— */
+  .display-xl {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6.5vw, 6rem);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: var(--tracking-display);
+  }
+  .display-l {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: var(--tracking-tight);
+  }
+  .display-italic { font-style: italic; }
+  .display-accent { color: var(--color-aubergine); }
+
+  .metric {
+    font-family: var(--font-display);
+    /* Sized so the widest published value ("R10M+", 5 glyphs) still clears its
+       column in the 4-up grid. Raising this max re-introduces the collision. */
+    font-size: clamp(2.75rem, 4.6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  .lead {
+    font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+    max-width: 56ch;
+  }
+
+  .measure { max-width: 68ch; }
+
+  /* —— Eyebrow: the signature device ——
+     Every section opens with one. A brass hairline, then wide-tracked caps. */
+  .eyebrow {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .eyebrow-ruled { padding-top: 18px; border-top: 1px solid var(--color-brass); }
+
+  /* —— The letter-spaced display device ——
+     Female Founders' trick. Once per page, maximum. Aria-label the element
+     so screen readers get the unspaced string. */
+  .display-spaced { letter-spacing: 0.28em; }
+
+  /* —— Buttons —— */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 26px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--color-aubergine); color: var(--color-paper); }
+  .btn-primary:hover { background: var(--color-aubergine-deep); }
+  .btn-ghost { background: transparent; color: var(--color-ink); border-color: var(--color-rule-strong); }
+  .btn-ghost:hover { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
+  .btn-light { background: var(--color-paper); color: var(--color-aubergine); }
+  .btn-light:hover { background: var(--color-brass-soft); }
+
+  /* —— Inline link —— */
+  .link {
+    color: var(--color-aubergine);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--color-rule-strong);
+    transition: text-decoration-color 200ms ease;
+  }
+  .link:hover { text-decoration-color: var(--color-aubergine); }
+
+  /* —— Cards: structural, not decorative. No shadow at rest, no lift. —— */
+  .card {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    background: var(--color-paper);
+    transition: border-color 200ms ease;
+  }
+  .card:hover { border-color: var(--color-aubergine); }
+
+  /* —— Night sections ——
+     Rebind the ink tokens rather than restyling components one at a time.
+     Anything nested inside — including shared components like Footer that know
+     nothing about night mode — then adapts for free. Styling only the elements
+     we happened to think of is how the footer ended up dark-on-dark. */
+  .on-night {
+    background: var(--color-night);
+    color: var(--color-paper);
+
+    --color-ink:         var(--color-paper);
+    --color-ink-soft:    color-mix(in srgb, var(--color-paper) 84%, transparent);
+    --color-muted:       color-mix(in srgb, var(--color-paper) 70%, transparent);
+    --color-rule:        color-mix(in srgb, var(--color-paper) 18%, transparent);
+    --color-rule-strong: color-mix(in srgb, var(--color-paper) 34%, transparent);
+    /* Aubergine is unreadable on night (1.31:1). Brass is the accent here. */
+    --color-aubergine:   var(--color-brass);
+    --color-linen:       transparent;
+    --color-paper-solid: var(--color-paper);
+  }
+  .on-night h1, .on-night h2, .on-night h3 { color: var(--color-paper); }
+  .on-night .eyebrow { color: var(--color-brass); }
+  .on-night .eyebrow-ruled { border-top-color: var(--color-brass); }
+  .on-night .card { background: transparent; }
+  .on-night .card:hover { border-color: var(--color-brass); }
+  /* btn-light must keep a solid paper ground even though --color-paper is
+     doing double duty as the text colour in here. */
+  .on-night .btn-light { background: var(--color-paper-solid); color: var(--color-aubergine-deep); }
+  .on-night .btn-light:hover { background: var(--color-brass-soft); }
+
+  /* —— A light panel inside a night context ——
+     The fixed cookie notice renders inside <body class="on-night"> on /esoterica,
+     so without this it inherits night's remapped ink and paints brass text on a
+     paper ground (3.11:1). Any light surface nested under .on-night needs it. */
+  .surface-light {
+    --color-ink:         var(--l-ink);
+    --color-ink-soft:    var(--l-ink-soft);
+    --color-muted:       var(--l-muted);
+    --color-rule:        var(--l-rule);
+    --color-rule-strong: var(--l-rule-strong);
+    --color-aubergine:   var(--l-aubergine);
+    --color-linen:       var(--l-linen);
+    color: var(--color-ink);
+  }
+
+  /* —— Prose (journal posts) —— */
+  .prose { font-size: 18px; line-height: 1.75; color: var(--color-ink-soft); }
+  .prose > * + * { margin-top: 1.4em; }
+  .prose h2 { margin-top: 2.2em; margin-bottom: 0.5em; color: var(--color-ink); }
+  .prose h3 { margin-top: 1.8em; margin-bottom: 0.4em; color: var(--color-ink); }
+  .prose strong { color: var(--color-ink); font-weight: 600; }
+  .prose a { color: var(--color-aubergine); text-decoration: underline; text-underline-offset: 4px; }
+  .prose ul, .prose ol { padding-left: 1.3em; }
+  .prose li + li { margin-top: 0.5em; }
+  .prose ul { list-style: disc; }
+  .prose ol { list-style: decimal; }
+  .prose blockquote {
+    border-left: 2px solid var(--color-brass);
+    padding-left: 1.2em;
+    font-family: var(--font-display);
+    font-size: 1.35em;
+    line-height: 1.35;
+    color: var(--color-ink);
+  }
+
+  /* —— Form fields —— */
+  .field {
+    margin-top: 6px;
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--color-rule-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-paper);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--color-ink);
+  }
+  .field:focus { outline: none; border-color: var(--color-aubergine); }
+  .field-label { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.01em; }
+}
+
+@layer utilities {
+  /* —— Reveal on scroll. Set by IntersectionObserver in BaseLayout. —— */
+  .reveal { opacity: 0; transform: translateY(12px); }
+  .reveal-in {
+    opacity: 1;
+    transform: none;
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
+  }
+
+  /* —— Logo wall marquee —— */
+  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+  .marquee-track { display: flex; width: max-content; animation: marquee 60s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+}
+
+/* Motion is functional. If the visitor has asked for less of it, give them none. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; }
+  .reveal-in { transition: none; }
+  .marquee-track { animation: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

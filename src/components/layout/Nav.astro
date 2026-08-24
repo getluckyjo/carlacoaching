@@ -1,0 +1,88 @@
+---
+import { site } from "~/data/site";
+
+interface Props { night?: boolean }
+const { night = false } = Astro.props;
+
+const links = [
+  { href: "/work", label: "Work" },
+  { href: "/coaching", label: "Coaching" },
+  { href: "/workshops", label: "Workshops" },
+  { href: "/esoterica", label: "Esoterica" },
+  { href: "/about", label: "About" },
+  { href: "/journal", label: "Journal" },
+];
+
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isActive = (href: string) => path === href || path.startsWith(href + "/");
+---
+
+<header
+  class:list={[
+    "sticky top-0 z-40 border-b backdrop-blur",
+    night
+      ? "border-[color-mix(in_srgb,var(--color-paper)_18%,transparent)] bg-[color-mix(in_srgb,var(--color-night)_88%,transparent)]"
+      : "border-[var(--color-rule)] bg-[color-mix(in_srgb,var(--color-paper)_88%,transparent)]",
+  ]}
+>
+  <div class="container-page flex items-center justify-between gap-6 py-4">
+    <a href="/" class="font-[family-name:var(--font-display)] text-[1.35rem] leading-none tracking-[-0.01em]">
+      {site.name}
+    </a>
+
+    <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          aria-current={isActive(l.href) ? "page" : undefined}
+          class:list={[
+            "text-[14px] font-medium transition-colors",
+            isActive(l.href)
+              ? night ? "text-[var(--color-brass)]" : "text-[var(--color-aubergine)]"
+              : night ? "text-[color-mix(in_srgb,var(--color-paper)_78%,transparent)] hover:text-[var(--color-paper)]"
+                      : "text-[var(--color-ink-soft)] hover:text-[var(--color-aubergine)]",
+          ]}
+        >
+          {l.label}
+        </a>
+      ))}
+      <a href="/contact" class:list={["btn", night ? "btn-light" : "btn-primary", "!py-2.5 !px-5"]}>
+        Start a conversation
+      </a>
+    </nav>
+
+    <!-- Mobile: a details/summary disclosure. No JS, works with keyboard. -->
+    <details class="lg:hidden relative">
+      <summary
+        class="list-none cursor-pointer text-[13px] font-semibold uppercase tracking-[0.16em] py-2"
+        aria-label="Open menu"
+      >
+        Menu
+      </summary>
+      <div
+        class:list={[
+          "absolute right-0 top-full mt-3 w-60 rounded-[var(--radius-lg)] border p-3 shadow-lg",
+          night
+            ? "bg-[var(--color-night)] border-[color-mix(in_srgb,var(--color-paper)_22%,transparent)]"
+            : "bg-[var(--color-paper)] border-[var(--color-rule)]",
+        ]}
+      >
+        <nav aria-label="Primary, mobile" class="flex flex-col">
+          {links.map((l) => (
+            <a
+              href={l.href}
+              aria-current={isActive(l.href) ? "page" : undefined}
+              class:list={[
+                "px-3 py-2.5 text-[15px] rounded-[var(--radius-sm)]",
+                isActive(l.href) ? "text-[var(--color-aubergine)] font-medium" : "",
+              ]}
+            >
+              {l.label}
+            </a>
+          ))}
+          <a href="/contact" class="btn btn-primary mt-2 w-full">Start a conversation</a>
+        </nav>
+      </div>
+    </details>
+  </div>
+</header>

@@ -1,0 +1,37 @@
+---
+import { clients } from "~/data/site";
+
+/*
+ * Client wall. Rendered as wordmarks, not image logos: logo permissions are
+ * still to be confirmed (PROJECT.md §10), and naming an organisation you have
+ * genuinely worked with is a much lower bar than reproducing its trademark.
+ * Swap to <img> per client once each one is cleared.
+ *
+ * The track is duplicated so the -50% translate loops seamlessly; the copy is
+ * aria-hidden so a screen reader hears the list once.
+ */
+interface Props { night?: boolean }
+const { night = false } = Astro.props;
+---
+<div class="marquee py-2">
+  <div class="marquee-track">
+    {[0, 1].map((copy) => (
+      <ul
+        class="flex items-center gap-12 pr-12 shrink-0"
+        aria-hidden={copy === 1 ? "true" : undefined}
+        aria-label={copy === 0 ? "Selected clients" : undefined}
+      >
+        {clients.map((c) => (
+          <li
+            class:list={[
+              "whitespace-nowrap text-[15px] font-medium tracking-[0.02em]",
+              night ? "text-[color-mix(in_srgb,var(--color-paper)_72%,transparent)]" : "text-[var(--color-muted)]",
+            ]}
+          >
+            {c}
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</div>

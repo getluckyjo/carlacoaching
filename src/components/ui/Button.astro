@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  variant?: "primary" | "ghost" | "light";
+  class?: string;
+}
+const { href, variant = "primary", class: className = "" } = Astro.props;
+const external = /^https?:\/\//.test(href) || href.startsWith("mailto:");
+---
+<a
+  href={href}
+  class:list={["btn", `btn-${variant}`, className]}
+  {...external ? { rel: "noopener", target: href.startsWith("mailto:") ? undefined : "_blank" } : {}}
+>
+  <slot />
+</a>
