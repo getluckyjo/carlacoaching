@@ -1,9 +1,26 @@
 ---
 import LogoWall from "~/components/ui/LogoWall.astro";
 ---
-<section class="border-y border-[var(--color-rule)] bg-[var(--color-cream)] py-9">
+<section class="border-y border-[var(--color-rule)] bg-[var(--color-cream)] py-9 relative isolate overflow-hidden">
+  <div
+    aria-hidden="true"
+    class="seigaiha-backdrop pointer-events-none absolute inset-0 -z-10"
+  ></div>
+
   <div class="container-page">
     <p class="eyebrow mb-6">Where this work has landed</p>
   </div>
   <LogoWall />
 </section>
+
+<style>
+  /* A seigaiha wave-scale pattern — the same ocean motif as the Pamela Colman
+     Smith art elsewhere, just in a graphic, textile-print register instead of
+     watercolour. Tiled at low opacity behind the client wall. */
+  .seigaiha-backdrop {
+    background-image: url("/img/art/seigaiha.svg");
+    background-repeat: repeat;
+    background-size: 96px 96px;
+    opacity: 0.22;
+  }
+</style>
