@@ -1,21 +1,22 @@
 ---
 import BaseLayout from "~/components/layout/BaseLayout.astro";
-import ImagePlaceholder from "~/components/ui/ImagePlaceholder.astro";
+import SectionHeader from "~/components/ui/SectionHeader.astro";
+import Icon from "~/components/ui/Icon.astro";
+import BigCTA from "~/components/home/BigCTA.astro";
 import { site } from "~/data/site";
 import { breadcrumbSchema } from "~/lib/seo";
 
 /*
- * Esoterica — the room. Night palette throughout, same type system, same nav
- * and same booking mechanics as everything else (PROJECT.md §7.5).
+ * Esoterica — the tarot room.
  *
- * The name does real work: it sits in a nav beside Work and Coaching without
- * announcing "tarot" to a corporate L&D buyer scanning the page, while being
- * entirely honest to anyone who opens it.
+ * v1 rendered this on a full dark ground. It read heavy and separated the page
+ * from the rest of the site. It is now light like everything else: the same
+ * cream, the same gold, the same type. What sets it apart is pace and width —
+ * more air, narrower measure, fewer things on screen at once.
  *
- * Register: composed and unmystified. The design carries the atmosphere so the
- * copy doesn't have to. No fortune-telling voice, no purple prose. The failure
- * mode here isn't "tarot on a consulting site" — it's cheap-looking tarot on a
- * consulting site.
+ * Register: composed and unmystified. No fortune-telling voice, no purple prose.
+ * The failure mode isn't "tarot on a consulting site" — it's cheap-looking tarot
+ * on a consulting site.
  */
 
 const isnt = [
@@ -31,9 +32,14 @@ const is = [
   "An hour of undivided attention on something you've been carrying alone.",
   "A conversation, with a deck on the table.",
 ];
+
+const steps = [
+  ["Before", "You tell me roughly what's on your mind. It doesn't need to be tidy — working out what you're actually asking is part of the reading."],
+  ["During", "We lay cards and talk. I'll tell you what I see, you'll tell me what lands, and we follow whichever thread turns out to be the live one."],
+  ["After", "You leave with what you came to see, and usually a note of it. What you do with it is entirely yours."],
+];
 ---
 <BaseLayout
-  night
   title="Esoterica"
   description="Esoterica — tarot readings with Carla le Roux. A structured reflective practice for surfacing the question underneath the question. Cape Town and remote."
   jsonLd={[
@@ -43,34 +49,21 @@ const is = [
     ]),
   ]}
 >
-  <section class="container-page pt-16 pb-8 md:pt-24">
-    <div class="grid gap-12 md:grid-cols-12 md:items-end">
-      <div class="md:col-span-7">
-        <p class="eyebrow eyebrow-ruled reveal">Esoterica</p>
-        <h1 class="display-xl mt-8 max-w-[15ch] reveal">
-          The question underneath the <span class="display-italic" style="color: var(--color-brass)">question</span>.
-        </h1>
-        <p class="lead mt-8 reveal">
-          Most of the time we already know what we're deciding. What we don't have
-          is a way to say it out loud, to someone, without managing their reaction.
-        </p>
-      </div>
-      <div class="md:col-span-4 md:col-start-9 reveal">
-        <ImagePlaceholder
-          label="Still life — cards and hands, low warm light against a dark ground. Shot properly, or not at all."
-          ratio="3 / 4"
-          tone="night"
-          class="!border-[color-mix(in_srgb,var(--color-paper)_28%,transparent)]"
-        />
-      </div>
-    </div>
+  <section class="container-page pt-14 pb-10 md:pt-20">
+    <p class="eyebrow reveal">Esoterica</p>
+    <h1 class="display-xl mt-6 max-w-[16ch] reveal">
+      The question underneath the <span class="display-gold">question</span>.
+    </h1>
+    <p class="lead mt-8 reveal">
+      Most of the time we already know what we're deciding. What we don't have is
+      a way to say it out loud, to someone, without managing their reaction.
+    </p>
   </section>
 
-  <!-- What this is -->
   <section class="container-page section-tight">
-    <div class="grid gap-12 md:grid-cols-12">
-      <div class="md:col-span-6 md:col-start-4 space-y-6 reveal"
-           style="color: color-mix(in srgb, var(--color-paper) 84%, transparent)">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-6 lg:col-start-4 space-y-6 text-[var(--color-ink-soft)] reveal">
+        <hr class="rule-gold w-20" />
         <p>
           I read tarot the way I do the rest of my work: as a way of getting at
           what's actually going on underneath a stated problem.
@@ -81,7 +74,7 @@ const is = [
           and open enough to be yours, and then they hold still while you work out
           what you think. That is a surprisingly rare thing to be given.
         </p>
-        <p>
+        <p class="text-[var(--color-ink)] font-medium">
           If that sounds like it has something in common with coaching, it does.
           It's the same practice at its most personal scale.
         </p>
@@ -89,29 +82,22 @@ const is = [
     </div>
   </section>
 
-  <!-- Is / isn't -->
-  <section class="border-y" style="border-color: color-mix(in srgb, var(--color-paper) 18%, transparent)">
+  <section class="bg-[var(--color-cream)]">
     <div class="container-page section">
       <div class="grid gap-12 md:grid-cols-2">
         <div>
-          <p class="eyebrow eyebrow-ruled reveal">What it isn't</p>
-          <ul class="mt-7">
+          <p class="eyebrow !text-[var(--color-muted)] reveal">What it isn't</p>
+          <ul class="mt-6">
             {isnt.map((x) => (
-              <li class="border-b py-4 reveal"
-                  style="border-color: color-mix(in srgb, var(--color-paper) 15%, transparent); color: color-mix(in srgb, var(--color-paper) 70%, transparent)">
-                {x}
-              </li>
+              <li class="border-b border-[var(--color-rule)] py-4 text-[var(--color-muted)] reveal">{x}</li>
             ))}
           </ul>
         </div>
         <div>
-          <p class="eyebrow eyebrow-ruled reveal">What it is</p>
-          <ul class="mt-7">
+          <p class="eyebrow reveal">What it is</p>
+          <ul class="mt-6">
             {is.map((x) => (
-              <li class="border-b py-4 reveal"
-                  style="border-color: color-mix(in srgb, var(--color-paper) 15%, transparent)">
-                {x}
-              </li>
+              <li class="border-b border-[var(--color-rule)] py-4 font-medium reveal">{x}</li>
             ))}
           </ul>
         </div>
@@ -119,44 +105,25 @@ const is = [
     </div>
   </section>
 
-  <!-- How a reading runs -->
   <section class="container-page section">
-    <p class="eyebrow eyebrow-ruled reveal">How a reading runs</p>
-    <h2 class="display-l mt-7 max-w-[20ch] reveal">You bring the situation. Not the question.</h2>
-
-    <ol class="mt-14 grid gap-8 md:grid-cols-3">
-      {[
-        ["Before", "You tell me roughly what's on your mind. It doesn't need to be tidy — working out what you're actually asking is part of the reading."],
-        ["During", "We lay cards and talk. I'll tell you what I see, you'll tell me what lands, and we'll follow whichever thread turns out to be the live one."],
-        ["After", "You leave with what you came to see, and usually a note of it. What you do with it is entirely yours."],
-      ].map(([name, body], i) => (
-        <li class="card reveal">
-          <p class="eyebrow">{String(i + 1).padStart(2, "0")} — {name}</p>
-          <p class="mt-4" style="color: color-mix(in srgb, var(--color-paper) 82%, transparent)">{body}</p>
+    <SectionHeader eyebrow="How a reading runs" title="You bring the situation, not the question" />
+    <ol class="mt-14 grid gap-6 md:grid-cols-3">
+      {steps.map(([name, body], i) => (
+        <li class="card card-cream reveal">
+          <div class="flex items-center gap-3">
+            <span class="icon-chip icon-chip-gold"><Icon name="spark" size={20} /></span>
+            <span class="eyebrow !text-[var(--color-muted)]">{String(i + 1).padStart(2, "0")}</span>
+          </div>
+          <h3 class="mt-4">{name}</h3>
+          <p class="mt-3 text-[15px] text-[var(--color-ink-soft)]">{body}</p>
         </li>
       ))}
     </ol>
   </section>
 
-  <!-- Booking -->
-  <section class="border-t" style="border-color: color-mix(in srgb, var(--color-paper) 18%, transparent)">
-    <div class="container-page section">
-      <div class="grid gap-12 md:grid-cols-12">
-        <div class="md:col-span-5">
-          <p class="eyebrow eyebrow-ruled reveal">Sittings</p>
-          <h2 class="display-l mt-7 reveal">Book a reading.</h2>
-        </div>
-        <div class="md:col-span-6 md:col-start-7 reveal">
-          <p style="color: color-mix(in srgb, var(--color-paper) 82%, transparent)">
-            Readings are available in person in Cape Town and remotely. Formats,
-            length and fees are being finalised — get in touch and I'll send you
-            the current options.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="/contact?about=tarot" class="btn btn-light">Enquire about a reading</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <BigCTA
+    eyebrow="Sittings"
+    title="Book a reading."
+    body="Readings are available in person in Cape Town and remotely. Formats, length and fees are being finalised — get in touch and I'll send you the current options."
+  />
 </BaseLayout>

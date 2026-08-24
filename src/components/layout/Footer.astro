@@ -1,9 +1,6 @@
 ---
 import { site } from "~/data/site";
 
-interface Props { night?: boolean }
-const { night = false } = Astro.props;
-
 const columns = [
   {
     heading: "Practice",
@@ -34,18 +31,11 @@ const columns = [
 const year = new Date().getFullYear();
 ---
 
-<footer
-  class:list={[
-    "border-t",
-    night
-      ? "border-[color-mix(in_srgb,var(--color-paper)_18%,transparent)]"
-      : "border-[var(--color-rule)] bg-[var(--color-linen)]",
-  ]}
->
+<footer class="border-t border-[var(--color-rule)] bg-[var(--color-cream)]">
   <div class="container-page py-16 md:py-20">
     <div class="grid gap-12 md:grid-cols-12">
       <div class="md:col-span-5">
-        <p class="font-[family-name:var(--font-display)] text-[1.6rem] leading-none">{site.name}</p>
+        <p class="text-[1.5rem] font-bold leading-none tracking-[-0.03em]">{site.name}</p>
         <p class="mt-4 text-[15px] max-w-[36ch] text-[var(--color-ink-soft)]">
           Leadership &amp; Capability Transformation<br />
           Executive Education · Organisational Change · Coaching
@@ -61,7 +51,7 @@ const year = new Date().getFullYear();
           <ul class="space-y-2.5">
             {col.links.map((l) => (
               <li>
-                <a href={l.href} class="text-[15px] hover:text-[var(--color-aubergine)] transition-colors">
+                <a href={l.href} class="text-[15px] hover:text-[var(--color-pink-deep)] transition-colors">
                   {l.label}
                 </a>
               </li>
@@ -82,11 +72,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div
-      class:list={[
-        "mt-14 pt-6 border-t flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-[13px]",
-        night ? "border-[color-mix(in_srgb,var(--color-paper)_18%,transparent)]" : "border-[var(--color-rule)]",
-        "text-[var(--color-muted)]",
-      ]}
+      class="mt-14 pt-6 border-t border-[var(--color-rule)] flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-[13px] text-[var(--color-muted)]"
     >
       <p>© {year} {site.legal.operator}. All rights reserved.</p>
       <p>Cape Town, South Africa</p>

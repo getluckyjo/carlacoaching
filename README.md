@@ -80,18 +80,21 @@ src/
 | Colour, type, spacing | `src/styles/global.css` — **and PROJECT.md §5 first** |
 | A new page | `src/pages/`, then add it to `Nav.astro` and `Footer.astro` |
 
-## Two things that will bite you
+## Three things that will bite you
 
-**Night sections rebind the ink tokens.** `.on-night` remaps `--color-ink`,
-`--color-muted`, `--color-aubergine` and friends so nested components adapt
-without needing a night variant. The corollary: a *light* panel inside a night
-page inherits the wrong palette. Give it `.surface-light`, which restores the
-base values from the immutable `--l-*` snapshots. This is how the cookie notice
-ended up painting brass text on a paper ground — `npm run a11y` catches it.
+**Two palette colours can never carry text.** `--color-green` (#5FC13C) is
+2.00:1 on cream and `--color-pink` (#DCA9A2) is 1.79:1. They are fills only —
+icon chips, dots, markers. The text-safe members are `--color-green-deep` and
+`--color-pink-deep`. `--color-gold-bright` is decorative too; `--color-gold` is
+the one that carries text.
 
-**Brass is contrast-constrained.** `--color-brass` clears AA on the night ground
-(5.66) and passes large-text only on paper (3.12). It **fails** on linen (2.81)
-and sand (2.48). Use it for numerals on night or paper, hairlines, and non-text
-detail — never body text on a tinted panel, never a CTA. The metric type scale is
-likewise sized so the widest published value (`R10M+`) clears its grid column;
-raising that clamp re-introduces a collision.
+**`astro check` passing does not mean the build passes.** A bare `export type`
+in `.astro` frontmatter typechecks fine and then fails the client build with
+`Unexpected "|"`. Keep types in frontmatter local. Always run `npm run build`,
+not just the check.
+
+**Text over photography needs a scrim so heavy the photo stops reading.** This
+was tried for the numbers band and reverted to a split layout. If you put copy
+over an image, contrast depends on whatever the picture is doing behind each
+glyph — `npm run a11y` will catch it, but the design answer is usually to put
+the text beside the image instead.

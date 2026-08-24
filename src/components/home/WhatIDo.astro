@@ -1,33 +1,30 @@
 ---
 import SectionHeader from "~/components/ui/SectionHeader.astro";
+import Icon from "~/components/ui/Icon.astro";
 import { practiceAreas } from "~/data/site";
 ---
-<section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
-  <div class="container-page section">
-    <SectionHeader
-      eyebrow="What I do"
-      title="From strategic priority to meaningful capability."
-    />
+<section class="container-page section">
+  <SectionHeader
+    eyebrow="What I do"
+    title="Five areas of practice"
+    lead="They rarely arrive separately — most engagements draw on three or four at once."
+  />
 
-    <ul class="mt-16 grid gap-px bg-[var(--color-rule)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden md:grid-cols-2">
-      {practiceAreas.map((area, i) => (
-        <li
-          class:list={[
-            "bg-[var(--color-linen)] p-8 md:p-10 reveal",
-            // Five items in a two-column grid leaves an orphan. Let the last
-            // one span the full width rather than sit next to a gap.
-            i === practiceAreas.length - 1 && practiceAreas.length % 2 === 1 ? "md:col-span-2" : "",
-          ]}
-        >
-          <p class="eyebrow">{String(i + 1).padStart(2, "0")}</p>
-          <h3 class="mt-4">{area.name}</h3>
-          <p class="mt-3 text-[var(--color-ink-soft)] measure">{area.body}</p>
-        </li>
-      ))}
-    </ul>
+  <ul class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {practiceAreas.map((area, i) => (
+      <li class="card flex flex-col reveal">
+        <div class="flex items-center gap-4">
+          <span class="icon-chip"><Icon name={area.icon} size={24} /></span>
+          <span class="eyebrow !text-[var(--color-muted)]">{String(i + 1).padStart(2, "0")}</span>
+        </div>
+        <h3 class="mt-5">{area.name}</h3>
+        <p class="mt-3 text-[15px] font-medium text-[var(--color-ink)]">{area.summary}</p>
+        <p class="mt-3 text-[15px] text-[var(--color-ink-soft)] grow">{area.body}</p>
+      </li>
+    ))}
+  </ul>
 
-    <div class="mt-12 reveal">
-      <a href="/work" class="btn btn-ghost">How this works in practice</a>
-    </div>
+  <div class="mt-12 reveal">
+    <a href="/work" class="btn btn-ghost">How this works in practice</a>
   </div>
 </section>

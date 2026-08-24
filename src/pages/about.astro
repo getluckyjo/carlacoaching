@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "~/components/layout/BaseLayout.astro";
 import SectionHeader from "~/components/ui/SectionHeader.astro";
-import ImagePlaceholder from "~/components/ui/ImagePlaceholder.astro";
+import Photo from "~/components/ui/Photo.astro";
 import BigCTA from "~/components/home/BigCTA.astro";
 import { experience, education, development, capabilities, site } from "~/data/site";
 import { breadcrumbSchema, personSchema } from "~/lib/seo";
@@ -29,7 +29,14 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
         </p>
       </div>
       <div class="md:col-span-4 md:col-start-9 reveal">
-        <ImagePlaceholder label="Portrait — Carla, 3:4 vertical." ratio="3 / 4" />
+        <Photo
+          name="carla-portrait"
+          alt="Carla le Roux, learning and capability strategist, Cape Town"
+          ratio={[3, 4]}
+          sizes="(min-width: 768px) 33vw, 100vw"
+          loading="eager"
+          class="block overflow-hidden rounded-[var(--radius-xl)]"
+        />
       </div>
     </div>
   </section>
@@ -56,7 +63,7 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
   </section>
 
   <!-- The arc -->
-  <section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
+  <section class="bg-[var(--color-cream)] border-y border-[var(--color-rule)]">
     <div class="container-page section">
       <div class="grid gap-12 md:grid-cols-12">
         <div class="md:col-span-5">
@@ -99,7 +106,7 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
   </section>
 
   <!-- Experience -->
-  <section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
+  <section class="bg-[var(--color-cream)] border-y border-[var(--color-rule)]">
     <div class="container-page section">
       <SectionHeader eyebrow="Experience" title="A decade designing for complexity." />
       <ol class="mt-16 space-y-0">
@@ -114,7 +121,7 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
               <ul class="md:col-span-5 space-y-2.5 text-[15px] text-[var(--color-ink-soft)]">
                 {role.points.map((p) => (
                   <li class="flex gap-3">
-                    <span class="mt-2 h-px w-3 shrink-0 bg-[var(--color-brass)]" aria-hidden="true"></span>
+                    <span class="mt-2 h-px w-3 shrink-0 bg-[var(--color-gold-bright)]" aria-hidden="true"></span>
                     <span>{p}</span>
                   </li>
                 ))}

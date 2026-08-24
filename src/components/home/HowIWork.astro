@@ -3,41 +3,30 @@ import SectionHeader from "~/components/ui/SectionHeader.astro";
 import { howIWork } from "~/data/site";
 ---
 <section class="container-page section">
-  <div class="grid gap-12 md:grid-cols-12">
-    <div class="md:col-span-5">
-      <SectionHeader
-        eyebrow="How I work"
-        title="I don't start with the programme. I start with the problem."
-      />
+  <div class="grid gap-12 lg:grid-cols-12">
+    <div class="lg:col-span-5">
+      <SectionHeader eyebrow="How I work" title="I start with the problem, not the programme" />
+      <p class="mt-8 text-[var(--color-ink-soft)] measure reveal">
+        From there I bring together strategy, learning design, organisational
+        thinking and stakeholder insight to create an intervention that is fit
+        for purpose.
+      </p>
     </div>
 
-    <div class="md:col-span-6 md:col-start-7 reveal">
-      <p class="text-[var(--color-ink-soft)] measure">
+    <div class="lg:col-span-6 lg:col-start-7 reveal">
+      <p class="text-[15px] font-semibold text-[var(--color-muted)]">
         Before designing a workshop, curriculum or learning journey, I want to understand:
       </p>
-
-      <ol class="mt-8 space-y-0">
+      <ol class="mt-7">
         {howIWork.map((q, i) => (
           <li class="flex gap-5 border-t border-[var(--color-rule)] py-5 last:border-b">
-            <span class="eyebrow pt-1 shrink-0">{String(i + 1).padStart(2, "0")}</span>
-            <span class="text-[1.05rem] text-[var(--color-ink)]">{q}</span>
+            <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-green-soft)] text-[12px] font-bold text-[var(--color-green-deep)]">
+              {i + 1}
+            </span>
+            <span class="text-[1.05rem] font-medium">{q}</span>
           </li>
         ))}
       </ol>
-
-      <div class="mt-10 space-y-5 text-[var(--color-ink-soft)] measure">
-        <p>
-          From there, I bring together strategy, learning design, organisational
-          thinking and stakeholder insight to create an intervention that is fit
-          for purpose.
-        </p>
-        <p>
-          Because sometimes the answer is a leadership programme. Sometimes it's an
-          executive learning journey. Sometimes it's coaching. And sometimes it's
-          realising that a training programme
-          <em class="not-italic font-medium text-[var(--color-ink)]">isn't the answer at all</em>.
-        </p>
-      </div>
     </div>
   </div>
 </section>

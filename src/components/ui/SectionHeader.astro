@@ -1,22 +1,22 @@
 ---
 interface Props {
-  eyebrow: string;
-  title?: string;
+  eyebrow?: string;
+  title: string;
   lead?: string;
-  /** Renders the title with the letter-spaced display device.
-   *  PROJECT.md §5.2: once per page, maximum. */
+  /** The female-founders device: wide tracking + trailing full stop. */
   spaced?: boolean;
   class?: string;
 }
-const { eyebrow, title, lead, spaced = false, class: className = "" } = Astro.props;
+const { eyebrow, title, lead, spaced = true, class: className = "" } = Astro.props;
+// The tracked-out form changes how a screen reader pronounces the string,
+// so the accessible name always carries the plain text.
+const display = spaced ? (title.endsWith(".") ? title : title + ".") : title;
 ---
 <header class:list={["reveal", className]}>
-  <p class="eyebrow eyebrow-ruled">{eyebrow}</p>
-  {title && (
-    spaced
-      ? <h2 class="display-l display-spaced mt-7" aria-label={title}>{title}</h2>
-      : <h2 class="display-l mt-7 max-w-[20ch]">{title}</h2>
-  )}
+  {eyebrow && <p class="eyebrow mb-5">{eyebrow}</p>}
+  {spaced
+    ? <h2 class="heading-spaced max-w-[26ch]" aria-label={display}><span aria-hidden="true">{display}</span></h2>
+    : <h2 class="display-l max-w-[20ch]">{display}</h2>}
   {lead && <p class="lead mt-6">{lead}</p>}
   <slot />
 </header>

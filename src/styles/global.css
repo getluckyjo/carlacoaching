@@ -1,75 +1,72 @@
 @import "tailwindcss";
 
 /*
-  Single source of truth for the visual system.
-  Everything here maps to PROJECT.md §5 — edit PROJECT.md first, then this file.
+  Design system — v2.
+  Core reference: female-founders.org. Bright, photography-led, declarative.
+  Palette sampled from the Stefan Marcel Gerard press shoot: the cream backdrop
+  and the gold hoops are literally in the photographs, so the site and the
+  imagery are the same material.
 
-  Fonts are self-hosted via Fontsource (imported in BaseLayout), not Google's CDN:
-  one less third-party request, and no visitor IP handed to Google (POPIA §72).
+  Fonts self-hosted via Fontsource (imported in BaseLayout), not Google's CDN.
+
+  v1 was a quiet ivory/aubergine editorial system with dark night sections.
+  Retired: it read reserved where this needs to read alive.
 */
 
 @theme {
-  /* —— Surfaces —— */
-  --color-paper:        #FBF9F5;  /* warm ivory ground */
-  --color-linen:        #F2EDE5;  /* panels, cards */
-  --color-sand:         #E6DFD3;  /* secondary panel */
-  --color-night:        #1A1018;  /* full-bleed dark: tarot + closing CTA */
+  /* —— Surfaces: warm, light, no dark grounds —— */
+  --color-paper:  #FFFDF9;  /* warm near-white */
+  --color-cream:  #F6EFE2;  /* the photo backdrop */
+  --color-sand:   #EBE0CC;  /* deepest tint used */
 
   /* —— Rules —— */
-  --color-rule:         #DDD5C8;
-  --color-rule-strong:  #C9BFAE;
+  --color-rule:        #E2D7C2;
+  --color-rule-strong: #CBBB9C;
 
   /* —— Ink —— */
-  --color-ink:          #1B1714;  /* warm near-black, body */
-  --color-ink-soft:     #3A332C;
-  /* #665E54, not a lighter grey: eyebrows are 12px and sit on three different
-     grounds. The lighter #7A7166 scores 4.11 on linen and 3.62 on sand — both
-     fail AA for small text. This clears AA on paper (6.06), linen (5.47) and
-     sand (4.81). See PROJECT.md §5.1. */
-  --color-muted:        #665E54;
+  --color-ink:      #17130F;
+  --color-ink-soft: #423A31;
+  --color-muted:    #645A4D;  /* AA on all three grounds — see the contrast note */
 
-  /* —— Primary accent: aubergine —— */
-  --color-aubergine:      #3B2436;
-  --color-aubergine-deep: #2A1826;
-  --color-aubergine-soft: #EFE7EC;
+  /* —— Gold: the sparkle ——
+     `gold` is text-safe on paper and cream. `gold-bright` is decorative only:
+     it is for numerals and rules over photography or ink, never body text on a
+     tint (2.51 on sand). */
+  --color-gold:        #8A6220;
+  --color-gold-bright: #D4A24C;
+  --color-gold-soft:   #F5E8CE;
 
-  /* —— Secondary: brass ——
-     Structure and number only. Never a CTA. Numerals on night or paper only —
-     brass fails contrast on linen (2.81) and sand (2.48). */
-  --color-brass:        #B08748;
-  --color-brass-soft:   #F0E6D4;
+  /* —— Bright green: the pop ——
+     From Carla's own wardrobe palette. `green` is the vivid one and is for
+     fills, dots and icon chips only — it is 2.00:1 on cream and can never carry
+     text. `green-deep` is the text-safe member (6.53 on cream). */
+  --color-green:      #5FC13C;
+  --color-green-deep: #27611D;
+  --color-green-soft: #E4F3DC;
 
-  /* —— Type families —— */
-  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-  --font-sans:    "Geist Variable", "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* —— Dusty pink: links, active state, emphasis ——
+     Same rule: `pink` decorates, `pink-deep` is the one that carries text. */
+  --color-pink:       #DCA9A2;
+  --color-pink-deep:  #8E4450;
+  --color-pink-soft:  #F3DAD5;
 
-  /* —— Tracking —— */
-  --tracking-display: -0.02em;
-  --tracking-tight:   -0.015em;
-  --tracking-normal:  0;
-  --tracking-eyebrow: 0.2em;
+  /* —— Type —— */
+  --font-display: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-serif:   "Instrument Serif", Georgia, serif;
 
-  /* —— Radius —— */
-  --radius-sm: 4px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --tracking-mega:    -0.035em;
+  --tracking-tight:   -0.02em;
+  --tracking-spaced:  0.24em;
+  --tracking-eyebrow: 0.18em;
+
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
 }
 
 @layer base {
-  /* Immutable snapshots of the light palette, resolved at :root. Contexts that
-     remap the semantic --color-* tokens (see .on-night) cannot reach these, so
-     .surface-light can always restore a true light surface from them.
-     No hex is repeated: these read from @theme once, here. */
-  :root {
-    --l-ink:         var(--color-ink);
-    --l-ink-soft:    var(--color-ink-soft);
-    --l-muted:       var(--color-muted);
-    --l-rule:        var(--color-rule);
-    --l-rule-strong: var(--color-rule-strong);
-    --l-aubergine:   var(--color-aubergine);
-    --l-linen:       var(--color-linen);
-  }
-
   html {
     background: var(--color-paper);
     color: var(--color-ink);
@@ -78,255 +75,224 @@
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
   }
-  body { font-size: 17px; line-height: 1.65; }
+  body { font-size: 17px; line-height: 1.6; }
 
-  ::selection     { background: var(--color-aubergine); color: var(--color-paper); }
-  ::-moz-selection{ background: var(--color-aubergine); color: var(--color-paper); }
+  ::selection      { background: var(--color-gold-bright); color: var(--color-ink); }
+  ::-moz-selection { background: var(--color-gold-bright); color: var(--color-ink); }
 
-  h1, h2 {
+  h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: var(--tracking-display);
-    color: var(--color-ink);
-  }
-  h3, h4 {
-    font-family: var(--font-sans);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: var(--tracking-tight);
     color: var(--color-ink);
   }
-
-  h1 { font-size: clamp(3rem, 6.5vw, 6rem);      line-height: 1.02; }
-  h2 { font-size: clamp(1.9rem, 3vw, 2.9rem);    line-height: 1.12; letter-spacing: var(--tracking-tight); }
-  h3 { font-size: clamp(1.25rem, 1.6vw, 1.6rem); line-height: 1.25; }
+  h1 { font-size: clamp(2.6rem, 5.4vw, 5rem);    line-height: 1.04; letter-spacing: var(--tracking-mega); }
+  h2 { font-size: clamp(2rem, 3.4vw, 3.2rem);    line-height: 1.08; }
+  h3 { font-size: clamp(1.2rem, 1.5vw, 1.5rem);  line-height: 1.25; font-weight: 650; }
 
   a { color: inherit; text-decoration: none; }
   a:focus-visible {
-    outline: 2px solid var(--color-aubergine);
+    outline: 2px solid var(--color-pink-deep);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 3px;
   }
-
   hr { border: 0; border-top: 1px solid var(--color-rule); }
+  img { max-width: 100%; height: auto; }
 }
 
 @layer components {
 
-  /* —— Containers ——
-     Wider margins than a standard marketing site. Composure is the brand. */
-  .container-page {
-    max-width: 1280px;
-    margin-inline: auto;
-    padding-inline: 24px;
-  }
-  @media (min-width: 768px)  { .container-page { padding-inline: 48px; } }
-  @media (min-width: 1280px) { .container-page { padding-inline: 80px; } }
+  .container-page { max-width: 1320px; margin-inline: auto; padding-inline: 22px; }
+  @media (min-width: 768px)  { .container-page { padding-inline: 40px; } }
+  @media (min-width: 1280px) { .container-page { padding-inline: 64px; } }
+  .container-prose { max-width: 680px; margin-inline: auto; padding-inline: 22px; }
 
-  .container-prose { max-width: 680px; margin-inline: auto; padding-inline: 24px; }
+  .section       { padding-block: 84px; }
+  @media (min-width: 768px) { .section { padding-block: 132px; } }
+  .section-tight { padding-block: 56px; }
+  @media (min-width: 768px) { .section-tight { padding-block: 88px; } }
 
-  /* —— Section rhythm —— */
-  .section      { padding-block: 96px; }
-  @media (min-width: 768px) { .section { padding-block: 160px; } }
-  .section-tight{ padding-block: 64px; }
-  @media (min-width: 768px) { .section-tight { padding-block: 96px; } }
-
-  /* —— Display scale —— */
+  /* —— Display —— */
   .display-xl {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 6.5vw, 6rem);
-    font-weight: 400;
-    line-height: 1.02;
-    letter-spacing: var(--tracking-display);
+    font-size: clamp(2.6rem, 5.4vw, 5rem);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: var(--tracking-mega);
   }
   .display-l {
     font-family: var(--font-display);
-    font-size: clamp(2.4rem, 4.5vw, 4rem);
-    font-weight: 400;
-    line-height: 1.06;
+    font-size: clamp(2rem, 3.6vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.08;
     letter-spacing: var(--tracking-tight);
   }
-  .display-italic { font-style: italic; }
-  .display-accent { color: var(--color-aubergine); }
+  .display-gold  { color: var(--color-gold); }
+  .display-pink { color: var(--color-pink-deep); }
+  /* One serif moment, for the manifesto only. */
+  .display-serif { font-family: var(--font-serif); font-weight: 400; font-style: italic; letter-spacing: -0.01em; }
 
+  /* —— The letter-spaced section heading ——
+     The female-founders device: wide tracking, trailing full stop. Used on every
+     major section heading. Always pair with aria-label carrying the plain string,
+     since the spacing changes how a screen reader says it. */
+  .heading-spaced {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.4vw, 2.3rem);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: var(--tracking-spaced);
+    text-transform: none;
+  }
+
+  .lead {
+    font-size: clamp(1.15rem, 1.5vw, 1.5rem);
+    line-height: 1.45;
+    color: var(--color-ink-soft);
+    max-width: 60ch;
+    font-weight: 450;
+  }
+  .measure { max-width: 66ch; }
+
+  .eyebrow {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  /* —— Buttons: ink by default, dusty pink on hover. —— */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 16px 28px;
+    font-family: var(--font-sans);
+    font-weight: 650;
+    font-size: 15px;
+    border-radius: 999px;
+    border: 1.5px solid transparent;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--color-ink); color: var(--color-paper); }
+  .btn-primary:hover { background: var(--color-pink-deep); }
+  .btn-ghost { background: transparent; color: var(--color-ink); border-color: var(--color-rule-strong); }
+  .btn-ghost:hover { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
+  .btn-light { background: var(--color-paper); color: var(--color-ink); }
+  .btn-light:hover { background: var(--color-gold-soft); }
+
+  .link {
+    color: var(--color-pink-deep);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1.5px;
+    text-decoration-color: color-mix(in srgb, var(--color-pink-deep) 35%, transparent);
+    transition: text-decoration-color 180ms ease;
+  }
+  .link:hover { text-decoration-color: var(--color-pink-deep); }
+
+  /* —— Cards —— */
+  .card {
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    background: var(--color-paper);
+    transition: border-color 200ms ease, background-color 200ms ease;
+  }
+  .card:hover { border-color: var(--color-gold-bright); }
+  .card-cream { background: var(--color-cream); border-color: transparent; }
+  .card-cream:hover { border-color: var(--color-gold-bright); }
+
+  /* —— Stat: the trio under the hero —— */
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: var(--tracking-mega);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* —— Metric: the big numbers over photography ——
+     Sized to the widest published value; see the note in README. */
   .metric {
     font-family: var(--font-display);
-    /* Sized so the widest published value ("R10M+", 5 glyphs) still clears its
-       column in the 4-up grid. Raising this max re-introduces the collision. */
     font-size: clamp(2.75rem, 4.6vw, 4.5rem);
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1;
+    letter-spacing: var(--tracking-mega);
     font-variant-numeric: tabular-nums;
     display: inline-block;
     max-width: 100%;
   }
 
-  .lead {
-    font-size: clamp(1.1rem, 1.4vw, 1.35rem);
-    line-height: 1.55;
-    color: var(--color-ink-soft);
-    max-width: 56ch;
-  }
-
-  .measure { max-width: 68ch; }
-
-  /* —— Eyebrow: the signature device ——
-     Every section opens with one. A brass hairline, then wide-tracked caps. */
-  .eyebrow {
-    display: block;
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: var(--tracking-eyebrow);
-    text-transform: uppercase;
-    color: var(--color-muted);
-  }
-  .eyebrow-ruled { padding-top: 18px; border-top: 1px solid var(--color-brass); }
-
-  /* —— The letter-spaced display device ——
-     Female Founders' trick. Once per page, maximum. Aria-label the element
-     so screen readers get the unspaced string. */
-  .display-spaced { letter-spacing: 0.28em; }
-
-  /* —— Buttons —— */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 15px 26px;
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 0.01em;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  .btn-primary { background: var(--color-aubergine); color: var(--color-paper); }
-  .btn-primary:hover { background: var(--color-aubergine-deep); }
-  .btn-ghost { background: transparent; color: var(--color-ink); border-color: var(--color-rule-strong); }
-  .btn-ghost:hover { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
-  .btn-light { background: var(--color-paper); color: var(--color-aubergine); }
-  .btn-light:hover { background: var(--color-brass-soft); }
-
-  /* —— Inline link —— */
-  .link {
-    color: var(--color-aubergine);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
-    text-decoration-color: var(--color-rule-strong);
-    transition: text-decoration-color 200ms ease;
-  }
-  .link:hover { text-decoration-color: var(--color-aubergine); }
-
-  /* —— Cards: structural, not decorative. No shadow at rest, no lift. —— */
-  .card {
-    border: 1px solid var(--color-rule);
-    border-radius: var(--radius-lg);
-    padding: 32px;
-    background: var(--color-paper);
-    transition: border-color 200ms ease;
-  }
-  .card:hover { border-color: var(--color-aubergine); }
-
-  /* —— Night sections ——
-     Rebind the ink tokens rather than restyling components one at a time.
-     Anything nested inside — including shared components like Footer that know
-     nothing about night mode — then adapts for free. Styling only the elements
-     we happened to think of is how the footer ended up dark-on-dark. */
-  .on-night {
-    background: var(--color-night);
-    color: var(--color-paper);
-
-    --color-ink:         var(--color-paper);
-    --color-ink-soft:    color-mix(in srgb, var(--color-paper) 84%, transparent);
-    --color-muted:       color-mix(in srgb, var(--color-paper) 70%, transparent);
-    --color-rule:        color-mix(in srgb, var(--color-paper) 18%, transparent);
-    --color-rule-strong: color-mix(in srgb, var(--color-paper) 34%, transparent);
-    /* Aubergine is unreadable on night (1.31:1). Brass is the accent here. */
-    --color-aubergine:   var(--color-brass);
-    --color-linen:       transparent;
-    --color-paper-solid: var(--color-paper);
-  }
-  .on-night h1, .on-night h2, .on-night h3 { color: var(--color-paper); }
-  .on-night .eyebrow { color: var(--color-brass); }
-  .on-night .eyebrow-ruled { border-top-color: var(--color-brass); }
-  .on-night .card { background: transparent; }
-  .on-night .card:hover { border-color: var(--color-brass); }
-  /* btn-light must keep a solid paper ground even though --color-paper is
-     doing double duty as the text colour in here. */
-  .on-night .btn-light { background: var(--color-paper-solid); color: var(--color-aubergine-deep); }
-  .on-night .btn-light:hover { background: var(--color-brass-soft); }
-
-  /* —— A light panel inside a night context ——
-     The fixed cookie notice renders inside <body class="on-night"> on /esoterica,
-     so without this it inherits night's remapped ink and paints brass text on a
-     paper ground (3.11:1). Any light surface nested under .on-night needs it. */
-  .surface-light {
-    --color-ink:         var(--l-ink);
-    --color-ink-soft:    var(--l-ink-soft);
-    --color-muted:       var(--l-muted);
-    --color-rule:        var(--l-rule);
-    --color-rule-strong: var(--l-rule-strong);
-    --color-aubergine:   var(--l-aubergine);
-    --color-linen:       var(--l-linen);
+  /* —— Icon chip: where the wardrobe colours actually pop ——
+     Solid fill in the real colour, ink stroke on top. The pale-tint version
+     tried first measured 1.16:1 against a cream card — invisible. These sit at
+     ~2:1 against the card and carry the icon at 8:1, so the colour reads as a
+     deliberate accent rather than a smudge.
+     Ink on the fill is the only safe pairing: paper on bright green is 2.25. */
+  .icon-chip {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: 15px;
+    background: var(--color-green);
     color: var(--color-ink);
+    flex-shrink: 0;
   }
+  .icon-chip-pink { background: var(--color-pink); }
+  .icon-chip-gold { background: var(--color-gold-bright); }
 
-  /* —— Prose (journal posts) —— */
-  .prose { font-size: 18px; line-height: 1.75; color: var(--color-ink-soft); }
-  .prose > * + * { margin-top: 1.4em; }
-  .prose h2 { margin-top: 2.2em; margin-bottom: 0.5em; color: var(--color-ink); }
-  .prose h3 { margin-top: 1.8em; margin-bottom: 0.4em; color: var(--color-ink); }
-  .prose strong { color: var(--color-ink); font-weight: 600; }
-  .prose a { color: var(--color-aubergine); text-decoration: underline; text-underline-offset: 4px; }
-  .prose ul, .prose ol { padding-left: 1.3em; }
-  .prose li + li { margin-top: 0.5em; }
-  .prose ul { list-style: disc; }
-  .prose ol { list-style: decimal; }
+  /* —— Prose —— */
+  .prose { font-size: 18px; line-height: 1.72; color: var(--color-ink-soft); }
+  .prose > * + * { margin-top: 1.35em; }
+  .prose h2 { margin-top: 2.1em; margin-bottom: 0.45em; color: var(--color-ink); font-size: 1.5em; }
+  .prose h3 { margin-top: 1.7em; margin-bottom: 0.35em; color: var(--color-ink); }
+  .prose strong { color: var(--color-ink); font-weight: 650; }
+  .prose a { color: var(--color-pink-deep); text-decoration: underline; text-underline-offset: 4px; }
+  .prose ul { list-style: disc; padding-left: 1.3em; }
+  .prose ol { list-style: decimal; padding-left: 1.3em; }
+  .prose li + li { margin-top: 0.45em; }
   .prose blockquote {
-    border-left: 2px solid var(--color-brass);
+    border-left: 3px solid var(--color-gold-bright);
     padding-left: 1.2em;
-    font-family: var(--font-display);
-    font-size: 1.35em;
-    line-height: 1.35;
+    font-size: 1.25em;
+    line-height: 1.4;
+    font-weight: 500;
     color: var(--color-ink);
   }
 
-  /* —— Form fields —— */
+  /* —— Forms —— */
   .field {
-    margin-top: 6px;
-    width: 100%;
-    padding: 11px 13px;
-    border: 1px solid var(--color-rule-strong);
+    margin-top: 6px; width: 100%; padding: 12px 14px;
+    border: 1.5px solid var(--color-rule-strong);
     border-radius: var(--radius-sm);
     background: var(--color-paper);
-    font-family: var(--font-sans);
-    font-size: 15px;
-    color: var(--color-ink);
+    font-family: var(--font-sans); font-size: 15px; color: var(--color-ink);
   }
-  .field:focus { outline: none; border-color: var(--color-aubergine); }
-  .field-label { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.01em; }
+  .field:focus { outline: none; border-color: var(--color-pink-deep); }
+  .field-label { display: block; font-size: 13px; font-weight: 650; }
 }
 
 @layer utilities {
-  /* —— Reveal on scroll. Set by IntersectionObserver in BaseLayout. —— */
-  .reveal { opacity: 0; transform: translateY(12px); }
-  .reveal-in {
-    opacity: 1;
-    transform: none;
-    transition: opacity 600ms ease-out, transform 600ms ease-out;
-  }
+  .reveal { opacity: 0; transform: translateY(14px); }
+  .reveal-in { opacity: 1; transform: none; transition: opacity 650ms ease-out, transform 650ms ease-out; }
 
-  /* —— Logo wall marquee —— */
-  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-  .marquee-track { display: flex; width: max-content; animation: marquee 60s linear infinite; }
+  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .marquee-track { display: flex; width: max-content; animation: marquee 55s linear infinite; }
   .marquee:hover .marquee-track { animation-play-state: paused; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* A hairline that catches the light — the cheapest sparkle there is. */
+  .rule-gold {
+    height: 2px; border: 0;
+    background: linear-gradient(90deg, var(--color-gold-bright), color-mix(in srgb, var(--color-gold-bright) 12%, transparent));
+  }
 }
 
-/* Motion is functional. If the visitor has asked for less of it, give them none. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }

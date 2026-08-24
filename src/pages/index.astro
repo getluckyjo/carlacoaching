@@ -2,25 +2,25 @@
 import BaseLayout from "~/components/layout/BaseLayout.astro";
 import Hero from "~/components/home/Hero.astro";
 import Clients from "~/components/home/Clients.astro";
-import Problem from "~/components/home/Problem.astro";
+import Manifesto from "~/components/home/Manifesto.astro";
+import Audiences from "~/components/home/Audiences.astro";
 import WhatIDo from "~/components/home/WhatIDo.astro";
 import Numbers from "~/components/home/Numbers.astro";
-import HowIWork from "~/components/home/HowIWork.astro";
-import SelectedWork from "~/components/home/SelectedWork.astro";
 import Bridge from "~/components/home/Bridge.astro";
-import WayIThink from "~/components/home/WayIThink.astro";
+import SelectedWork from "~/components/home/SelectedWork.astro";
+import HowIWork from "~/components/home/HowIWork.astro";
 import AboutPreview from "~/components/home/AboutPreview.astro";
 import JournalPreview from "~/components/home/JournalPreview.astro";
 import BigCTA from "~/components/home/BigCTA.astro";
 import { websiteSchema, personSchema, organisationSchema, serviceSchemas } from "~/lib/seo";
 
 /*
- * Section order follows PROJECT.md §7.1 — the Website.pdf draft's own sequence,
- * plus the client wall (Sharma: credibility before offer) and the numbers strip
- * (Female Founders: make a soft proposition concrete).
+ * Structure follows female-founders.org: a full-sentence hero statement, a stat
+ * trio, a partner wall, a declarative manifesto, three audience blocks, big
+ * numbers over photography, then the proof.
  *
- * Background rhythm alternates paper → linen → paper, with exactly two night
- * moments: Numbers and the closing CTA.
+ * Ground rhythm: paper → cream → paper → cream → photo → cream → paper → sand.
+ * No two tinted sections adjacent, no dark grounds.
  */
 ---
 <BaseLayout
@@ -30,13 +30,13 @@ import { websiteSchema, personSchema, organisationSchema, serviceSchemas } from 
 >
   <Hero />
   <Clients />
-  <Problem />
+  <Manifesto />
+  <Audiences />
   <WhatIDo />
   <Numbers />
-  <HowIWork />
-  <SelectedWork />
   <Bridge />
-  <WayIThink />
+  <SelectedWork />
+  <HowIWork />
   <AboutPreview />
   <JournalPreview />
   <BigCTA />

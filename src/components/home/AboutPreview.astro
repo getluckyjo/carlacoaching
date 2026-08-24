@@ -1,36 +1,41 @@
 ---
-import ImagePlaceholder from "~/components/ui/ImagePlaceholder.astro";
+import Photo from "~/components/ui/Photo.astro";
 ---
-<section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
+<section class="bg-[var(--color-cream)]">
   <div class="container-page section">
-    <div class="grid gap-12 md:grid-cols-12 md:items-center">
-      <div class="md:col-span-4 reveal">
-        <ImagePlaceholder
-          label="Carla in context — facilitating, or a room mid-session. Natural colour."
-          ratio="4 / 5"
-          tone="sand"
+    <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-5 reveal">
+        <Photo
+          name="carla-candid"
+          alt="Carla le Roux, portrait"
+          ratio={[4, 5]}
+          sizes="(min-width: 1024px) 40vw, 100vw"
+          class="block overflow-hidden rounded-[var(--radius-xl)]"
         />
       </div>
 
-      <div class="md:col-span-7 md:col-start-6">
-        <p class="eyebrow eyebrow-ruled reveal">About</p>
-        <h2 class="display-l mt-7 reveal">Hi, I'm Carla.</h2>
-        <div class="mt-8 space-y-5 text-[var(--color-ink-soft)] measure reveal">
+      <div class="lg:col-span-6 lg:col-start-7">
+        <p class="eyebrow reveal">About</p>
+        <h2 class="display-l mt-6 reveal">Hi, I'm Carla.</h2>
+        <div class="mt-7 space-y-5 text-[var(--color-ink-soft)] measure reveal">
           <p>
             I'm a learning and capability strategist, programme designer and coach
             who has spent the past decade helping organisations turn complex ideas
             into meaningful development experiences.
           </p>
           <p>
-            I'm particularly interested in the messy middle — the point where
-            strategy meets people, where capability meets culture, and where an
-            organisation needs to move from knowing what it wants to achieve to
-            actually being able to achieve it.
+            Before any of it I was an editor — an MA in English, four years on
+            other people's manuscripts. It's the same job: taking something
+            complex and making it land with a human being.
+          </p>
+          <p>
+            I'm particularly interested in the messy middle — where strategy meets
+            people, where capability meets culture, and where an organisation needs
+            to move from knowing what it wants to achieve to actually being able to
+            achieve it.
           </p>
         </div>
-        <div class="mt-9 reveal">
-          <a href="/about" class="btn btn-ghost">More about me</a>
-        </div>
+        <div class="mt-9 reveal"><a href="/about" class="btn btn-ghost">More about me</a></div>
       </div>
     </div>
   </div>

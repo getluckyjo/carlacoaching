@@ -6,20 +6,25 @@ interface Props {
 }
 const {
   eyebrow = "Let's talk",
-  title = "Have a complex capability challenge?",
-  body = "You don't need to have the brief perfectly worked out before you get in touch. Bring the problem. We can figure out what kind of intervention — if any — will actually help.",
+  title = "Bring the problem.",
+  body = "You don't need the brief perfectly worked out before you get in touch. We can figure out what kind of intervention — if any — will actually help.",
 } = Astro.props;
 ---
-<section class="on-night">
+<section class="bg-[var(--color-cream)] border-t border-[var(--color-rule)]">
   <div class="container-page section">
-    <p class="eyebrow eyebrow-ruled reveal">{eyebrow}</p>
-    <h2 class="display-l mt-7 max-w-[18ch] reveal">{title}</h2>
-    <p class="lead mt-8 reveal">{body}</p>
-    <div class="mt-10 flex flex-wrap gap-3 reveal">
-      <a href="/contact" class="btn btn-light">Start a conversation</a>
-      <a href="/contact#book" class="btn !border-[color-mix(in_srgb,var(--color-paper)_45%,transparent)] !text-[var(--color-paper)] hover:!bg-[var(--color-paper)] hover:!text-[var(--color-aubergine)] border">
-        Book a consultation
-      </a>
+    <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-7">
+        <hr class="rule-gold w-20 mb-7 reveal" />
+        <p class="eyebrow reveal">{eyebrow}</p>
+        <h2 class="display-xl mt-6 max-w-[14ch] reveal">{title}</h2>
+      </div>
+      <div class="lg:col-span-5">
+        <p class="lead reveal">{body}</p>
+        <div class="mt-8 flex flex-wrap gap-3 reveal">
+          <a href="/contact" class="btn btn-primary">Start a conversation</a>
+          <a href="/contact#book" class="btn btn-ghost">Book a consultation</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

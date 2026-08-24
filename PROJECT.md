@@ -186,6 +186,15 @@ Positioning statement for the design: *professional boutique female consulting* 
 
 ## 5. Design system
 
+> **Superseded — v2, August 2026.** The ivory/aubergine editorial system below was
+> built and rejected: it read reserved where the brand needs to read alive, and
+> its dark sections were the specific problem. The live system is
+> **female-founders.org as the core reference** — bright throughout, photography-led,
+> bold sans display — with the palette taken from Carla's own wardrobe (bright
+> green, dusty pink, foundational gold) and from the press-shoot backdrop.
+> §13 records what actually shipped; `src/styles/global.css` is the source of truth.
+> The section below is kept only as the record of what was tried.
+
 ### 5.1 Colour
 
 Warm ivory ground (not stark white), warm near-black ink, deep aubergine primary, brass secondary.
@@ -539,3 +548,73 @@ The lesson generalises: **a design system that remaps tokens by context needs
 both directions of the mapping, and needs a machine checking it.** `npm run a11y`
 runs axe over every route at two viewports and is the reason all three were
 caught. Run it before any deploy that touches colour or layout.
+
+---
+
+## 13. Design system v2 — what shipped
+
+**Core reference: female-founders.org.** Bright, photography-led, declarative.
+Structure borrowed directly: a full-sentence hero statement, a stat trio under
+the fold, a partner wall, a manifesto block, three audience blocks, big numbers,
+then the proof. The letter-spaced heading with a trailing full stop is theirs
+too, used on every major section heading.
+
+**No dark grounds anywhere.** v1's night sections and dark Esoterica page were
+the specific thing that failed. Everything is now paper, cream or sand.
+
+### Palette — from the photography and Carla's wardrobe
+
+```css
+--color-paper:  #FFFDF9   /* warm near-white */
+--color-cream:  #F6EFE2   /* the press-shoot backdrop, sampled */
+--color-sand:   #EBE0CC
+
+--color-ink:      #17130F
+--color-ink-soft: #423A31
+--color-muted:    #645A4D   /* AA on all three grounds */
+
+--color-gold:        #8A6220   /* foundational — eyebrows, rules, emphasis */
+--color-gold-bright: #D4A24C   /* decorative only */
+
+--color-green:      #5FC13C    /* the pop — icon chips, dots. Never text. */
+--color-green-deep: #27611D    /* text-safe green */
+
+--color-pink:      #DCA9A2     /* dusty pink — chips */
+--color-pink-deep: #8E4450     /* links, active nav, hover */
+```
+
+The cream ground is sampled from the backdrop of the Stefan Marcel Gerard press
+shoot, and the gold is the colour of the hoops Carla is wearing in it — so the
+site and the photography are the same material rather than a palette applied
+over the top.
+
+### Two measured constraints
+
+1. **`--color-green` and `--color-pink` can never carry text.** Bright green is
+   2.00:1 on cream. They are fills; `green-deep` (6.53 on cream) and `pink-deep`
+   (5.94) are the text-safe members of each family.
+2. **Icon chips are solid fills with ink strokes, not pale tints.** The first
+   attempt used soft tints, which measured 1.16:1 against a cream card — the
+   colour was invisible. Solid wardrobe colour sits at ~2:1 against the card and
+   carries the icon at ~8:1.
+
+### Icons
+
+Nine inline line-icons in `src/components/ui/Icon.astro`, each representing an
+actual deliverable rather than decorating the card. They are `aria-hidden`: the
+heading beside each one carries the meaning. Added because several cards ran to
+five or six lines of copy with nothing to break the wall.
+
+### Also corrected in this pass
+
+- **The practice-area cards printed the same sentence twice.** Each `body`
+  restated its own `summary` almost verbatim. Bodies now pick up where the
+  summary leaves off.
+- **`astro check` passed while the real build failed.** A bare `export type` in
+  an Astro component's frontmatter typechecks but breaks the client build
+  (`Unexpected "|"`). Types in `.astro` frontmatter stay local. Run the full
+  build, never just the check.
+- **The numbers band went over photography and came back off it.** Making text
+  legible over an image needs a scrim heavy enough that the photograph stops
+  reading as a photograph — reintroducing the dark slab this redesign exists to
+  remove. It is now a split: picture beside the figures, contrast guaranteed.

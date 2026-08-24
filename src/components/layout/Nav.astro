@@ -1,9 +1,6 @@
 ---
 import { site } from "~/data/site";
 
-interface Props { night?: boolean }
-const { night = false } = Astro.props;
-
 const links = [
   { href: "/work", label: "Work" },
   { href: "/coaching", label: "Coaching" },
@@ -17,16 +14,9 @@ const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
 const isActive = (href: string) => path === href || path.startsWith(href + "/");
 ---
 
-<header
-  class:list={[
-    "sticky top-0 z-40 border-b backdrop-blur",
-    night
-      ? "border-[color-mix(in_srgb,var(--color-paper)_18%,transparent)] bg-[color-mix(in_srgb,var(--color-night)_88%,transparent)]"
-      : "border-[var(--color-rule)] bg-[color-mix(in_srgb,var(--color-paper)_88%,transparent)]",
-  ]}
->
+<header class="sticky top-0 z-40 border-b border-[var(--color-rule)] bg-[color-mix(in_srgb,var(--color-paper)_92%,transparent)] backdrop-blur">
   <div class="container-page flex items-center justify-between gap-6 py-4">
-    <a href="/" class="font-[family-name:var(--font-display)] text-[1.35rem] leading-none tracking-[-0.01em]">
+    <a href="/" class="text-[1.2rem] font-bold leading-none tracking-[-0.03em]">
       {site.name}
     </a>
 
@@ -36,17 +26,16 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
           href={l.href}
           aria-current={isActive(l.href) ? "page" : undefined}
           class:list={[
-            "text-[14px] font-medium transition-colors",
+            "text-[14px] font-semibold transition-colors",
             isActive(l.href)
-              ? night ? "text-[var(--color-brass)]" : "text-[var(--color-aubergine)]"
-              : night ? "text-[color-mix(in_srgb,var(--color-paper)_78%,transparent)] hover:text-[var(--color-paper)]"
-                      : "text-[var(--color-ink-soft)] hover:text-[var(--color-aubergine)]",
+              ? "text-[var(--color-pink-deep)]"
+              : "text-[var(--color-ink-soft)] hover:text-[var(--color-pink-deep)]",
           ]}
         >
           {l.label}
         </a>
       ))}
-      <a href="/contact" class:list={["btn", night ? "btn-light" : "btn-primary", "!py-2.5 !px-5"]}>
+      <a href="/contact" class="btn btn-primary !py-2.5 !px-5">
         Start a conversation
       </a>
     </nav>
@@ -60,12 +49,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
         Menu
       </summary>
       <div
-        class:list={[
-          "absolute right-0 top-full mt-3 w-60 rounded-[var(--radius-lg)] border p-3 shadow-lg",
-          night
-            ? "bg-[var(--color-night)] border-[color-mix(in_srgb,var(--color-paper)_22%,transparent)]"
-            : "bg-[var(--color-paper)] border-[var(--color-rule)]",
-        ]}
+        class="absolute right-0 top-full mt-3 w-60 rounded-[var(--radius-lg)] border border-[var(--color-rule)] bg-[var(--color-paper)] p-3 shadow-lg"
       >
         <nav aria-label="Primary, mobile" class="flex flex-col">
           {links.map((l) => (
@@ -74,7 +58,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
               aria-current={isActive(l.href) ? "page" : undefined}
               class:list={[
                 "px-3 py-2.5 text-[15px] rounded-[var(--radius-sm)]",
-                isActive(l.href) ? "text-[var(--color-aubergine)] font-medium" : "",
+                isActive(l.href) ? "text-[var(--color-pink-deep)] font-semibold" : "",
               ]}
             >
               {l.label}

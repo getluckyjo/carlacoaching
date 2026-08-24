@@ -1,0 +1,41 @@
+---
+/*
+ * Responsive picture for the press-shoot assets. WebP with a JPEG fallback,
+ * explicit width/height so nothing shifts while it loads.
+ */
+interface Props {
+  name: "carla-portrait" | "carla-working" | "carla-candid";
+  alt: string;
+  widths?: number[];
+  ratio: [number, number];
+  sizes?: string;
+  class?: string;
+  loading?: "lazy" | "eager";
+  fetchpriority?: "high" | "auto";
+}
+const {
+  name, alt, ratio, class: className = "",
+  widths = name === "carla-working" ? [960, 1440, 1920] : [640, 960, 1280],
+  sizes = "(min-width: 768px) 50vw, 100vw",
+  loading = "lazy",
+  fetchpriority = "auto",
+} = Astro.props;
+
+const base = `/img/carla/${name}`;
+const srcset = widths.map((w) => `${base}-${w}.webp ${w}w`).join(", ");
+const fallbackW = widths[1];
+const fallbackH = Math.round((fallbackW * ratio[1]) / ratio[0]);
+---
+<picture class={className}>
+  <source type="image/webp" srcset={srcset} sizes={sizes} />
+  <img
+    src={`${base}.jpg`}
+    alt={alt}
+    width={fallbackW}
+    height={fallbackH}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+    class="w-full h-full object-cover"
+  />
+</picture>

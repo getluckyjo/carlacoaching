@@ -44,6 +44,8 @@ export type PracticeArea = {
   name: string;
   summary: string;
   body: string;
+  /** Icon name from src/components/ui/Icon.astro — represents the deliverable. */
+  icon: "compass" | "layers" | "network" | "globe" | "screen";
 };
 
 /** Five areas. The first four are verbatim from Website.pdf § WHAT I DO.
@@ -51,33 +53,101 @@ export type PracticeArea = {
 export const practiceAreas: readonly PracticeArea[] = [
   {
     slug: "leadership-development",
+    icon: "compass",
     name: "Leadership Development",
     summary: "Development that responds to the organisation you're actually in.",
-    body: "Designing leadership development that responds to the organisation you're actually in, not a generic leadership competency framework. From emerging leaders to senior executives, I design experiences that develop the capabilities, mindsets and behaviours organisations need for what comes next.",
+    body: "Not a generic competency framework. From emerging leaders to senior executives, I design experiences that build the capabilities, mindsets and behaviours an organisation needs for what comes next.",
   },
   {
     slug: "executive-education",
+    icon: "layers",
     name: "Executive Education & Programme Design",
     summary: "For organisations that need more than a collection of workshops.",
-    body: "Designing sophisticated, multi-format learning journeys for organisations that need more than a collection of workshops. I work across the full programme lifecycle — from understanding the strategic challenge and defining the architecture, through programme design, stakeholder alignment and delivery.",
+    body: "Multi-format learning journeys designed across the full programme lifecycle — understanding the strategic challenge, defining the architecture, then design, stakeholder alignment and delivery.",
   },
   {
     slug: "organisational-capability",
+    icon: "network",
     name: "Organisational Capability & Change",
     summary: "Connecting learning to the broader organisational system.",
-    body: "Connecting learning to the broader organisational system. Where new strategy, transformation or growth requires people to work differently, I help identify the capabilities, behaviours, structures and experiences that can enable that change.",
+    body: "Where new strategy, transformation or growth requires people to work differently, I help identify the capabilities, behaviours, structures and experiences that enable the change.",
   },
   {
     slug: "immersive-learning",
+    icon: "globe",
     name: "Immersive Learning",
     summary: "Experiences that take learning beyond the classroom.",
-    body: "Designing experiences that take learning beyond the classroom. International immersions, organisational visits, experiential learning and carefully curated encounters can create powerful opportunities for leaders to challenge assumptions, see systems differently and bring new possibilities back into their organisations.",
+    body: "International immersions, organisational visits and carefully curated encounters — powerful ways for leaders to challenge assumptions, see systems differently, and carry new possibilities back into their organisations.",
   },
   {
     slug: "digital-learning",
+    icon: "screen",
     name: "Digital, Blended & EdTech Design",
     summary: "Specialist content turned into learning that works at a distance.",
-    body: "Turning specialist content into digital and blended experiences that hold a learner's attention and actually build capability. I've designed digital learning for Cambridge Judge Business School, FutureLearn and the University of Bristol, and built the UCT Graduate School of Business's first blended programme. Where an organisation is moving learning online, the question is rarely the platform — it's the design.",
+    body: "I've designed digital learning for Cambridge Judge Business School, FutureLearn and the University of Bristol, and built UCT GSB's first blended programme. Where an organisation is moving learning online, the question is rarely the platform — it's the design.",
+  },
+];
+
+/* ─────────────────────────── Hero stats ───────────────────────────
+ * The trio directly under the hero — the female-founders "250+ / 500+ / 50%"
+ * device. Short enough to read in one glance, all traceable to the CV. */
+
+export const heroStats: readonly { value: string; label: string }[] = [
+  { value: "13", label: "African countries reached through AGRA leadership development" },
+  { value: "R10M+", label: "Programme budgets led at UCT Graduate School of Business" },
+  { value: "3", label: "Continents — Africa, Europe and the UK" },
+];
+
+/* ─────────────────────────── Manifesto ───────────────────────────
+ * The declarative block. Modelled on female-founders' "Women are not a niche."
+ * — short lines, stated flatly, no hedging. */
+
+export const manifesto = {
+  kicker: "Carla le Roux isn't here to run training. She's here to build capability.",
+  body: [
+    "Organisations struggle when strategy doesn't translate into what people need to know, do and change. A new strategy might require different leadership behaviours. A transformation might require new capabilities. But somewhere between the strategy document and the organisational reality, things get complicated.",
+    "Learning is not a department. It is how an organisation becomes able to do what it needs to do next.",
+  ],
+  pullquote: "Sometimes the answer is a leadership programme. And sometimes it's realising that a training programme isn't the answer at all.",
+} as const;
+
+/* ─────────────────────────── Audiences ───────────────────────────
+ * Three blocks, the female-founders "For Founders / For Partners / For
+ * Investors" structure. Each states the leverage, then asks for the meeting. */
+
+export type Audience = {
+  heading: string;
+  icon: "network" | "conversation" | "bridge";
+  punch: readonly string[];
+  body: string;
+  close: string;
+  cta: { label: string; href: string };
+};
+
+export const audiences: readonly Audience[] = [
+  {
+    heading: "For organisations",
+    icon: "network",
+    punch: ["Build the capability.", "Not just the programme."],
+    body: "Leadership development, executive education and organisational change designed around the challenge you're actually facing — from understanding the strategic problem, through programme architecture, to delivery and what makes it stick.",
+    close: "From strategic priority to capability that holds.",
+    cta: { label: "See the work", href: "/work" },
+  },
+  {
+    heading: "For leaders",
+    icon: "conversation",
+    punch: ["Think differently.", "Then act on it."],
+    body: "Integrative coaching for leaders stepping into something bigger, carrying a decision they keep circling, or navigating a transformation they didn't design. Systems thinking as much as individual development.",
+    close: "Space to think, and the accountability to move.",
+    cta: { label: "About coaching", href: "/coaching" },
+  },
+  {
+    heading: "For institutions crossing continents",
+    icon: "bridge",
+    punch: ["Africa and Europe.", "Both directions."],
+    body: "European universities want credible access to Africa as the growth market. African organisations want current international practice, adapted properly. Very few people have delivered on both sides. Carla has — UCT GSB, AMI and AGRA on one; Cambridge Judge, FutureLearn and Bristol on the other.",
+    close: "A bridge that has actually been walked.",
+    cta: { label: "See both sides", href: "#bridge" },
   },
 ];
 
@@ -94,6 +164,7 @@ export const practiceAreas: readonly PracticeArea[] = [
 
 export type BridgeSide = {
   audience: string;
+  icon: "globe" | "compass";
   want: string;
   offer: string;
   proof: readonly string[];
@@ -102,6 +173,7 @@ export type BridgeSide = {
 export const bridge: readonly BridgeSide[] = [
   {
     audience: "European universities & business schools",
+    icon: "globe",
     want: "Access to Africa as the growth market — credibly, and with partners who will still be there in year three.",
     offer:
       "Programme design and partnership development that works on the ground in African markets, rather than exporting a European curriculum and hoping. I know how these programmes are bought, staffed, accredited and actually delivered on both continents.",
@@ -113,6 +185,7 @@ export const bridge: readonly BridgeSide[] = [
   },
   {
     audience: "African corporates & institutions",
+    icon: "compass",
     want: "Access to the latest in skills, learning practice and innovation — without paying for a programme designed for somewhere else.",
     offer:
       "Bringing current international practice into African organisations and adapting it properly: same rigour, local relevance, and a design that survives contact with the context it lands in.",

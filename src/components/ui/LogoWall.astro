@@ -10,8 +10,6 @@ import { clients } from "~/data/site";
  * The track is duplicated so the -50% translate loops seamlessly; the copy is
  * aria-hidden so a screen reader hears the list once.
  */
-interface Props { night?: boolean }
-const { night = false } = Astro.props;
 ---
 <div class="marquee py-2">
   <div class="marquee-track">
@@ -23,10 +21,7 @@ const { night = false } = Astro.props;
       >
         {clients.map((c) => (
           <li
-            class:list={[
-              "whitespace-nowrap text-[15px] font-medium tracking-[0.02em]",
-              night ? "text-[color-mix(in_srgb,var(--color-paper)_72%,transparent)]" : "text-[var(--color-muted)]",
-            ]}
+            class="whitespace-nowrap text-[15px] font-semibold tracking-[0.01em] text-[var(--color-muted)]"
           >
             {c}
           </li>

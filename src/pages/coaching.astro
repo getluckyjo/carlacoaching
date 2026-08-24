@@ -43,7 +43,7 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
   <section class="container-page pt-16 pb-8 md:pt-24">
     <p class="eyebrow eyebrow-ruled reveal">Coaching</p>
     <h1 class="display-xl mt-8 max-w-[15ch] reveal">
-      Turning insight into <span class="display-italic display-accent">action</span>.
+      Turning insight into <span class="display-italic display-gold">action</span>.
     </h1>
     <p class="lead mt-8 reveal">
       Coaching creates the space to think differently, navigate complexity, and
@@ -77,12 +77,12 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
   </section>
 
   <!-- Who -->
-  <section class="bg-[var(--color-linen)] border-y border-[var(--color-rule)]">
+  <section class="bg-[var(--color-cream)] border-y border-[var(--color-rule)]">
     <div class="container-page section">
-      <SectionHeader eyebrow="Who I coach" />
+      <SectionHeader eyebrow="Who I coach" title="Leaders at a turning point" />
       <ul class="mt-12 grid gap-px bg-[var(--color-rule)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden md:grid-cols-2">
         {forWhom.map((w) => (
-          <li class="bg-[var(--color-linen)] p-8 text-[1.05rem] reveal">{w}</li>
+          <li class="bg-[var(--color-cream)] p-8 text-[1.05rem] reveal">{w}</li>
         ))}
       </ul>
     </div>
@@ -133,7 +133,7 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
 
   <!-- FAQ -->
   <section class="container-page section">
-    <SectionHeader eyebrow="Questions" />
+    <SectionHeader eyebrow="Questions" title="Before you get in touch" />
     <dl class="mt-12 max-w-3xl">
       {coachingFaqs.map((f) => (
         <div class="border-t border-[var(--color-rule)] last:border-b py-7 reveal">
