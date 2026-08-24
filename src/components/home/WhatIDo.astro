@@ -3,7 +3,25 @@ import SectionHeader from "~/components/ui/SectionHeader.astro";
 import Icon from "~/components/ui/Icon.astro";
 import { practiceAreas } from "~/data/site";
 ---
-<section class="container-page section">
+<section class="container-page section relative isolate overflow-hidden">
+  <picture
+    aria-hidden="true"
+    class="pcs-backdrop pointer-events-none absolute inset-0 -z-10"
+  >
+    <source
+      type="image/webp"
+      srcset="/img/art/pcs-wave-spirits-960.webp 960w, /img/art/pcs-wave-spirits-1440.webp 1440w, /img/art/pcs-wave-spirits-1920.webp 1920w, /img/art/pcs-wave-spirits-2400.webp 2400w"
+      sizes="100vw"
+    />
+    <img
+      src="/img/art/pcs-wave-spirits.jpg"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover"
+    />
+  </picture>
+
   <SectionHeader
     eyebrow="What I do"
     title="Five areas of practice"
@@ -14,7 +32,7 @@ import { practiceAreas } from "~/data/site";
     {practiceAreas.map((area, i) => (
       <li class="card flex flex-col reveal">
         <div class="flex items-center gap-4">
-          <span class="icon-chip"><Icon name={area.icon} size={24} /></span>
+          <span class="icon-chip icon-chip-blue"><Icon name={area.icon} size={24} /></span>
           <span class="eyebrow !text-[var(--color-muted)]">{String(i + 1).padStart(2, "0")}</span>
         </div>
         <h3 class="mt-5">{area.name}</h3>
@@ -28,3 +46,17 @@ import { practiceAreas } from "~/data/site";
     <a href="/work" class="btn btn-ghost">How this works in practice</a>
   </div>
 </section>
+
+<style>
+  /*
+    The full 1903 Pamela Colman Smith watercolour of wave spirits — the
+    same hand behind the Rider-Waite tarot art on /esoterica — sits behind
+    the whole section at low opacity, fading out at top and bottom so it
+    doesn't hard-cut against the sections above and below.
+  */
+  .pcs-backdrop {
+    opacity: 0.14;
+    mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+  }
+</style>
