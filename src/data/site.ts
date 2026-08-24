@@ -313,12 +313,19 @@ export type Role = {
   title: string;
   years: string;
   points: readonly string[];
+  /** Maps to the wordmark drawn by ClientLogo.astro. Omitted where `org`
+   *  isn't a named brand (e.g. "Independent Consulting"). */
+  logoSlug?:
+    | "uct-gsb" | "ami" | "agra" | "cambridge-judge" | "futurelearn"
+    | "bristol" | "salga" | "tekano" | "columba"
+    | "ixperience" | "red-yellow";
 };
 
 /** From the CV. */
 export const experience: readonly Role[] = [
   {
     org: "UCT Graduate School of Business",
+    logoSlug: "uct-gsb",
     title: "Learning Design Partner",
     years: "2023 — present",
     points: [
@@ -330,6 +337,7 @@ export const experience: readonly Role[] = [
   },
   {
     org: "African Management Institute",
+    logoSlug: "ami",
     title: "Learning Design Lead",
     years: "2021 — 2023",
     points: [
@@ -349,6 +357,7 @@ export const experience: readonly Role[] = [
   },
   {
     org: "iXperience",
+    logoSlug: "ixperience",
     title: "Head of Global Partnerships · Programme Director, Lisbon",
     years: "2019 — 2020",
     points: [
@@ -358,6 +367,7 @@ export const experience: readonly Role[] = [
   },
   {
     org: "UCT Graduate School of Business",
+    logoSlug: "uct-gsb",
     title: "Business Developer",
     years: "2016 — 2019",
     points: [
@@ -367,6 +377,7 @@ export const experience: readonly Role[] = [
   },
   {
     org: "The Red & Yellow Creative School of Business",
+    logoSlug: "red-yellow",
     title: "Instructional Designer",
     years: "2013 — 2015",
     points: [

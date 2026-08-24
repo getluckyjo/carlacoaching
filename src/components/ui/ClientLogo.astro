@@ -1,17 +1,21 @@
 ---
 /*
- * Client wordmarks, drawn inline as text — not scanned/traced trademarks.
- * Real logo artwork for these organisations was never obtained (see
- * PROJECT.md §10: permissions were confirmed for naming and a logo
+ * Organisation wordmarks, drawn inline as text — not scanned/traced
+ * trademarks. Real logo artwork for these organisations was never obtained
+ * (see PROJECT.md §10: permissions were confirmed for naming and a logo
  * *treatment*, not for reproducing anyone's actual mark), so each renders as
  * a clean, uniformly-weighted typographic wordmark in the site's own
  * typeface — the "monochrome, optically sized to equal weight" treatment
- * PROJECT.md calls for. Fill is currentColor: the wall sets the ink tone
+ * PROJECT.md calls for. Fill is currentColor: the caller sets the ink tone
  * once, same as Icon.astro does for the line icons.
+ *
+ * Used by the client wall (LogoWall.astro) and the Experience timeline
+ * (about.astro).
  */
 type ClientSlug =
   | "uct-gsb" | "ami" | "agra" | "cambridge-judge" | "futurelearn"
-  | "bristol" | "salga" | "tekano" | "columba";
+  | "bristol" | "salga" | "tekano" | "columba"
+  | "ixperience" | "red-yellow";
 
 interface Props {
   slug: ClientSlug;
@@ -31,6 +35,8 @@ const marks: Record<ClientSlug, { label: string; width: number; tracking: number
   "salga":           { label: "SALGA",            width: 104, tracking: 0.06 },
   "tekano":          { label: "TEKANO",           width: 118, tracking: 0.06 },
   "columba":         { label: "COLUMBA",          width: 136, tracking: 0.05 },
+  "ixperience":      { label: "iXperience",        width: 140, tracking: 0.01 },
+  "red-yellow":      { label: "Red & Yellow",      width: 172, tracking: 0.01 },
 };
 const mark = marks[slug];
 ---
