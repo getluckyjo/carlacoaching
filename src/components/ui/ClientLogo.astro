@@ -1,0 +1,51 @@
+---
+/*
+ * Client wordmarks, drawn inline as text — not scanned/traced trademarks.
+ * Real logo artwork for these organisations was never obtained (see
+ * PROJECT.md §10: permissions were confirmed for naming and a logo
+ * *treatment*, not for reproducing anyone's actual mark), so each renders as
+ * a clean, uniformly-weighted typographic wordmark in the site's own
+ * typeface — the "monochrome, optically sized to equal weight" treatment
+ * PROJECT.md calls for. Fill is currentColor: the wall sets the ink tone
+ * once, same as Icon.astro does for the line icons.
+ */
+type ClientSlug =
+  | "uct-gsb" | "ami" | "agra" | "cambridge-judge" | "futurelearn"
+  | "bristol" | "salga" | "tekano" | "columba";
+
+interface Props {
+  slug: ClientSlug;
+  name: string;
+  class?: string;
+}
+const { slug, name, class: className = "" } = Astro.props;
+
+/** viewBox width tuned per label so the text sits centred with even margin. */
+const marks: Record<ClientSlug, { label: string; width: number; tracking: number }> = {
+  "uct-gsb":         { label: "UCT GSB",         width: 132, tracking: 0.05 },
+  "ami":             { label: "AMI",             width: 72,  tracking: 0.08 },
+  "agra":            { label: "AGRA",            width: 92,  tracking: 0.08 },
+  "cambridge-judge": { label: "CAMBRIDGE JUDGE",  width: 268, tracking: 0.04 },
+  "futurelearn":     { label: "FUTURELEARN",      width: 208, tracking: 0.03 },
+  "bristol":         { label: "BRISTOL",          width: 132, tracking: 0.06 },
+  "salga":           { label: "SALGA",            width: 104, tracking: 0.06 },
+  "tekano":          { label: "TEKANO",           width: 118, tracking: 0.06 },
+  "columba":         { label: "COLUMBA",          width: 136, tracking: 0.05 },
+};
+const mark = marks[slug];
+---
+<svg
+  viewBox={`0 0 ${mark.width} 32`}
+  fill="currentColor"
+  role="img"
+  aria-label={name}
+  class={className}
+>
+  <text
+    x={mark.width / 2}
+    y="21"
+    text-anchor="middle"
+    style={`font-family:var(--font-sans);font-weight:700;letter-spacing:${mark.tracking}em`}
+    font-size="19"
+  >{mark.label}</text>
+</svg>

@@ -1,11 +1,11 @@
 ---
 import { clients } from "~/data/site";
+import ClientLogo from "~/components/ui/ClientLogo.astro";
 
 /*
- * Client wall. Rendered as wordmarks, not image logos: logo permissions are
- * still to be confirmed (PROJECT.md §10), and naming an organisation you have
- * genuinely worked with is a much lower bar than reproducing its trademark.
- * Swap to <img> per client once each one is cleared.
+ * Client wall. Each mark is a typographic wordmark drawn by ClientLogo.astro,
+ * not a scanned/traced logo — see that component's header comment and
+ * PROJECT.md §10.
  *
  * The track is duplicated so the -50% translate loops seamlessly; the copy is
  * aria-hidden so a screen reader hears the list once.
@@ -20,10 +20,8 @@ import { clients } from "~/data/site";
         aria-label={copy === 0 ? "Selected clients" : undefined}
       >
         {clients.map((c) => (
-          <li
-            class="whitespace-nowrap text-[15px] font-semibold tracking-[0.01em] text-[var(--color-muted)]"
-          >
-            {c}
+          <li class="shrink-0 text-[var(--color-muted)]">
+            <ClientLogo slug={c.slug} name={c.name} class="h-6 w-auto" />
           </li>
         ))}
       </ul>

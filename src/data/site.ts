@@ -252,18 +252,25 @@ export const metrics: readonly Metric[] = [
 
 /* ─────────────────────────── Clients ─────────────────────────── */
 
-/** From the CV. Logo permissions still to be confirmed — PROJECT.md §10.
- *  Until then these render as a wordmark wall, not image logos. */
-export const clients: readonly string[] = [
-  "UCT Graduate School of Business",
-  "African Management Institute",
-  "AGRA",
-  "Cambridge Judge Business School",
-  "FutureLearn",
-  "University of Bristol",
-  "SALGA",
-  "Tekano — Atlantic Fellows for Health Equity",
-  "Columba Leadership",
+/** From the CV. `slug` maps to the wordmark drawn by ClientLogo.astro —
+ *  see PROJECT.md §10 on why these are typographic marks, not scanned logos. */
+export type Client = {
+  name: string;
+  slug:
+    | "uct-gsb" | "ami" | "agra" | "cambridge-judge" | "futurelearn"
+    | "bristol" | "salga" | "tekano" | "columba";
+};
+
+export const clients: readonly Client[] = [
+  { name: "UCT Graduate School of Business", slug: "uct-gsb" },
+  { name: "African Management Institute", slug: "ami" },
+  { name: "AGRA", slug: "agra" },
+  { name: "Cambridge Judge Business School", slug: "cambridge-judge" },
+  { name: "FutureLearn", slug: "futurelearn" },
+  { name: "University of Bristol", slug: "bristol" },
+  { name: "SALGA", slug: "salga" },
+  { name: "Tekano — Atlantic Fellows for Health Equity", slug: "tekano" },
+  { name: "Columba Leadership", slug: "columba" },
 ];
 
 /* ─────────────────────────── How I work ─────────────────────────── */

@@ -488,7 +488,7 @@ Everything here needs Carla, and the first three block launch.
 **Content**
 
 - [ ] **Photography.** Does a shoot exist? If not it needs commissioning — the design depends on real imagery at scale, and stock is out.
-- [ ] **Client logo permissions.** Which of UCT GSB, AMI, AGRA, Cambridge Judge, FutureLearn, University of Bristol, SALGA can be named and logo'd? Some may need sign-off, particularly where work was done through an intermediary (Hubble Studios, Elevate Learning).
+- [x] **Client logo permissions.** Confirmed — all clients on the wall can be named and logo'd. Rendered as typographic wordmarks (`ClientLogo.astro`), not scanned/traced trademark artwork, which real logo files were never sourced for.
 - [ ] **Pricing.** Published or on enquiry, for each of the four lines?
 - [ ] **Testimonials.** None exist yet. Three named quotes would do more for conversion than any design decision in this document.
 - [ ] **Coaching formats** — 1:1, team, programme-embedded? Session and engagement length?
