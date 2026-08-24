@@ -50,6 +50,15 @@
   --color-pink-deep:  #8E4450;
   --color-pink-soft:  #F3DAD5;
 
+  /* —— Wave blue: the Pamela Colman Smith accent ——
+     Sampled straight from the 1903 watercolour behind What I do and the
+     tarot art on /esoterica — the one cool note against the warm palette.
+     Same rule again: `blue` decorates, `blue-deep` carries text (8.7:1 on
+     paper), `blue-soft` is the pale tint. */
+  --color-blue:       #4C8394;
+  --color-blue-deep:  #1F4E5C;
+  --color-blue-soft:  #E3ECEC;
+
   /* —— Type —— */
   --font-display: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-sans:    "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
@@ -245,6 +254,7 @@
   }
   .icon-chip-pink { background: var(--color-pink); }
   .icon-chip-gold { background: var(--color-gold-bright); }
+  .icon-chip-blue { background: var(--color-blue); }
 
   /* —— Prose —— */
   .prose { font-size: 18px; line-height: 1.72; color: var(--color-ink-soft); }
@@ -290,6 +300,11 @@
   .rule-gold {
     height: 2px; border: 0;
     background: linear-gradient(90deg, var(--color-gold-bright), color-mix(in srgb, var(--color-gold-bright) 12%, transparent));
+  }
+  /* Same device, in the wave blue — used where the Pamela Colman Smith art appears. */
+  .rule-blue {
+    height: 2px; border: 0;
+    background: linear-gradient(90deg, var(--color-blue), color-mix(in srgb, var(--color-blue) 12%, transparent));
   }
 }
 

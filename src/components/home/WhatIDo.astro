@@ -3,7 +3,12 @@ import SectionHeader from "~/components/ui/SectionHeader.astro";
 import Icon from "~/components/ui/Icon.astro";
 import { practiceAreas } from "~/data/site";
 ---
-<section class="container-page section">
+<section class="container-page section relative isolate overflow-hidden">
+  <div
+    aria-hidden="true"
+    class="pcs-texture pointer-events-none absolute inset-0 -z-10"
+  ></div>
+
   <SectionHeader
     eyebrow="What I do"
     title="Five areas of practice"
@@ -14,7 +19,7 @@ import { practiceAreas } from "~/data/site";
     {practiceAreas.map((area, i) => (
       <li class="card flex flex-col reveal">
         <div class="flex items-center gap-4">
-          <span class="icon-chip"><Icon name={area.icon} size={24} /></span>
+          <span class="icon-chip icon-chip-blue"><Icon name={area.icon} size={24} /></span>
           <span class="eyebrow !text-[var(--color-muted)]">{String(i + 1).padStart(2, "0")}</span>
         </div>
         <h3 class="mt-5">{area.name}</h3>
@@ -28,3 +33,22 @@ import { practiceAreas } from "~/data/site";
     <a href="/work" class="btn btn-ghost">How this works in practice</a>
   </div>
 </section>
+
+<style>
+  /*
+    The backdrop is a single wave-scroll motif cropped from Pamela Colman
+    Smith's 1903 watercolour of wave spirits — the same hand behind the
+    Rider-Waite tarot art on /esoterica. Feathered to a soft medallion and
+    tiled at low opacity so it reads as paper texture, not an image.
+  */
+  .pcs-texture {
+    background-image: image-set(
+      url("/img/art/pcs-wave-texture.webp") type("image/webp"),
+      url("/img/art/pcs-wave-texture.png") type("image/png")
+    );
+    background-repeat: repeat;
+    background-size: 340px 163px;
+    background-position: center;
+    opacity: 0.16;
+  }
+</style>
