@@ -4,10 +4,23 @@ import Icon from "~/components/ui/Icon.astro";
 import { practiceAreas } from "~/data/site";
 ---
 <section class="container-page section relative isolate overflow-hidden">
-  <div
+  <picture
     aria-hidden="true"
-    class="pcs-texture pointer-events-none absolute inset-0 -z-10"
-  ></div>
+    class="pcs-backdrop pointer-events-none absolute inset-0 -z-10"
+  >
+    <source
+      type="image/webp"
+      srcset="/img/art/pcs-wave-spirits-960.webp 960w, /img/art/pcs-wave-spirits-1440.webp 1440w, /img/art/pcs-wave-spirits-1920.webp 1920w, /img/art/pcs-wave-spirits-2400.webp 2400w"
+      sizes="100vw"
+    />
+    <img
+      src="/img/art/pcs-wave-spirits.jpg"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover"
+    />
+  </picture>
 
   <SectionHeader
     eyebrow="What I do"
@@ -36,19 +49,14 @@ import { practiceAreas } from "~/data/site";
 
 <style>
   /*
-    The backdrop is a single wave-scroll motif cropped from Pamela Colman
-    Smith's 1903 watercolour of wave spirits — the same hand behind the
-    Rider-Waite tarot art on /esoterica. Feathered to a soft medallion and
-    tiled at low opacity so it reads as paper texture, not an image.
+    The full 1903 Pamela Colman Smith watercolour of wave spirits — the
+    same hand behind the Rider-Waite tarot art on /esoterica — sits behind
+    the whole section at low opacity, fading out at top and bottom so it
+    doesn't hard-cut against the sections above and below.
   */
-  .pcs-texture {
-    background-image: image-set(
-      url("/img/art/pcs-wave-texture.webp") type("image/webp"),
-      url("/img/art/pcs-wave-texture.png") type("image/png")
-    );
-    background-repeat: repeat;
-    background-size: 340px 163px;
-    background-position: center;
-    opacity: 0.16;
+  .pcs-backdrop {
+    opacity: 0.14;
+    mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
   }
 </style>
