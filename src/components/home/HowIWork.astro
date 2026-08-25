@@ -2,7 +2,25 @@
 import SectionHeader from "~/components/ui/SectionHeader.astro";
 import { howIWork } from "~/data/site";
 ---
-<section class="container-page section">
+<section class="container-page section relative isolate overflow-hidden">
+  <picture
+    aria-hidden="true"
+    class="pcs-backdrop pointer-events-none absolute inset-0 -z-10"
+  >
+    <source
+      type="image/webp"
+      srcset="/img/art/pcs-balcony-960.webp 960w, /img/art/pcs-balcony-1440.webp 1440w, /img/art/pcs-balcony-1920.webp 1920w"
+      sizes="100vw"
+    />
+    <img
+      src="/img/art/pcs-balcony.jpg"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover object-[75%_35%]"
+    />
+  </picture>
+
   <div class="grid gap-12 lg:grid-cols-12">
     <div class="lg:col-span-5">
       <SectionHeader eyebrow="How I work" title="I start with the problem, not the programme" />
@@ -30,3 +48,16 @@ import { howIWork } from "~/data/site";
     </div>
   </div>
 </section>
+
+<style>
+  /*
+    Another Pamela Colman Smith watercolour (1907) — a figure on a balcony
+    looking out over a mountain range — faded in behind the section at low
+    opacity, same treatment as the painting behind What I do.
+  */
+  .pcs-backdrop {
+    opacity: 0.13;
+    mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+  }
+</style>
