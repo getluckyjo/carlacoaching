@@ -329,21 +329,6 @@
     background-size: 160px 160px;
     background-blend-mode: multiply;
   }
-
-  /* A pointillist stipple, hand-built after The Star (tarot XVII) — the
-     card shades its figure and ground in scattered dots rather than flat
-     fills. Dots carry their own fill-opacity, so this composes with any
-     background-color underneath without needing blend-mode. Reserved for
-     /esoterica's hero, the one spot on that page with no paper-texture. */
-  .stipple-texture {
-    background-image: url("/img/art/star-stipple.svg");
-    background-repeat: repeat;
-    background-size: 140px 140px;
-    mask-image: linear-gradient(to bottom, black, transparent), linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    mask-composite: intersect;
-    -webkit-mask-image: linear-gradient(to bottom, black, transparent), linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-composite: source-in;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

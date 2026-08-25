@@ -50,7 +50,23 @@ const steps = [
   ]}
 >
   <section class="container-page pt-14 pb-10 md:pt-20 relative isolate overflow-hidden">
-    <div aria-hidden="true" class="stipple-texture pointer-events-none absolute inset-0 -z-10"></div>
+    <picture
+      aria-hidden="true"
+      class="pcs-backdrop pointer-events-none absolute inset-0 -z-10"
+    >
+      <source
+        type="image/webp"
+        srcset="/img/art/pcs-bach-640.webp 640w, /img/art/pcs-bach-960.webp 960w, /img/art/pcs-bach-1280.webp 1280w, /img/art/pcs-bach-1600.webp 1600w"
+        sizes="100vw"
+      />
+      <img
+        src="/img/art/pcs-bach.jpg"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        class="h-full w-full object-cover object-[50%_40%]"
+      />
+    </picture>
     <p class="eyebrow reveal">Esoterica</p>
     <h1 class="display-xl mt-6 max-w-[16ch] reveal">
       The question underneath the <span class="display-gold">question</span>.
@@ -128,3 +144,17 @@ const steps = [
     body="Readings are available in person in Cape Town and remotely. Formats, length and fees are being finalised — get in touch and I'll send you the current options."
   />
 </BaseLayout>
+
+<style>
+  /*
+    A third Pamela Colman Smith piece — robed figures sounding long curved
+    horns against a mountain skyline — faded in behind the esoterica hero,
+    same low-opacity top/bottom-masked treatment as the paintings behind
+    What I do and How I work.
+  */
+  .pcs-backdrop {
+    opacity: 0.14;
+    mask-image: linear-gradient(to bottom, black, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  }
+</style>
