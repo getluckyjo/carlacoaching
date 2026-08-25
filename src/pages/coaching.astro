@@ -77,12 +77,12 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
   </section>
 
   <!-- Who -->
-  <section class="bg-[var(--color-cream)] border-y border-[var(--color-rule)]">
+  <section class="bg-[var(--color-cream)] paper-texture border-y border-[var(--color-rule)]">
     <div class="container-page section">
       <SectionHeader eyebrow="Who I coach" title="Leaders at a turning point" />
       <ul class="mt-12 grid gap-px bg-[var(--color-rule)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden md:grid-cols-2">
         {forWhom.map((w) => (
-          <li class="bg-[var(--color-cream)] p-8 text-[1.05rem] reveal">{w}</li>
+          <li class="bg-[var(--color-cream)] paper-texture p-8 text-[1.05rem] reveal">{w}</li>
         ))}
       </ul>
     </div>
