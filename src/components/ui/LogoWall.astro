@@ -15,13 +15,13 @@ import { clients } from "~/data/site";
   <div class="marquee-track">
     {[0, 1].map((copy) => (
       <ul
-        class="flex items-center gap-12 pr-12 shrink-0"
+        class="flex items-center gap-16 pr-16 shrink-0"
         aria-hidden={copy === 1 ? "true" : undefined}
         aria-label={copy === 0 ? "Selected clients" : undefined}
       >
         {clients.map((c) => (
           <li
-            class="whitespace-nowrap text-[15px] font-semibold tracking-[0.01em] text-[var(--color-muted)]"
+            class="whitespace-nowrap text-[30px] font-bold tracking-[0.01em] text-[var(--color-ink-soft)]"
           >
             {c}
           </li>
