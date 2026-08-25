@@ -307,6 +307,17 @@
     height: 2px; border: 0;
     background: linear-gradient(90deg, var(--color-blue), color-mix(in srgb, var(--color-blue) 12%, transparent));
   }
+
+  /* A cotton-paper fibre scan, multiplied into every cream surface so the
+     "paper" in the palette reads as material rather than a flat tint. Pair
+     with a bg-[var(--color-cream)] (or any cream-ground) element — this only
+     sets background-image/-blend-mode, so the two compose on one element. */
+  .paper-texture {
+    background-image: url("/img/art/paper-texture.webp");
+    background-repeat: repeat;
+    background-size: 160px 160px;
+    background-blend-mode: multiply;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
