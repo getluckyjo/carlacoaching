@@ -49,7 +49,8 @@ const steps = [
     ]),
   ]}
 >
-  <section class="container-page pt-14 pb-10 md:pt-20">
+  <section class="container-page pt-14 pb-10 md:pt-20 relative isolate overflow-hidden">
+    <div aria-hidden="true" class="stipple-texture pointer-events-none absolute inset-0 -z-10"></div>
     <p class="eyebrow reveal">Esoterica</p>
     <h1 class="display-xl mt-6 max-w-[16ch] reveal">
       The question underneath the <span class="display-gold">question</span>.
@@ -111,7 +112,7 @@ const steps = [
       {steps.map(([name, body], i) => (
         <li class="card card-cream paper-texture reveal">
           <div class="flex items-center gap-3">
-            <span class="icon-chip icon-chip-blue"><Icon name="spark" size={20} /></span>
+            <span class="icon-chip icon-chip-star-gold"><Icon name="starEight" size={20} /></span>
             <span class="eyebrow !text-[var(--color-muted)]">{String(i + 1).padStart(2, "0")}</span>
           </div>
           <h3 class="mt-4">{name}</h3>
