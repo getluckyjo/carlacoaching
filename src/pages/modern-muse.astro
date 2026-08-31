@@ -7,30 +7,35 @@ import { site } from "~/data/site";
 import { breadcrumbSchema } from "~/lib/seo";
 
 /*
- * Esoterica – the tarot room.
+ * Modern Muse – the tarot room. Named for the practice Carla actually trades
+ * under (@modernmuse_tarot); this page was called "Esoterica" until Aug 2026.
  *
  * v1 rendered this on a full dark ground. It read heavy and separated the page
  * from the rest of the site. It is now light like everything else: the same
  * cream, the same gold, the same type. What sets it apart is pace and width –
  * more air, narrower measure, fewer things on screen at once.
  *
- * Register: composed and unmystified. No fortune-telling voice, no purple prose.
- * The failure mode isn't "tarot on a consulting site" – it's cheap-looking tarot
- * on a consulting site.
+ * Register: her own, taken from how she actually writes about this work – see
+ * .claude/skills/carla-voice/references/modern-muse-press-2026.md. Playful and
+ * self-aware, with the honest claim kept underneath the joke: "less about
+ * predicting the future and more about creating a space where people can
+ * reflect". The failure mode here is solemnity, not levity. No fortune-telling
+ * voice, no purple prose, and equally no hush.
  */
 
 const isnt = [
   "Fortune telling.",
-  "A prediction you're supposed to act on.",
-  "A substitute for therapy, coaching or advice.",
-  "Something you need to believe in for it to be useful.",
+  "A prediction you're meant to obey.",
+  "A substitute for therapy, coaching or medical advice.",
+  "Something you have to believe in for it to work.",
 ];
 
 const is = [
   "A structured way of looking at a situation from an angle you haven't tried.",
-  "A set of images old enough and open enough to hold almost any human question.",
+  "Images old enough and open enough to hold almost any human question.",
   "An hour of undivided attention on something you've been carrying alone.",
   "A conversation, with a deck on the table.",
+  "Occasionally, a mild existential revelation.",
 ];
 
 const steps = [
@@ -40,12 +45,12 @@ const steps = [
 ];
 ---
 <BaseLayout
-  title="Esoterica"
-  description="Esoterica – tarot readings with Carla le Roux. A structured reflective practice for surfacing the question underneath the question. Cape Town and remote."
+  title="Modern Muse"
+  description="Modern Muse – tarot readings with Carla le Roux. A structured reflective practice for surfacing the question underneath the question. Cape Town and remote."
   jsonLd={[
     breadcrumbSchema([
       { name: "Home", url: site.domain },
-      { name: "Esoterica", url: `${site.domain}/esoterica` },
+      { name: "Modern Muse", url: `${site.domain}/modern-muse` },
     ]),
   ]}
 >
@@ -67,7 +72,7 @@ const steps = [
         class="h-full w-full object-cover object-[50%_40%]"
       />
     </picture>
-    <p class="eyebrow reveal">Esoterica</p>
+    <p class="eyebrow reveal">Modern Muse</p>
     <h1 class="display-xl mt-6 max-w-[16ch] reveal">
       The question underneath the <span class="display-gold">question</span>.
     </h1>
@@ -86,10 +91,12 @@ const steps = [
           what's actually going on underneath a stated problem.
         </p>
         <p>
-          A reading is a structured reflective practice. The cards don't tell you
-          anything. They give you a set of images specific enough to be provoking
-          and open enough to be yours, and then they hold still while you work out
-          what you think. That is a surprisingly rare thing to be given.
+          It is less about predicting the future than about making a space where
+          you can think, reflect, laugh and unravel slightly. The cards don't tell
+          you anything. They give you a set of images specific enough to be
+          provoking and open enough to be yours, and then they hold still while
+          you work out what you make of them. That is a surprisingly rare thing to
+          be given.
         </p>
         <p class="text-[var(--color-ink)] font-medium">
           If that sounds like it has something in common with coaching, it does.
@@ -138,17 +145,36 @@ const steps = [
     </ol>
   </section>
 
+  <section class="container-page section-tight">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-6 lg:col-start-4 space-y-6 text-[var(--color-ink-soft)] reveal">
+        <hr class="rule-blue w-20" />
+        <p class="text-[var(--color-ink)] font-medium">Not only one to one.</p>
+        <p>
+          Modern Muse reads at festivals, weddings and private events around Cape
+          Town, and I'm a founding member of Cursed Thursdays – a tarot night run
+          with a collective of readers, for people who prefer their existential
+          revelations in company.
+        </p>
+        <p>
+          <a href="https://www.instagram.com/modernmuse_tarot" rel="me noopener">@modernmuse_tarot</a>
+          for where the deck turns up next.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <BigCTA
     eyebrow="Sittings"
     title="Book a reading."
-    body="Readings are available in person in Cape Town and remotely. Formats, length and fees are being finalised – get in touch and I'll send you the current options."
+    body="Readings happen in person in Cape Town and remotely. Formats, length and fees are being finalised – get in touch and I'll send you the current options."
   />
 </BaseLayout>
 
 <style>
   /*
     A third Pamela Colman Smith piece – robed figures sounding long curved
-    horns against a mountain skyline – faded in behind the esoterica hero,
+    horns against a mountain skyline – faded in behind the Modern Muse hero,
     same low-opacity top/bottom-masked treatment as the paintings behind
     What I do and How I work.
   */

@@ -52,7 +52,7 @@
 
   /* –– Wave blue: the Pamela Colman Smith accent ––
      Sampled straight from the 1903 watercolour behind What I do and the
-     tarot art on /esoterica – the one cool note against the warm palette.
+     tarot art on /modern-muse – the one cool note against the warm palette.
      Same rule again: `blue` decorates, `blue-deep` carries text (8.7:1 on
      paper), `blue-soft` is the pale tint. */
   --color-blue:       #4C8394;
@@ -63,7 +63,7 @@
      Deepened from the card's pale star fill (#F2F36F raw – too washed out
      to read as a chip on cream) into the same decorative register as the
      other bright accents (~1.8:1 on cream, ink icon carries legibility).
-     Reserved for /esoterica only – this is the tarot card's own colour,
+     Reserved for /modern-muse only – this is the tarot card's own colour,
      not a sitewide accent like the wave blue. */
   --color-star-gold:      #D9BE2E;
   --color-star-gold-deep: #6E540A;
