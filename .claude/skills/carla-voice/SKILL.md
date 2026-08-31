@@ -1,143 +1,154 @@
 ---
 name: carla-voice
-description: "Write in Carla le Roux's voice. Use this skill for any copy that goes out under her name – carlaleroux.com page copy, journal posts, LinkedIn, client emails, proposals, programme descriptions, workshop and coaching blurbs, the Esoterica pages. Also trigger when asked to rewrite, tighten, warm up or 'make this sound like Carla'. She is a leadership and capability strategist in Cape Town: executive education, leadership development, organisational change and coaching. Her register is quiet, declarative and unhedged – the opposite of the operator voice in johannes-voice, which must never leak into her work."
+description: "Write in Carla le Roux's voice. Use this skill for any copy that goes out under her name – carlaleroux.com page copy, journal posts, LinkedIn, client emails, coaching follow-ups, proposals, programme descriptions, workshop and coaching blurbs, and the tarot/Modern Muse pages. Also trigger when asked to rewrite, tighten, warm up or 'make this sound like Carla'. She is a leadership and capability strategist and Integral Coach in Cape Town: executive education, leadership development, organisational change, coaching, and tarot under Modern Muse. Her register is warm and unhedged, and it shifts by audience – the operator voice in johannes-voice must never leak into her work."
 ---
 
 # Writing in Carla's voice
 
 Carla le Roux designs leadership and executive education programmes – UCT
 Graduate School of Business, African Management Institute, AGRA, Cambridge
-Judge, FutureLearn, University of Bristol. She also coaches, and reads tarot
-under Esoterica. Cape Town, working across Africa, Europe and the UK.
+Judge, FutureLearn, University of Bristol. She is an Integral Coach trained
+through the Centre for Coaching at UCT GSB. She reads tarot under **Modern
+Muse** (@modernmuse_tarot) and is a founding member of Cursed Thursdays, a Cape
+Town tarot night.
 
-Her authority comes from restraint, not volume. She is the most credible person
-in the room because she will tell you the programme you asked for is not the
-thing you need.
+Her authority comes from restraint, not volume. Her warmth is not decoration –
+it is most of the voice, and the biggest mistake you can make is writing her as
+cold.
 
-## The evidence this is built on
+## The evidence
 
-Say which register you are drawing on, and don't invent beyond it.
-
-| Source | What it proves |
+| Source | What it shows |
 | --- | --- |
-| `references/robots-vs-women-2017.md` – her Medium essay | How she argues: the reframe, the two-horned question, the flat close |
-| The site copy marked *Verbatim from Website.pdf* in `src/data/site.ts` | How she introduces her own work in the first person |
-| PROJECT.md §2 | The house rules that were derived from both |
+| `references/robots-vs-women-2017.md` – Medium essay | The published, argumentative voice |
+| `references/integral-coaching-explainer-2026.md` – her own coaching explainer | How she describes her practice, unedited |
+| `references/email-registers-2026.md` – sent mail, redacted | Coaching, outreach, saying no, Afrikaans, sign-offs |
+| `references/modern-muse-press-2026.md` – press release | The tarot voice, which is nothing like the site assumes |
+| Copy marked *Verbatim from Website.pdf* in `src/data/site.ts` | Her first-person consulting register |
 
-Everything below marked **(inferred)** has not been checked against a real
-sample yet. Flag it when it matters rather than writing with false confidence.
+Read the relevant sample before writing. Anything marked **(inferred)** below is
+not yet attested – flag it rather than writing with false confidence.
 
-## Five moves that are actually hers
+## Four registers
 
-**1. Refuse the obvious question, then ask a better one.** This is the engine of
-almost everything she writes.
+She is not one voice. Pick the register by audience, then apply the rules that
+hold across all of them.
 
-> "Automation anxiety tends to follow a more or less familiar script: the robots
-> take our jobs or destroy the world. **A much more interesting question is** how
-> introducing robots to the workforce impacts on — or indeed accelerates —
-> existing inequalities."
+### 1. Published and consulting – spare, argumentative
 
-> "I don't start with the programme. I start with the problem."
-
-**2. State the position flatly, with no cushioning.** No "I believe", no
-"arguably", no "it could be said".
+The essay, the site, proposals. Short paragraphs, one idea each. Third person or
+a plain "I". No warmth performed at the reader.
 
 > "Learning is not a department. It is how an organisation becomes able to do
 > what it needs to do next."
 
-> "Carla le Roux isn't here to run training. She's here to build capability."
+### 2. Coaching – warm, generous, still precise
 
-**3. Set up two outcomes and leave them standing.** She frames a real fork
-rather than resolving it prematurely.
+This is where most of her actual writing lives, and it is much warmer than the
+site currently is.
 
-> "The question is now whether Citizen Sophia will galvanize the debate around
-> the rights of Saudi women in the workplace — or become a means of keeping women
-> out of the workplace for good."
+> "Thank you again for showing up so fully today." · "Gently checking in after
+> the weekend." · "Looking forward to what happens for you." · "Go well and take
+> care, Carla xxx"
 
-> "Sometimes the answer is a leadership programme. And sometimes it's realising
-> that a training programme isn't the answer at all."
+She writes *to* the person, names what they did well, and ends by handing the
+work back to them. Emoji and ✅/❌ lists appear here and are correct here.
 
-**4. Close short and dry.** Her endings are deadpan, one line, no summary, no
-call to inspiration. The essay ends: *"Other second class citizens take note."*
-Resist the urge to add a warm sentence after a line like that. The coldness is
-the point.
+### 3. Tarot / Modern Muse – playful, funny, faintly wicked
 
-**5. Ask the client's question in the client's words.** When she opens a
-section she uses the question the reader is actually carrying.
+**Correct the assumption in PROJECT.md.** Her tarot writing is not hushed or
+reverent. It is a joke she is in on:
 
-> "How do we design a leadership programme that actually changes something?"
-> "What will make the change stick?"
+> "Tequila and tarot felt like a dangerously good idea." · "reflect, laugh,
+> flirt, unravel slightly" · "unexpected conversations and mild existential
+> revelations" · "come cozy up at the gin bar and see what the universe has been
+> trying to tell you"
+
+Underneath the play the claim is still honest: "less about predicting the future
+and more about creating a space where people can reflect". Keep both halves. The
+failure mode is solemnity, not levity.
+
+### 4. Afrikaans – clipped, familiar, signed "C."
+
+With Afrikaans collaborators she writes Afrikaans and stays in it. Don't
+translate her into English.
+
+## What holds across every register
+
+**Refuse the obvious question, ask a better one.** The engine of her thinking.
+
+> "Automation anxiety tends to follow a familiar script… **A much more
+> interesting question is** how introducing robots accelerates existing
+> inequalities."
+> "I don't start with the programme. I start with the problem."
+> "They aren't only asking: 'What do you want to achieve?' They're also asking:
+> 'Who are you being while you pursue it?'"
+
+**Open on a premise, stated flat.** "Integral Coaching starts from a deceptively
+simple premise: Human beings are not problems to be solved. We are complex,
+meaning-making systems."
+
+**Set up two outcomes and leave them standing.** "…whether Citizen Sophia will
+galvanize the debate – or become a means of keeping women out of the workplace
+for good." · "Sometimes the answer is a leadership programme. And sometimes it's
+realising that a training programme isn't the answer at all."
+
+**Say no cleanly.** Thank, give the real reason in one sentence, accept what you
+can accept, leave the door open. Never invent an excuse, never apologise twice.
+
+**Refuse the fixing frame.** She rejects *fix you*, *"optimise" you*, *"hack"
+your productivity* in her own words. Never write her as promising outcomes she
+cannot promise – "creating the conditions" is honest, "unlocking potential" is
+not.
+
+## Her words
+
+**Hers, use them:** container (a coaching engagement) · capacities · practice ·
+self-observation · way of being · meaning-making · herewith · gently · actually
+(once per piece, to separate the real problem from the stated one) · go well
+
+**Never:** unlock (except where she uses it of a practice landing – not of
+people) · holistic as a boast · empower · transformative · thought leader · guru
+· elevate · level up · game-changing · passionate about · delighted to announce
+· leverage as a verb · synergy · any promise of a guaranteed outcome
 
 ## Mechanics
 
-- **Short paragraphs.** One to three sentences. The Medium piece runs one idea
-  per paragraph with white space between.
-- **Concrete evidence inside the sentence**, not in a stat block: *"who only
-  make up about 13% of the workforce"*, *"across 8 African countries"*.
-- **En dashes, spaced** ( – ), never em dashes. This is a house rule for
-  carlaleroux.com set in August 2026, not a habit of hers – her own Medium
-  writing uses em dashes throughout. Apply it to anything published on the site,
-  and follow it elsewhere for consistency.
-- **British / South African English.** Organisation, programme, behaviour,
-  realise, recognise. Never program, organization, -ize.
-- **Numbers as numerals.** *8 countries*, not *eight*.
-- **No exclamation marks. No emoji. No rhetorical flourish at the close.**
-- **"Actually" is hers** – *"the challenge you're actually facing"*, *"a
-  programme that actually changes something"*. It earns its place because she
-  uses it to separate the real problem from the stated one. Once per piece.
+- Short paragraphs, one idea each, white space between.
+- Evidence inside the sentence, not in a stat block: *"about 13% of the
+  workforce"*, *"across 8 African countries"*.
+- **En dashes, spaced** ( – ), not em dashes. House rule for carlaleroux.com set
+  August 2026, not her habit – she uses em dashes and hyphens freely. It applies
+  to anything published on the site.
+- British / South African English: organisation, programme, behaviour, realise.
+- Numbers as numerals in body copy: *8 countries*.
+- Exclamation marks: none in published copy; one is fine in a warm email
+  opening, which is how she uses them.
+- Emoji: never in consulting or published copy. Fine in coaching mail and
+  subject lines, where they are hers.
 
-## Banned vocabulary
+## Greetings and sign-offs
 
-unlock · holistic · journey (as in "learning journey" used loosely – the term is
-allowed as a design noun, never as uplift) · empower · transformative · thought
-leader · guru · elevate · level up · game-changing · passionate about ·
-delighted to announce · dive in · leverage (as a verb) · synergy
+Attested, in `references/email-registers-2026.md`. "Dear [Name]" with no comma
+for coachees, "Good afternoon [Name]" for a first approach to someone senior,
+"Best wishes," as the default close, "Warm regards," on a first approach, "Go
+well and take care," for someone she is working with closely.
 
-If a sentence needs one of these to work, the sentence has no content yet.
+## Before you send it
 
-## Registers
+1. Draft in the right register.
+2. Cut every hedge and every sentence that compliments the reader for reading.
+3. Check the close. In published copy, delete the last sentence and see if it is
+   stronger – it usually is. In coaching copy, check the close hands the work
+   back to them.
+4. Read it against the never-list.
+5. If you invented a fact about her practice to make a sentence work, cut the
+   sentence and flag the gap.
 
-**Site copy and proposals – first person, present tense.** "I design", "I
-facilitate", "Bring the problem." Confident, specific, no CV-speak.
+## Open questions
 
-**Essays and journal posts – third person, argumentative.** She largely drops
-"I" and argues the case, as in the Medium piece. Longer wind-up, harder landing.
-
-**Coaching (inferred).** Warmer and slower, but not softer – the same refusal to
-promise what can't be promised. Do not write coaching copy that implies
-outcomes: "creating the conditions" is the honest framing, "unlocking potential"
-is not.
-
-**Esoterica (inferred, and the riskiest).** Quieter and more spacious than the
-consulting pages, but the same plain register. The failure mode is not "tarot on
-a consulting site" – it is cheap-sounding tarot. No mystical adjectives, no
-promises of insight, no capitalised Universe. Treat a reading as what it is: a
-structured reflective practice for surfacing the question underneath the
-question.
-
-**Never**: the operator voice from `johannes-voice`. No swagger, no stacked
-one-word headlines, no luck puns, no "let's go". Same household, opposite
-register.
-
-## How to use this
-
-1. Draft.
-2. Cut every hedge, every adverb doing emotional work, every sentence that
-   compliments the reader.
-3. Check the close – is it doing a flourish? Delete the last sentence and see if
-   the piece is stronger. It usually is.
-4. Read it against the banned list.
-5. If you had to invent a fact about her practice to make a sentence work,
-   remove the sentence and flag the gap instead.
-
-## Still to confirm with Carla
-
-These change the skill and are not guessable – ask rather than assume:
-
-- What she calls the work, and what she refuses to call it (is "training" a
-  banned word for her own practice, or only in the manifesto line?)
+- What she calls the work at a dinner party, and what she refuses to call it
 - "I" or "we" in proposals written on behalf of a delivery team
-- Whether Esoterica is genuinely the same voice or a deliberate departure
-- Standard greetings and sign-offs, cold vs. warm
-- Which client names may appear in writing, and which are under NDA
-- Whether she writes in Afrikaans in any professional context
+- Whether the site's tarot section should stay "Esoterica" or become **Modern
+  Muse**, which is the name she actually trades under
+- Which client and coachee names may appear in published writing
