@@ -103,7 +103,11 @@ not.
 
 ## Her words
 
-**Hers, use them:** container (a coaching engagement) · capacities · practice ·
+**Hers, use them:** Integral coaching – the named developmental approach she
+trained in at the Centre for Coaching, UCT GSB, and confirmed by her in Aug
+2026. Never "integrative", which is a different and vaguer thing.
+
+container (a coaching engagement) · capacities · practice ·
 self-observation · way of being · meaning-making · herewith · gently · actually
 (once per piece, to separate the real problem from the stated one) · go well
 
