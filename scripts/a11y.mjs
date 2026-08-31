@@ -14,8 +14,8 @@ import { spawn } from "node:child_process";
 
 const PORT = 4399;
 const ROUTES = [
-  "/", "/work", "/coaching", "/workshops", "/esoterica", "/about",
-  "/journal", "/journal/designing-across-thirteen-countries",
+  "/", "/work", "/coaching", "/workshops", "/modern-muse", "/about",
+  "/journal", "/journal/designing-across-eight-countries",
   "/contact", "/privacy", "/terms", "/thanks", "/404",
 ];
 

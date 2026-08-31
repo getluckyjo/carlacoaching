@@ -9,7 +9,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "a11y": "node scripts/a11y.mjs"
+    "a11y": "node scripts/a11y.mjs",
+    "logos": "node scripts/fetch-client-logos.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

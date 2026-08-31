@@ -1,7 +1,7 @@
 ---
 /*
  * POPIA-minded notice. The site sets no analytics or marketing cookies today,
- * so this is a notice with an acknowledgement — not a consent gate. If analytics
+ * so this is a notice with an acknowledgement – not a consent gate. If analytics
  * are ever added, this must become a real opt-in that gates the script, and the
  * privacy page needs updating to match. Don't add a tracker without doing both.
  */
@@ -28,7 +28,7 @@
   const el = document.getElementById("cookie-notice");
   const btn = document.getElementById("cookie-dismiss");
 
-  // localStorage throws in some privacy modes — a notice must never break the page.
+  // localStorage throws in some privacy modes – a notice must never break the page.
   let dismissed = false;
   try { dismissed = localStorage.getItem(KEY) === "1"; } catch { dismissed = false; }
 

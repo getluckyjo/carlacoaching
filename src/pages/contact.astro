@@ -5,7 +5,7 @@ import { breadcrumbSchema } from "~/lib/seo";
 
 /*
  * Form delivery: formsubmit.co forwards every submission to site.email.
- * No account, no env vars, no backend — the site stays fully static.
+ * No account, no env vars, no backend – the site stays fully static.
  *
  * ONE-TIME SETUP: the first submission triggers an activation email to
  * hello@carlaleroux.com. Until that link is clicked, nothing is delivered.
@@ -14,17 +14,17 @@ import { breadcrumbSchema } from "~/lib/seo";
 const formAction = `https://formsubmit.co/${site.email}`;
 
 const enquiryTypes = [
-  { value: "consulting", label: "Consulting — a programme or capability challenge" },
+  { value: "consulting", label: "Consulting – a programme or capability challenge" },
   { value: "coaching", label: "Coaching" },
   { value: "workshop", label: "A workshop or facilitation" },
-  { value: "tarot", label: "Esoterica — a tarot reading" },
+  { value: "tarot", label: "Modern Muse – a tarot reading" },
   { value: "speaking", label: "Speaking or teaching" },
   { value: "other", label: "Something else" },
 ];
 ---
 <BaseLayout
   title="Contact"
-  description="Get in touch with Carla le Roux. Bring the problem — you don't need the brief perfectly worked out. Cape Town, working globally."
+  description="Get in touch with Carla le Roux. Bring the problem – you don't need the brief perfectly worked out. Cape Town, working globally."
   jsonLd={[
     breadcrumbSchema([
       { name: "Home", url: site.domain },
@@ -39,7 +39,7 @@ const enquiryTypes = [
     </h1>
     <p class="lead mt-8 reveal">
       You don't need to have the brief perfectly worked out before you get in
-      touch. We can figure out what kind of intervention — if any — will actually
+      touch. We can figure out what kind of intervention – if any – will actually
       help.
     </p>
   </section>
@@ -54,7 +54,7 @@ const enquiryTypes = [
         action={formAction}
       >
         <!-- formsubmit.co config -->
-        <input type="hidden" name="_subject" value="Website enquiry — carlaleroux.com" />
+        <input type="hidden" name="_subject" value="Website enquiry – carlaleroux.com" />
         <input type="hidden" name="_template" value="table" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_next" value={`${site.domain}/thanks`} />
@@ -106,7 +106,7 @@ const enquiryTypes = [
         </div>
 
         <p class="text-[13px] text-[var(--color-muted)] pt-1">
-          Your details are used to reply to you and nothing else — never sold, never
+          Your details are used to reply to you and nothing else – never sold, never
           added to a mailing list. See the <a href="/privacy" class="link">privacy page</a>.
         </p>
       </form>
@@ -122,7 +122,7 @@ const enquiryTypes = [
             </li>
             <li class="flex gap-3">
               <span class="eyebrow shrink-0 pt-0.5">02</span>
-              <span>We have a conversation — no charge, no pitch deck.</span>
+              <span>We have a conversation – no charge, no pitch deck.</span>
             </li>
             <li class="flex gap-3">
               <span class="eyebrow shrink-0 pt-0.5">03</span>

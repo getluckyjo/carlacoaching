@@ -33,10 +33,21 @@ Node 20+.
 2. **Real photography.** Three `ImagePlaceholder` blocks are live on `/`,
    `/about` and `/esoterica`. They render a dashed panel labelled PLACEHOLDER so
    they cannot ship unnoticed. Design rule: real photography only, no stock.
-3. **Client logo permissions.** `clients` in `src/data/site.ts` currently renders
-   as a wordmark wall. Confirm each organisation before swapping to image logos —
-   particularly those reached through intermediaries (Hubble Studios, Elevate
-   Learning).
+3. **Client logos.** `clients` in `src/data/site.ts` renders as a wordmark wall
+   until two things are true per organisation: a logo file sits in
+   `public/img/clients/<slug>.svg` (or `.png`/`.webp`), and that client is
+   marked `cleared: true`. Then it swaps to the image on its own.
+
+   ```bash
+   npm run logos            # pull every client's logo off its own site
+   npm run logos -- agra    # or just one
+   ```
+
+   The fetcher never clears anyone — permission is a human step. Confirm each
+   organisation first, particularly those reached through intermediaries
+   (Hubble Studios, Elevate Learning); each client's `note` says who to ask.
+   Where a site paints its logo as inline SVG the run reports `MANUAL` and the
+   file has to be saved by hand under the same name.
 4. **Confirm the LinkedIn handle.** `site.social.linkedin` points at
    `/carlapotgieter` against a Carla le Roux brand name. Keep or migrate.
 5. **Fill the remaining copy gaps.** Coaching engagement length

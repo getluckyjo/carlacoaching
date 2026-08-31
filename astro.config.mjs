@@ -8,6 +8,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://www.carlaleroux.com",
   trailingSlash: "never",
+  // The tarot section was /esoterica until Aug 2026; it is now named for the
+  // practice she actually trades under. Keep the old path resolving.
+  redirects: { "/esoterica": "/modern-muse" },
   prefetch: { prefetchAll: true, defaultStrategy: "viewport" },
   integrations: [
     mdx(),
@@ -23,7 +26,7 @@ export default defineConfig({
         if (/\/work$/.test(url)) return { ...item, priority: 0.95, changefreq: "monthly" };
         if (/\/coaching$/.test(url)) return { ...item, priority: 0.9, changefreq: "monthly" };
         if (/\/workshops$/.test(url)) return { ...item, priority: 0.9, changefreq: "weekly" };
-        if (/\/esoterica$/.test(url)) return { ...item, priority: 0.8, changefreq: "monthly" };
+        if (/\/modern-muse$/.test(url)) return { ...item, priority: 0.8, changefreq: "monthly" };
         if (/\/about$/.test(url)) return { ...item, priority: 0.85, changefreq: "monthly" };
         if (/\/journal$/.test(url)) return { ...item, priority: 0.8, changefreq: "weekly" };
         if (/\/journal\//.test(url)) return { ...item, priority: 0.7, changefreq: "yearly" };

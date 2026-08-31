@@ -3,7 +3,7 @@
  * Line icons, drawn inline. Stroke is currentColor, so an .icon-chip sets the
  * colour once and the glyph follows.
  *
- * Each represents the actual deliverable rather than decorating the card — a
+ * Each represents the actual deliverable rather than decorating the card – a
  * compass for strategy, stacked layers for a programme architecture, and so on.
  * They are decorative by role (aria-hidden): the heading beside each one
  * carries the meaning, so nothing is lost with images off or in a screen reader.
@@ -19,13 +19,13 @@ interface Props {
 }
 const { name, size = 22, class: className = "" } = Astro.props;
 
-/** Path data only — the <svg> shell below owns every shared attribute.
+/** Path data only – the <svg> shell below owns every shared attribute.
  *  Softened this round to sit closer to the tarot artwork elsewhere on the
  *  site: rounder forms, and where it fit the icon's own meaning, a light
  *  echo of a Rider-Waite motif (a rayed star, a sun, a wreathed world, an
  *  arched bridge) rather than a flat technical glyph. */
 const paths: Record<IconName, string[]> = {
-  /* Star-rayed compass — direction, but drawn as a small star. */
+  /* Star-rayed compass – direction, but drawn as a small star. */
   compass: [
     "M12 3a9 9 0 100 18 9 9 0 000-18z",
     "M12 6.6v2.1M12 15.3v2.1M15.4 12h2.1M6.6 12h2.1",
@@ -33,13 +33,13 @@ const paths: Record<IconName, string[]> = {
     "M12 9.6a2.4 2.4 0 100 4.8 2.4 2.4 0 000-4.8z",
   ],
   layers: ["M12 3l9 5-9 5-9-5 9-5z", "M3 13l9 5 9-5", "M3 17.5l9 5 9-5"],
-  /* Sun-rayed circle — the organisational system, radiating like The Sun. */
+  /* Sun-rayed circle – the organisational system, radiating like The Sun. */
   network: [
     "M12 8.4a3.6 3.6 0 100 7.2 3.6 3.6 0 000-7.2z",
     "M12 3v2.3M12 18.7V21M21 12h-2.3M5.3 12H3",
     "M18 6l-1.6 1.6M7.6 16.4L6 18M18 18l-1.6-1.6M7.6 7.6L6 6",
   ],
-  /* Wreathed globe — a light echo of The World's laurel. */
+  /* Wreathed globe – a light echo of The World's laurel. */
   globe: [
     "M12 3a9 9 0 100 18 9 9 0 000-18z",
     "M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z",
@@ -73,7 +73,7 @@ const paths: Record<IconName, string[]> = {
     "M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z",
     "M18.5 16.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z",
   ],
-  /* The eight-pointed star from The Star (tarot XVII) — same construction
+  /* The eight-pointed star from The Star (tarot XVII) – same construction
      as spark, doubled to eight points. */
   starEight: [
     "M12 2.7l1.38 5.97 5.2-3.25-3.25 5.2 5.97 1.38-5.97 1.38 3.25 5.2-5.2-3.25L12 21.3l-1.38-5.97-5.2 3.25 3.25-5.2L2.7 12l5.97-1.38-3.25-5.2 5.2 3.25z",
