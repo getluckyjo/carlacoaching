@@ -23,7 +23,7 @@ cold.
 | `references/robots-vs-women-2017.md` – Medium essay | The published, argumentative voice |
 | `references/integral-coaching-explainer-2026.md` – her own coaching explainer | How she describes her practice, unedited |
 | `references/email-registers-2026.md` – sent mail, redacted | Coaching, outreach, saying no, Afrikaans, sign-offs |
-| `references/modern-muse-press-2026.md` – press release | The tarot voice, which is nothing like the site assumes |
+| `references/modern-muse-press-2026.md` – press release | The tarot voice the Modern Muse page is now written in |
 | Copy marked *Verbatim from Website.pdf* in `src/data/site.ts` | Her first-person consulting register |
 
 Read the relevant sample before writing. Anything marked **(inferred)** below is
@@ -56,8 +56,9 @@ work back to them. Emoji and ✅/❌ lists appear here and are correct here.
 
 ### 3. Tarot / Modern Muse – playful, funny, faintly wicked
 
-**Correct the assumption in PROJECT.md.** Her tarot writing is not hushed or
-reverent. It is a joke she is in on:
+Her tarot writing is not hushed or reverent – it is a joke she is in on. The
+site's Modern Muse page was rewritten to match in Aug 2026; PROJECT.md's older
+note about a solemn "Esoterica" register is superseded.
 
 > "Tequila and tarot felt like a dangerously good idea." · "reflect, laugh,
 > flirt, unravel slightly" · "unexpected conversations and mild existential
@@ -153,6 +154,4 @@ well and take care," for someone she is working with closely.
 
 - What she calls the work at a dinner party, and what she refuses to call it
 - "I" or "we" in proposals written on behalf of a delivery team
-- Whether the site's tarot section should stay "Esoterica" or become **Modern
-  Muse**, which is the name she actually trades under
 - Which client and coachee names may appear in published writing
