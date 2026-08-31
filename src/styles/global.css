@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
-  Design system — v2.
+  Design system – v2.
   Core reference: female-founders.org. Bright, photography-led, declarative.
   Palette sampled from the Stefan Marcel Gerard press shoot: the cream backdrop
   and the gold hoops are literally in the photographs, so the site and the
@@ -14,21 +14,21 @@
 */
 
 @theme {
-  /* —— Surfaces: warm, light, no dark grounds —— */
+  /* –– Surfaces: warm, light, no dark grounds –– */
   --color-paper:  #FFFDF9;  /* warm near-white */
   --color-cream:  #F6EFE2;  /* the photo backdrop */
   --color-sand:   #EBE0CC;  /* deepest tint used */
 
-  /* —— Rules —— */
+  /* –– Rules –– */
   --color-rule:        #E2D7C2;
   --color-rule-strong: #CBBB9C;
 
-  /* —— Ink —— */
+  /* –– Ink –– */
   --color-ink:      #17130F;
   --color-ink-soft: #423A31;
-  --color-muted:    #645A4D;  /* AA on all three grounds — see the contrast note */
+  --color-muted:    #645A4D;  /* AA on all three grounds – see the contrast note */
 
-  /* —— Gold: the sparkle ——
+  /* –– Gold: the sparkle ––
      `gold` is text-safe on paper and cream. `gold-bright` is decorative only:
      it is for numerals and rules over photography or ink, never body text on a
      tint (2.51 on sand). */
@@ -36,40 +36,40 @@
   --color-gold-bright: #D4A24C;
   --color-gold-soft:   #F5E8CE;
 
-  /* —— Bright green: the pop ——
+  /* –– Bright green: the pop ––
      From Carla's own wardrobe palette. `green` is the vivid one and is for
-     fills, dots and icon chips only — it is 2.00:1 on cream and can never carry
+     fills, dots and icon chips only – it is 2.00:1 on cream and can never carry
      text. `green-deep` is the text-safe member (6.53 on cream). */
   --color-green:      #5FC13C;
   --color-green-deep: #27611D;
   --color-green-soft: #E4F3DC;
 
-  /* —— Dusty pink: links, active state, emphasis ——
+  /* –– Dusty pink: links, active state, emphasis ––
      Same rule: `pink` decorates, `pink-deep` is the one that carries text. */
   --color-pink:       #DCA9A2;
   --color-pink-deep:  #8E4450;
   --color-pink-soft:  #F3DAD5;
 
-  /* —— Wave blue: the Pamela Colman Smith accent ——
+  /* –– Wave blue: the Pamela Colman Smith accent ––
      Sampled straight from the 1903 watercolour behind What I do and the
-     tarot art on /esoterica — the one cool note against the warm palette.
+     tarot art on /esoterica – the one cool note against the warm palette.
      Same rule again: `blue` decorates, `blue-deep` carries text (8.7:1 on
      paper), `blue-soft` is the pale tint. */
   --color-blue:       #4C8394;
   --color-blue-deep:  #1F4E5C;
   --color-blue-soft:  #E3ECEC;
 
-  /* —— Star gold: The Star (tarot XVII) ——
-     Deepened from the card's pale star fill (#F2F36F raw — too washed out
+  /* –– Star gold: The Star (tarot XVII) ––
+     Deepened from the card's pale star fill (#F2F36F raw – too washed out
      to read as a chip on cream) into the same decorative register as the
      other bright accents (~1.8:1 on cream, ink icon carries legibility).
-     Reserved for /esoterica only — this is the tarot card's own colour,
+     Reserved for /esoterica only – this is the tarot card's own colour,
      not a sitewide accent like the wave blue. */
   --color-star-gold:      #D9BE2E;
   --color-star-gold-deep: #6E540A;
   --color-star-gold-soft: #FBF3D2;
 
-  /* —— Type —— */
+  /* –– Type –– */
   --font-display: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-sans:    "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-serif:   "Instrument Serif", Georgia, serif;
@@ -131,7 +131,7 @@
   .section-tight { padding-block: 56px; }
   @media (min-width: 768px) { .section-tight { padding-block: 88px; } }
 
-  /* —— Display —— */
+  /* –– Display –– */
   .display-xl {
     font-family: var(--font-display);
     font-size: clamp(2.6rem, 5.4vw, 5rem);
@@ -151,8 +151,8 @@
   /* One serif moment, for the manifesto only. */
   .display-serif { font-family: var(--font-serif); font-weight: 400; font-style: italic; letter-spacing: -0.01em; }
 
-  /* —— The section heading ——
-     Instrument Serif, tight tracking, trailing full stop — an editorial register
+  /* –– The section heading ––
+     Instrument Serif, tight tracking, trailing full stop – an editorial register
      for every major section heading (was a wide-tracked sans; the wordmark
      comment on SectionHeader's aria-label predates this and no longer applies,
      but is harmless to keep). */
@@ -184,7 +184,7 @@
     color: var(--color-gold);
   }
 
-  /* —— Buttons: ink by default, dusty pink on hover. —— */
+  /* –– Buttons: ink by default, dusty pink on hover. –– */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 10px;
     padding: 16px 28px;
@@ -214,7 +214,7 @@
   }
   .link:hover { text-decoration-color: var(--color-pink-deep); }
 
-  /* —— Cards —— */
+  /* –– Cards –– */
   .card {
     border: 1px solid var(--color-rule);
     border-radius: var(--radius-lg);
@@ -226,7 +226,7 @@
   .card-cream { background: var(--color-cream); border-color: transparent; }
   .card-cream:hover { border-color: var(--color-gold-bright); }
 
-  /* —— Stat: the trio under the hero —— */
+  /* –– Stat: the trio under the hero –– */
   .stat-value {
     font-family: var(--font-display);
     font-size: clamp(2rem, 3.2vw, 3rem);
@@ -236,7 +236,7 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* —— Metric: the big numbers over photography ——
+  /* –– Metric: the big numbers over photography ––
      Sized to the widest published value; see the note in README. */
   .metric {
     font-family: var(--font-display);
@@ -249,9 +249,9 @@
     max-width: 100%;
   }
 
-  /* —— Icon chip: where the wardrobe colours actually pop ——
+  /* –– Icon chip: where the wardrobe colours actually pop ––
      Solid fill in the real colour, ink stroke on top. The pale-tint version
-     tried first measured 1.16:1 against a cream card — invisible. These sit at
+     tried first measured 1.16:1 against a cream card – invisible. These sit at
      ~2:1 against the card and carry the icon at 8:1, so the colour reads as a
      deliberate accent rather than a smudge.
      Ink on the fill is the only safe pairing: paper on bright green is 2.25. */
@@ -268,7 +268,7 @@
   .icon-chip-blue { background: var(--color-blue); }
   .icon-chip-star-gold { background: var(--color-star-gold); }
 
-  /* —— Prose —— */
+  /* –– Prose –– */
   .prose { font-size: 18px; line-height: 1.72; color: var(--color-ink-soft); }
   .prose > * + * { margin-top: 1.35em; }
   .prose h2 { margin-top: 2.1em; margin-bottom: 0.45em; color: var(--color-ink); font-size: 1.5em; }
@@ -287,7 +287,7 @@
     color: var(--color-ink);
   }
 
-  /* —— Forms —— */
+  /* –– Forms –– */
   .field {
     margin-top: 6px; width: 100%; padding: 12px 14px;
     border: 1.5px solid var(--color-rule-strong);
@@ -308,12 +308,12 @@
   .marquee:hover .marquee-track { animation-play-state: paused; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  /* A hairline that catches the light — the cheapest sparkle there is. */
+  /* A hairline that catches the light – the cheapest sparkle there is. */
   .rule-gold {
     height: 2px; border: 0;
     background: linear-gradient(90deg, var(--color-gold-bright), color-mix(in srgb, var(--color-gold-bright) 12%, transparent));
   }
-  /* Same device, in the wave blue — used where the Pamela Colman Smith art appears. */
+  /* Same device, in the wave blue – used where the Pamela Colman Smith art appears. */
   .rule-blue {
     height: 2px; border: 0;
     background: linear-gradient(90deg, var(--color-blue), color-mix(in srgb, var(--color-blue) 12%, transparent));
@@ -321,7 +321,7 @@
 
   /* A cotton-paper fibre scan, multiplied into every cream surface so the
      "paper" in the palette reads as material rather than a flat tint. Pair
-     with a bg-[var(--color-cream)] (or any cream-ground) element — this only
+     with a bg-[var(--color-cream)] (or any cream-ground) element – this only
      sets background-image/-blend-mode, so the two compose on one element. */
   .paper-texture {
     background-image: url("/img/art/paper-texture.webp");

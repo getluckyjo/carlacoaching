@@ -1,15 +1,38 @@
 ---
+import { existsSync, readdirSync } from "node:fs";
 import { clients } from "~/data/site";
 
 /*
- * Client wall. Rendered as wordmarks, not image logos: logo permissions are
- * still to be confirmed (PROJECT.md §10), and naming an organisation you have
- * genuinely worked with is a much lower bar than reproducing its trademark.
- * Swap to <img> per client once each one is cleared.
+ * Client wall.
+ *
+ * Two registers, decided per client at build time:
+ *
+ *   1. Image logo – when the client is `cleared` in site.ts AND a file named
+ *      <slug>.(svg|png|webp) sits in public/img/clients/.
+ *   2. Wordmark – everyone else. Naming an organisation you have genuinely
+ *      worked with is a far lower bar than reproducing its trademark, so this
+ *      is the safe default (PROJECT.md §10, README "Before launch" §3).
+ *
+ * Drop a logo file in and flip `cleared: true` and it swaps itself. Nothing
+ * else to change. `npm run logos` fetches each organisation's own logo into
+ * that folder; it does not clear anyone.
  *
  * The track is duplicated so the -50% translate loops seamlessly; the copy is
  * aria-hidden so a screen reader hears the list once.
  */
+
+const dir = new URL("../../../public/img/clients/", import.meta.url);
+const files = existsSync(dir) ? readdirSync(dir) : [];
+
+/** SVG first – it stays crisp at any size on the marquee. */
+const EXTENSIONS = ["svg", "webp", "png", "jpg"] as const;
+
+const wall = clients.map((c) => {
+  const file = c.cleared
+    ? EXTENSIONS.map((ext) => `${c.slug}.${ext}`).find((f) => files.includes(f))
+    : undefined;
+  return { name: c.name, src: file ? `/img/clients/${file}` : undefined };
+});
 ---
 <div class="marquee py-2">
   <div class="marquee-track">
@@ -19,14 +42,41 @@ import { clients } from "~/data/site";
         aria-hidden={copy === 1 ? "true" : undefined}
         aria-label={copy === 0 ? "Selected clients" : undefined}
       >
-        {clients.map((c) => (
-          <li
-            class="whitespace-nowrap text-[30px] font-bold tracking-[0.01em] text-[var(--color-ink-soft)]"
-          >
-            {c}
+        {wall.map((c) => (
+          <li class="shrink-0">
+            {c.src ? (
+              <img
+                src={c.src}
+                alt={c.name}
+                loading="lazy"
+                decoding="async"
+                class="client-logo"
+              />
+            ) : (
+              <span
+                class="whitespace-nowrap text-[30px] font-bold tracking-[0.01em] text-[var(--color-ink-soft)]"
+              >
+                {c.name}
+              </span>
+            )}
           </li>
         ))}
       </ul>
     ))}
   </div>
 </div>
+
+<style>
+  /* Logos arrive in every proportion there is, so height is the only thing
+     held constant – a wordmark and a roundel set to the same width would read
+     as wildly different sizes. `multiply` drops the white box that most PNG
+     and JPG logos ship with straight onto the cream ground. */
+  .client-logo {
+    height: 44px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    opacity: 0.86;
+  }
+</style>

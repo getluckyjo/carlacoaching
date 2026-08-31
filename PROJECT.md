@@ -99,7 +99,7 @@ Principles:
 2. **Willing to say no.** The draft's admission that the answer is sometimes *not* a programme is the single most credible line on the site. Keep that posture everywhere.
 3. **British/SA English.** *Organisation, programme, behaviour, realise.* Consistently.
 4. **Banned vocabulary.** *Unlock, holistic, journey, empower, transformative, thought leader, guru, elevate, level up.* The draft already avoids these. Don't reintroduce them.
-5. **Numbers as numerals.** *13 countries*, not *thirteen*.
+5. **Numbers as numerals.** *8 countries*, not *eight*.
 
 > **Deliberate contrast with `entrepreneurcoach`.** That site is loud, vermilion, stacked one-word headlines, operator swagger. This one is quiet, warm, serif, spacious. Same engineering, opposite register. Do not let the operator voice leak across.
 

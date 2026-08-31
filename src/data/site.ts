@@ -21,13 +21,13 @@ export const site = {
     "Carla le Roux helps organisations translate strategic priorities into the leadership capability, programmes and organisational change needed to make them real. Cape Town, working globally.",
   locale: "en-ZA",
   /** Hosted on Gmail. The CV's carla.potgter@gmail.com contains a typo
-   *  and must never ship — this is the address of record. */
+   *  and must never ship – this is the address of record. */
   email: "hello@carlaleroux.com",
   location: "Cape Town, South Africa",
   reach: "Working globally",
   social: {
     /** The CV lists /carlapotgieter against a Carla le Roux brand name.
-     *  Keep or migrate — open question, PROJECT.md §10. */
+     *  Keep or migrate – open question, PROJECT.md §10. */
     linkedin: "https://www.linkedin.com/in/carlapotgieter",
   },
   legal: {
@@ -44,12 +44,12 @@ export type PracticeArea = {
   name: string;
   summary: string;
   body: string;
-  /** Icon name from src/components/ui/Icon.astro — represents the deliverable. */
+  /** Icon name from src/components/ui/Icon.astro – represents the deliverable. */
   icon: "compass" | "layers" | "network" | "globe" | "screen";
 };
 
 /** Five areas. The first four are verbatim from Website.pdf § WHAT I DO.
- *  The fifth (EdTech) is promoted from a case-study bullet — see PROJECT.md §3.1. */
+ *  The fifth (EdTech) is promoted from a case-study bullet – see PROJECT.md §3.1. */
 export const practiceAreas: readonly PracticeArea[] = [
   {
     slug: "leadership-development",
@@ -63,7 +63,7 @@ export const practiceAreas: readonly PracticeArea[] = [
     icon: "layers",
     name: "Executive Education & Programme Design",
     summary: "For organisations that need more than a collection of workshops.",
-    body: "Multi-format learning journeys designed across the full programme lifecycle — understanding the strategic challenge, defining the architecture, then design, stakeholder alignment and delivery.",
+    body: "Multi-format learning journeys designed across the full programme lifecycle – understanding the strategic challenge, defining the architecture, then design, stakeholder alignment and delivery.",
   },
   {
     slug: "organisational-capability",
@@ -77,30 +77,30 @@ export const practiceAreas: readonly PracticeArea[] = [
     icon: "globe",
     name: "Immersive Learning",
     summary: "Experiences that take learning beyond the classroom.",
-    body: "International immersions, organisational visits and carefully curated encounters — powerful ways for leaders to challenge assumptions, see systems differently, and carry new possibilities back into their organisations.",
+    body: "International immersions, organisational visits and carefully curated encounters – powerful ways for leaders to challenge assumptions, see systems differently, and carry new possibilities back into their organisations.",
   },
   {
     slug: "digital-learning",
     icon: "screen",
     name: "Digital, Blended & EdTech Design",
     summary: "Specialist content turned into learning that works at a distance.",
-    body: "I've designed digital learning for Cambridge Judge Business School, FutureLearn and the University of Bristol, and built UCT GSB's first blended programme. Where an organisation is moving learning online, the question is rarely the platform — it's the design.",
+    body: "I've designed digital learning for Cambridge Judge Business School, FutureLearn and the University of Bristol, and built UCT GSB's first blended programme. Where an organisation is moving learning online, the question is rarely the platform – it's the design.",
   },
 ];
 
 /* ─────────────────────────── Hero stats ───────────────────────────
- * The trio directly under the hero — the female-founders "250+ / 500+ / 50%"
+ * The trio directly under the hero – the female-founders "250+ / 500+ / 50%"
  * device. Short enough to read in one glance, all traceable to the CV. */
 
 export const heroStats: readonly { value: string; label: string }[] = [
-  { value: "13", label: "African countries reached through AGRA leadership development" },
+  { value: "8", label: "African countries reached through AGRA leadership development" },
   { value: "R10M+", label: "Programme budgets led at UCT Graduate School of Business" },
-  { value: "3", label: "Continents — Africa, Europe and the UK" },
+  { value: "3", label: "Continents – Africa, Europe and the UK" },
 ];
 
 /* ─────────────────────────── Manifesto ───────────────────────────
  * The declarative block. Modelled on female-founders' "Women are not a niche."
- * — short lines, stated flatly, no hedging. */
+ * – short lines, stated flatly, no hedging. */
 
 export const manifesto = {
   kicker: "Carla le Roux isn't here to run training. She's here to build capability.",
@@ -129,7 +129,7 @@ export const audiences: readonly Audience[] = [
     heading: "For organisations",
     icon: "network",
     punch: ["Build the capability.", "Not just the programme."],
-    body: "Leadership development, executive education and organisational change designed around the challenge you're actually facing — from understanding the strategic problem, through programme architecture, to delivery and what makes it stick.",
+    body: "Leadership development, executive education and organisational change designed around the challenge you're actually facing – from understanding the strategic problem, through programme architecture, to delivery and what makes it stick.",
     close: "From strategic priority to capability that holds.",
     cta: { label: "See the work", href: "/work" },
   },
@@ -145,7 +145,7 @@ export const audiences: readonly Audience[] = [
     heading: "For institutions crossing continents",
     icon: "bridge",
     punch: ["Africa and Europe.", "Both directions."],
-    body: "European universities want credible access to Africa as the growth market. African organisations want current international practice, adapted properly. Very few people have delivered on both sides. Carla has — UCT GSB, AMI and AGRA on one; Cambridge Judge, FutureLearn and Bristol on the other.",
+    body: "European universities want credible access to Africa as the growth market. African organisations want current international practice, adapted properly. Very few people have delivered on both sides. Carla has – UCT GSB, AMI and AGRA on one; Cambridge Judge, FutureLearn and Bristol on the other.",
     close: "A bridge that has actually been walked.",
     cta: { label: "See both sides", href: "#bridge" },
   },
@@ -156,9 +156,9 @@ export const audiences: readonly Audience[] = [
  * itself. European institutions want access to Africa as the growth market;
  * African organisations want current skills and innovation. Very few people
  * have delivered credibly in both directions. Her CV shows she has:
- *   Africa   — UCT GSB, African Management Institute (8 countries),
- *              AGRA (13 countries), SALGA, Tekano, Columba
- *   Europe   — Cambridge Judge, FutureLearn, University of Bristol,
+ *   Africa   – UCT GSB, African Management Institute (8 countries),
+ *              AGRA (8 countries), SALGA, Tekano, Columba
+ *   Europe   – Cambridge Judge, FutureLearn, University of Bristol,
  *              Utrecht exchange, iXperience Lisbon programme
  */
 
@@ -174,7 +174,7 @@ export const bridge: readonly BridgeSide[] = [
   {
     audience: "European universities & business schools",
     icon: "globe",
-    want: "Access to Africa as the growth market — credibly, and with partners who will still be there in year three.",
+    want: "Access to Africa as the growth market – credibly, and with partners who will still be there in year three.",
     offer:
       "Programme design and partnership development that works on the ground in African markets, rather than exporting a European curriculum and hoping. I know how these programmes are bought, staffed, accredited and actually delivered on both continents.",
     proof: [
@@ -186,11 +186,11 @@ export const bridge: readonly BridgeSide[] = [
   {
     audience: "African corporates & institutions",
     icon: "compass",
-    want: "Access to the latest in skills, learning practice and innovation — without paying for a programme designed for somewhere else.",
+    want: "Access to the latest in skills, learning practice and innovation – without paying for a programme designed for somewhere else.",
     offer:
       "Bringing current international practice into African organisations and adapting it properly: same rigour, local relevance, and a design that survives contact with the context it lands in.",
     proof: [
-      "Leadership development across 13 African countries with AGRA",
+      "Leadership development across 8 African countries with AGRA",
       "Scalable leadership and management programmes across 8 African countries",
       "Multi-year, R10M+ executive programmes at UCT Graduate School of Business",
     ],
@@ -214,7 +214,7 @@ export const caseStudies: readonly CaseStudy[] = [
     slug: "african-leaders-agriculture",
     name: "Centre for African Leaders in Agriculture",
     meta: "Leadership development · Africa · Multi-country",
-    body: "Designed and led the development of a major leadership initiative with AGRA, expanding its reach from 8 to 13 African countries and introducing Executive and Junior Leadership Development tiers.",
+    body: "Designed and led the development of a major leadership initiative with AGRA, extending its reach across 8 African countries and introducing Executive and Junior Leadership Development tiers.",
   },
   {
     slug: "executive-education-immersions",
@@ -243,27 +243,93 @@ export type Metric = {
 
 export const metrics: readonly Metric[] = [
   { value: 10, suffix: "+", label: "Years designing learning and capability" },
-  // Website.pdf § SELECTED WORK. Distinct from the CV's "eight African
-  // countries", which is the African Management Institute role — don't conflate.
-  { value: 13, label: "African countries reached through AGRA leadership development" },
+  // Website.pdf § SELECTED WORK, corrected by Carla: the AGRA initiative ran
+  // across eight African countries. The African Management Institute role
+  // covered eight too – separate programmes, same count, don't merge them.
+  { value: 8, label: "African countries reached through AGRA leadership development" },
   { value: 10, prefix: "R", suffix: "M+", label: "Programme budgets led at UCT GSB" },
   { value: 14, suffix: "+", label: "Countries and territories coordinated" },
 ];
 
 /* ─────────────────────────── Clients ─────────────────────────── */
 
-/** From the CV. Logo permissions still to be confirmed — PROJECT.md §10.
- *  Until then these render as a wordmark wall, not image logos. */
-export const clients: readonly string[] = [
-  "UCT Graduate School of Business",
-  "African Management Institute",
-  "AGRA",
-  "Cambridge Judge Business School",
-  "FutureLearn",
-  "University of Bristol",
-  "SALGA",
-  "Tekano — Atlantic Fellows for Health Equity",
-  "Columba Leadership",
+export type Client = {
+  /** As it should read on the wall. */
+  name: string;
+  /** Slug, and the basename the logo file must use: public/img/clients/<slug>.(svg|png|webp) */
+  slug: string;
+  /** Official site. The logo fetcher reads its <head>/header for the asset. */
+  url: string;
+  /**
+   * Logo permission. `true` only once the organisation has confirmed in
+   * writing. LogoWall renders an image for a cleared client that has a file on
+   * disk, and the wordmark for everyone else – so an uncleared logo can sit in
+   * the repo without ever shipping.
+   */
+  cleared?: boolean;
+  /** Where clearance came from, or who to ask. */
+  note?: string;
+};
+
+/** From the CV. Logo permissions still to be confirmed – PROJECT.md §10, README
+ *  "Before launch" §3. Until an entry is `cleared`, it renders as a wordmark.
+ *  Run `npm run logos` to pull each organisation's own logo into
+ *  public/img/clients/ ready for the switch. */
+export const clients: readonly Client[] = [
+  {
+    name: "UCT Graduate School of Business",
+    slug: "uct-gsb",
+    url: "https://www.gsb.uct.ac.za/",
+    note: "Direct client. Ask the programme office.",
+  },
+  {
+    name: "African Management Institute",
+    slug: "african-management-institute",
+    url: "https://www.africanmanagers.com/",
+    note: "Direct client (2021–2023).",
+  },
+  {
+    name: "AGRA",
+    slug: "agra",
+    url: "https://agra.org/",
+    note: "Reached through AMI – clear with both.",
+  },
+  {
+    name: "Cambridge Judge Business School",
+    slug: "cambridge-judge",
+    url: "https://www.jbs.cam.ac.uk/",
+    note: "Reached through Hubble Studios – clear with the intermediary first.",
+  },
+  {
+    name: "FutureLearn",
+    slug: "futurelearn",
+    url: "https://www.futurelearn.com/",
+    note: "Reached through Hubble Studios – clear with the intermediary first.",
+  },
+  {
+    name: "University of Bristol",
+    slug: "university-of-bristol",
+    url: "https://www.bristol.ac.uk/",
+    note: "Reached through Hubble Studios – clear with the intermediary first.",
+  },
+  {
+    name: "SALGA",
+    slug: "salga",
+    url: "https://www.salga.org.za/",
+    note: "Through UCT GSB programme delivery.",
+  },
+  {
+    name: "Tekano – Atlantic Fellows for Health Equity",
+    slug: "tekano",
+    url: "https://tekano.org.za/",
+    note: "Two marks – Tekano and Atlantic Fellows. Use Tekano's.",
+  },
+  {
+    name: "Columba Leadership",
+    slug: "columba-leadership",
+    url: "https://www.columba.org.za/",
+    note: "Reached through Elevate Learning – clear with the intermediary first.",
+  },
 ];
 
 /* ─────────────────────────── How I work ─────────────────────────── */
@@ -313,7 +379,7 @@ export const experience: readonly Role[] = [
   {
     org: "UCT Graduate School of Business",
     title: "Learning Design Partner",
-    years: "2023 — present",
+    years: "2023 – present",
     points: [
       "Lead the end-to-end design and delivery of multi-year, multi-cohort leadership and management development programmes with budgets exceeding R10 million.",
       "Translate organisational priorities and capability requirements into structured learning journeys, programme architectures and implementation plans.",
@@ -324,7 +390,7 @@ export const experience: readonly Role[] = [
   {
     org: "African Management Institute",
     title: "Learning Design Lead",
-    years: "2021 — 2023",
+    years: "2021 – 2023",
     points: [
       "Led the design and delivery of scalable leadership and management programmes across eight African countries.",
       "Developed learning solutions for diverse organisational, cultural and technological contexts while maintaining consistency across markets.",
@@ -334,7 +400,7 @@ export const experience: readonly Role[] = [
   {
     org: "Independent Consulting",
     title: "Senior Learning Designer",
-    years: "2020 — 2021",
+    years: "2020 – 2021",
     points: [
       "Contributed to digital learning projects for Cambridge Judge Business School, FutureLearn and the University of Bristol through Hubble Studios.",
       "Supported learning design for Tekano Atlantic Fellows for Health Equity, Columba Youth Leadership and SALGA Women in Local Government Leadership through Elevate Learning.",
@@ -343,7 +409,7 @@ export const experience: readonly Role[] = [
   {
     org: "iXperience",
     title: "Head of Global Partnerships · Programme Director, Lisbon",
-    years: "2019 — 2020",
+    years: "2019 – 2020",
     points: [
       "Built university partnerships and developed avenues to increase international student mobility.",
       "Directed the Lisbon programme, leading the execution team across operations, participant experience and legal compliance.",
@@ -352,7 +418,7 @@ export const experience: readonly Role[] = [
   {
     org: "UCT Graduate School of Business",
     title: "Business Developer",
-    years: "2016 — 2019",
+    years: "2016 – 2019",
     points: [
       "Translated organisational learning needs into theoretically sound executive education programmes.",
       "Designed the School's first blended learning programme.",
@@ -361,7 +427,7 @@ export const experience: readonly Role[] = [
   {
     org: "The Red & Yellow Creative School of Business",
     title: "Instructional Designer",
-    years: "2013 — 2015",
+    years: "2013 – 2015",
     points: [
       "Designed learning content and learner experiences within a creative business education environment.",
     ],
@@ -390,7 +456,7 @@ export type Faq = { q: string; a: string };
 export const consultingFaqs: readonly Faq[] = [
   {
     q: "Do I need to have the brief worked out before getting in touch?",
-    a: "No. Bring the problem. A good part of the work is figuring out what the actual challenge is — and whether a learning intervention is the right response to it.",
+    a: "No. Bring the problem. A good part of the work is figuring out what the actual challenge is – and whether a learning intervention is the right response to it.",
   },
   {
     q: "What size of organisation do you work with?",
@@ -398,7 +464,7 @@ export const consultingFaqs: readonly Faq[] = [
   },
   {
     q: "Do you deliver, or only design?",
-    a: "Both. I design programme architectures and learning journeys, and I facilitate — integration sessions, reflective practice, and workshops with senior leaders and board-level participants.",
+    a: "Both. I design programme architectures and learning journeys, and I facilitate – integration sessions, reflective practice, and workshops with senior leaders and board-level participants.",
   },
   {
     q: "Where are you based, and do you travel?",
@@ -409,16 +475,16 @@ export const consultingFaqs: readonly Faq[] = [
 export const coachingFaqs: readonly Faq[] = [
   {
     q: "What kind of coaching is this?",
-    a: "Integrative — it draws on organisational and systems thinking as much as on individual development, because leaders don't operate in isolation from the systems around them.",
+    a: "Integrative – it draws on organisational and systems thinking as much as on individual development, because leaders don't operate in isolation from the systems around them.",
   },
   {
     q: "What are your coaching credentials?",
     a: "I'm currently completing the Professional Coaching Programme at the UCT Graduate School of Business, and completed Coaching for Development there in 2024. I've been coaching leaders through development and change alongside my programme work for several years.",
   },
   {
-    // Deliberately no fixed number until Carla sets one — this is honest as it
+    // Deliberately no fixed number until Carla sets one – this is honest as it
     // stands, and an invented figure would be worse than an open answer.
     q: "How long is an engagement?",
-    a: "It depends on what you're working on. Coaching relationships tend to run over months rather than a handful of sessions — long enough for something to actually change in practice, not just in the room. We agree the shape and the length up front, before either of us commits.",
+    a: "It depends on what you're working on. Coaching relationships tend to run over months rather than a handful of sessions – long enough for something to actually change in practice, not just in the room. We agree the shape and the length up front, before either of us commits.",
   },
 ];
