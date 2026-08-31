@@ -137,7 +137,7 @@ export const audiences: readonly Audience[] = [
     heading: "For leaders",
     icon: "conversation",
     punch: ["Think differently.", "Then act on it."],
-    body: "Integrative coaching for leaders stepping into something bigger, carrying a decision they keep circling, or navigating a transformation they didn't design. Systems thinking as much as individual development.",
+    body: "Integral coaching for leaders stepping into something bigger, carrying a decision they keep circling, or navigating a transformation they didn't design. Developmental, not remedial: new capacities rather than more advice.",
     close: "Space to think, and the accountability to move.",
     cta: { label: "About coaching", href: "/coaching" },
   },
@@ -475,16 +475,17 @@ export const consultingFaqs: readonly Faq[] = [
 export const coachingFaqs: readonly Faq[] = [
   {
     q: "What kind of coaching is this?",
-    a: "Integrative – it draws on organisational and systems thinking as much as on individual development, because leaders don't operate in isolation from the systems around them.",
+    a: "Integral coaching – a developmental approach rather than a remedial one. It works with the whole person instead of one dimension of them, and it draws on organisational and systems thinking as much as on individual development, because leaders don't operate in isolation from the systems around them.",
   },
   {
     q: "What are your coaching credentials?",
-    a: "I'm currently completing the Professional Coaching Programme at the UCT Graduate School of Business, and completed Coaching for Development there in 2024. I've been coaching leaders through development and change alongside my programme work for several years.",
+    a: "I completed Coaching for Development at the UCT Graduate School of Business in 2024 and am finishing the Professional Coaching Programme there now – both through the Centre for Coaching. Alongside that, I've been coaching leaders through development and change as part of my programme work for several years.",
   },
   {
-    // Deliberately no fixed number until Carla sets one – this is honest as it
-    // stands, and an invented figure would be worse than an open answer.
+    // Lengths are hers: the 12-session container is named in her own client
+    // explainer, the 5-session one in a quote she sent a coachee. Fees stay off
+    // the site until she sets them.
     q: "How long is an engagement?",
-    a: "It depends on what you're working on. Coaching relationships tend to run over months rather than a handful of sessions – long enough for something to actually change in practice, not just in the room. We agree the shape and the length up front, before either of us commits.",
+    a: "We work in containers rather than single sessions. Twelve sessions is the usual shape and five is possible for something more contained, either way running over months rather than weeks. Between sessions there are practices and self-observations to carry into ordinary life, which is where most of the change actually happens. We agree the shape up front, before either of us commits.",
   },
 ];

@@ -5,6 +5,24 @@ import BigCTA from "~/components/home/BigCTA.astro";
 import { coachingFaqs, development, site } from "~/data/site";
 import { breadcrumbSchema, coachingFaqSchema } from "~/lib/seo";
 
+/*
+ * Coaching.
+ *
+ * Rewritten Aug 2026 against her own explainer – the one she sends new clients,
+ * kept verbatim at .claude/skills/carla-voice/references/. Two corrections came
+ * out of it: the practice is Integral Coaching, a named developmental approach,
+ * not the vaguer "integrative coaching" the site used; and an engagement is a
+ * "container", which is her word for it. Her premise and her four dimensions are
+ * quoted almost as she writes them.
+ */
+
+const dimensions = [
+  ["Behaviour", "“Just do the thing.”"],
+  ["Mindset", "“Change your thoughts.”"],
+  ["Goals", "“Here's your action plan.”"],
+  ["Emotions", "“How does that make you feel?”"],
+];
+
 const forWhom = [
   "Leaders stepping into a role bigger than the last one.",
   "Executives carrying a decision they keep circling.",
@@ -15,7 +33,7 @@ const forWhom = [
 const formats = [
   {
     name: "One-to-one coaching",
-    body: "A standing conversation over a defined period. Space to think properly about the things there is never room for between meetings.",
+    body: "A container of a set length – usually 12 sessions, sometimes 5 – with practices and self-observations to carry between them. Long enough for something to change in your practice, not only in the room.",
   },
   {
     name: "Team coaching",
@@ -23,7 +41,7 @@ const formats = [
   },
   {
     name: "Programme-embedded coaching",
-    body: "Coaching built into a wider development programme, so that insight from the room gets converted into changed practice back at work.",
+    body: "Coaching built into a wider development programme, so insight from the room gets converted into changed practice back at work.",
   },
 ];
 
@@ -31,7 +49,7 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
 ---
 <BaseLayout
   title="Coaching"
-  description="Integrative coaching for leaders – creating the space to think differently, navigate complexity, and turn development into changed behaviour. Cape Town and remote."
+  description="Integral coaching for leaders with Carla le Roux. Human beings are not problems to be solved – developmental coaching that builds new capacities, not just action plans. Cape Town and remote."
   jsonLd={[
     coachingFaqSchema,
     breadcrumbSchema([
@@ -42,13 +60,14 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
 >
   <section class="container-page pt-16 pb-8 md:pt-24">
     <p class="eyebrow eyebrow-ruled reveal">Coaching</p>
-    <h1 class="display-xl mt-8 max-w-[15ch] reveal">
-      Turning insight into <span class="display-italic display-gold">action</span>.
+    <h1 class="display-xl mt-8 max-w-[18ch] reveal">
+      Human beings are not problems to be
+      <span class="display-italic display-gold">solved</span>.
     </h1>
     <p class="lead mt-8 reveal">
-      Coaching creates the space to think differently, navigate complexity, and
-      translate development into meaningful changes in behaviour and leadership
-      practice.
+      We are complex, meaning-making systems. So coaching that only asks what you
+      want to achieve is asking half the question. The other half is who you are
+      being while you pursue it.
     </p>
   </section>
 
@@ -66,47 +85,86 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
           accountability to actually do something differently on Monday.
         </p>
         <p>
-          My coaching is <em class="not-italic font-medium text-[var(--color-ink)]">integrative</em>:
-          it draws on organisational and systems thinking as much as on individual
-          development. Leaders don't operate in isolation from the systems around
-          them, and coaching that pretends otherwise tends to produce insight that
+          I work as an <em class="not-italic font-medium text-[var(--color-ink)]">Integral</em>
+          coach, which is developmental rather than remedial. It draws on
+          organisational and systems thinking as much as on individual
+          development, because leaders don't operate in isolation from the systems
+          around them – and coaching that pretends otherwise produces insight that
           evaporates on contact with the organisation.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Who -->
+  <!-- The four dimensions -->
   <section class="bg-[var(--color-cream)] paper-texture border-y border-[var(--color-rule)]">
     <div class="container-page section">
-      <SectionHeader eyebrow="Who I coach" title="Leaders at a turning point" />
-      <ul class="mt-12 grid gap-px bg-[var(--color-rule)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden md:grid-cols-2">
-        {forWhom.map((w) => (
-          <li class="bg-[var(--color-cream)] paper-texture p-8 text-[1.05rem] reveal">{w}</li>
-        ))}
-      </ul>
+      <div class="grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <SectionHeader eyebrow="The approach" title="Most coaching picks one dimension." />
+        </div>
+        <div class="md:col-span-6 md:col-start-7 reveal">
+          <dl class="border-t border-[var(--color-rule-strong)]">
+            {dimensions.map(([name, line]) => (
+              <div class="border-b border-[var(--color-rule-strong)] py-5 flex flex-wrap justify-between gap-x-6 gap-y-1">
+                <dt class="font-medium">{name}</dt>
+                <dd class="text-[15px] text-[var(--color-muted)]">{line}</dd>
+              </div>
+            ))}
+          </dl>
+          <div class="mt-8 space-y-6 text-[var(--color-ink-soft)]">
+            <p class="text-[var(--color-ink)] font-medium">
+              They are not separate. A way of being produces the results you are
+              currently getting, in all four at once.
+            </p>
+            <p>
+              So the question isn't only what you want to change. It's what way of
+              seeing the world is producing this result, what the current pattern
+              is wise about as well as where it costs you, and what new capacities
+              would need to be developed for the change to hold.
+            </p>
+            <p>
+              None of that is about fixing you, optimising you, or hacking your
+              productivity. It is about seeing yourself clearly enough to become
+              someone who creates different outcomes without having to force them.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Formats -->
+  <!-- Who -->
   <section class="container-page section">
-    <SectionHeader eyebrow="Formats" title="Three shapes this takes." />
-    <ul class="mt-14 grid gap-8 md:grid-cols-3">
-      {formats.map((f) => (
-        <li class="card reveal">
-          <h3>{f.name}</h3>
-          <p class="mt-3 text-[15px] text-[var(--color-ink-soft)]">{f.body}</p>
-        </li>
+    <SectionHeader eyebrow="Who I coach" title="Leaders at a turning point" />
+    <ul class="mt-12 grid gap-px bg-[var(--color-rule)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden md:grid-cols-2">
+      {forWhom.map((w) => (
+        <li class="bg-[var(--color-paper)] p-8 text-[1.05rem] reveal">{w}</li>
       ))}
     </ul>
-    <p class="mt-10 text-[15px] text-[var(--color-muted)] reveal">
-      Session length, engagement length and fees are set per engagement –
-      <a href="/contact" class="link">get in touch</a> and we'll work out what fits.
-    </p>
+  </section>
+
+  <!-- Formats -->
+  <section class="bg-[var(--color-cream)] paper-texture border-y border-[var(--color-rule)]">
+    <div class="container-page section">
+      <SectionHeader eyebrow="Formats" title="Three shapes this takes." />
+      <ul class="mt-14 grid gap-8 md:grid-cols-3">
+        {formats.map((f) => (
+          <li class="card card-cream paper-texture reveal">
+            <h3>{f.name}</h3>
+            <p class="mt-3 text-[15px] text-[var(--color-ink-soft)]">{f.body}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-10 text-[15px] text-[var(--color-muted)] reveal">
+        Fees are set per container –
+        <a href="/contact" class="link">get in touch</a> and we'll work out what fits.
+      </p>
+    </div>
   </section>
 
   <!-- Credentials -->
-  <section class="bg-[var(--color-sand)] border-y border-[var(--color-rule)]">
+  <section class="bg-[var(--color-sand)] border-b border-[var(--color-rule)]">
     <div class="container-page section-tight">
       <div class="grid gap-12 md:grid-cols-12">
         <div class="md:col-span-5">
@@ -123,8 +181,9 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
             ))}
           </dl>
           <p class="mt-6 text-[15px] text-[var(--color-ink-soft)]">
-            Alongside a decade of coaching leaders through development and change as
-            part of executive education and leadership programmes.
+            Both through the Centre for Coaching at the UCT Graduate School of
+            Business, alongside a decade of coaching leaders through development
+            and change as part of executive education programmes.
           </p>
         </div>
       </div>
