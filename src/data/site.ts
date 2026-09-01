@@ -92,10 +92,15 @@ export const practiceAreas: readonly PracticeArea[] = [
  * The trio directly under the hero – the female-founders "250+ / 500+ / 50%"
  * device. Short enough to read in one glance, all traceable to the CV. */
 
-export const heroStats: readonly { value: string; label: string }[] = [
-  { value: "8", label: "African countries reached through CALA, with AMI and AGRA" },
-  { value: "R10M+", label: "Programme budgets led at UCT Graduate School of Business" },
-  { value: "3", label: "Continents – Africa, Europe and the UK" },
+export const heroStats: readonly {
+  value: string;
+  label: string;
+  /** Icon name from src/components/ui/Icon.astro. */
+  icon: "sunrise" | "value" | "globe";
+}[] = [
+  { value: "8", icon: "sunrise", label: "African countries reached through CALA, with AMI and AGRA" },
+  { value: "R10M+", icon: "value", label: "Programme budgets led at UCT Graduate School of Business" },
+  { value: "3", icon: "globe", label: "Continents – Africa, Europe and the UK" },
 ];
 
 /* ─────────────────────────── Manifesto ───────────────────────────

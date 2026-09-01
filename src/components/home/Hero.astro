@@ -1,5 +1,6 @@
 ---
 import Photo from "~/components/ui/Photo.astro";
+import Icon from "~/components/ui/Icon.astro";
 import { heroStats } from "~/data/site";
 ---
 <section class="container-page pt-12 pb-16 md:pt-20 md:pb-20">
@@ -53,7 +54,8 @@ import { heroStats } from "~/data/site";
   <ul class="mt-20 md:mt-24 grid gap-8 sm:grid-cols-3 border-t border-[var(--color-rule)] pt-10">
     {heroStats.map((s) => (
       <li class="reveal">
-        <p class="stat-value">{s.value}</p>
+        <Icon name={s.icon} size={28} class="text-[var(--color-gold)]" />
+        <p class="stat-value mt-3">{s.value}</p>
         <p class="mt-2 text-[15px] font-medium text-[var(--color-muted)]">{s.label}</p>
       </li>
     ))}
