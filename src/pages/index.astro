@@ -6,7 +6,6 @@ import Manifesto from "~/components/home/Manifesto.astro";
 import Audiences from "~/components/home/Audiences.astro";
 import WhatIDo from "~/components/home/WhatIDo.astro";
 import Numbers from "~/components/home/Numbers.astro";
-import Bridge from "~/components/home/Bridge.astro";
 import SelectedWork from "~/components/home/SelectedWork.astro";
 import HowIWork from "~/components/home/HowIWork.astro";
 import AboutPreview from "~/components/home/AboutPreview.astro";
@@ -18,6 +17,10 @@ import { websiteSchema, personSchema, organisationSchema, serviceSchemas } from 
  * Structure follows female-founders.org: a full-sentence hero statement, a stat
  * trio, a partner wall, a declarative manifesto, three audience blocks, big
  * numbers over photography, then the proof.
+ *
+ * The bridge section came off the homepage on Carla's instruction (Sept 2026) –
+ * too on the nose here; the content lives on in Bridge.astro and `bridge` in
+ * site.ts for use in outreach.
  *
  * Ground rhythm: paper → cream → paper → cream → photo → cream → paper → sand.
  * No two tinted sections adjacent, no dark grounds.
@@ -34,7 +37,6 @@ import { websiteSchema, personSchema, organisationSchema, serviceSchemas } from 
   <Audiences />
   <WhatIDo />
   <Numbers />
-  <Bridge />
   <SelectedWork />
   <HowIWork />
   <AboutPreview />

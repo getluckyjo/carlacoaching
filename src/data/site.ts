@@ -93,7 +93,7 @@ export const practiceAreas: readonly PracticeArea[] = [
  * device. Short enough to read in one glance, all traceable to the CV. */
 
 export const heroStats: readonly { value: string; label: string }[] = [
-  { value: "8", label: "African countries reached through AGRA leadership development" },
+  { value: "8", label: "African countries reached through CALA, with AMI and AGRA" },
   { value: "R10M+", label: "Programme budgets led at UCT Graduate School of Business" },
   { value: "3", label: "Continents – Africa, Europe and the UK" },
 ];
@@ -103,12 +103,15 @@ export const heroStats: readonly { value: string; label: string }[] = [
  * – short lines, stated flatly, no hedging. */
 
 export const manifesto = {
-  kicker: "Carla le Roux isn't here to run training. She's here to build capability.",
+  kicker: "I'm not here to run training. I'm here to build capability.",
   body: [
-    "Organisations struggle when strategy doesn't translate into what people need to know, do and change. A new strategy might require different leadership behaviours. A transformation might require new capabilities. But somewhere between the strategy document and the organisational reality, things get complicated.",
-    "Learning is not a department. It is how an organisation becomes able to do what it needs to do next.",
+    "Organisations struggle when strategy doesn't translate into what people need to know, do and change.",
+    "A new strategy might require different leadership behaviours. A transformation might require new capabilities. But somewhere between the strategy document and organisational reality, things get complicated.",
+    "Learning is not a department or a set of interventions. It is how an organisation becomes able to do what it needs to do next.",
+    "That's where I come in. I work with organisations to make sense of the challenge, identify the capabilities that matter, and design programmes and experiences that connect learning to the real work of the organisation.",
+    "And I particularly love working with mission-driven organisations tackling complex systems challenges – creating learning environments where people don't just talk about the problem, but work on it. Through action learning, participants apply what they're learning to real organisational challenges, generating insight, building capability and, ideally, leaving something useful behind.",
   ],
-  pullquote: "Sometimes the answer is a leadership programme. And sometimes it's realising that a training programme isn't the answer at all.",
+  pullquote: "Sometimes the answer is a leadership programme. Sometimes it's an action learning project. And sometimes it's realising that a training programme isn't the answer at all.",
 } as const;
 
 /* ─────────────────────────── Audiences ───────────────────────────
@@ -142,12 +145,12 @@ export const audiences: readonly Audience[] = [
     cta: { label: "About coaching", href: "/coaching" },
   },
   {
-    heading: "For institutions crossing continents",
+    heading: "For institutions that convene change",
     icon: "bridge",
-    punch: ["Africa and Europe.", "Both directions."],
-    body: "European universities want credible access to Africa as the growth market. African organisations want current international practice, adapted properly. Very few people have delivered on both sides. Carla has – UCT GSB, AMI and AGRA on one; Cambridge Judge, FutureLearn and Bristol on the other.",
-    close: "A bridge that has actually been walked.",
-    cta: { label: "See both sides", href: "#bridge" },
+    punch: ["The hardest problems", "can't be solved alone."],
+    body: "Some organisations exist to bring people together – across sectors, countries, disciplines and perspectives – to tackle challenges that are bigger than any one institution. This is work I love: helping create the platforms, programmes and action-learning experiences that turn different perspectives into shared understanding, and shared understanding into action.",
+    close: "Build the platform. Shift the system.",
+    cta: { label: "Start a conversation", href: "/contact" },
   },
 ];
 
@@ -242,13 +245,13 @@ export type Metric = {
 };
 
 export const metrics: readonly Metric[] = [
-  { value: 10, suffix: "+", label: "Years designing learning and capability" },
-  // Website.pdf § SELECTED WORK, corrected by Carla: the AGRA initiative ran
-  // across eight African countries. The African Management Institute role
-  // covered eight too – separate programmes, same count, don't merge them.
-  { value: 8, label: "African countries reached through AGRA leadership development" },
+  { value: 10, suffix: "+", label: "Years designing learning programmes and developing capabilities" },
+  // Carla's own revision, Sept 2026: the AGRA work is named for CALA, the
+  // Centre for African Leaders in Agriculture, and credits both partners.
+  { value: 8, label: "African countries reached through CALA (in partnership with AMI and AGRA)" },
   { value: 10, prefix: "R", suffix: "M+", label: "Programme budgets led at UCT GSB" },
-  { value: 14, suffix: "+", label: "Countries and territories coordinated" },
+  // 14+ → 21+ on her instruction.
+  { value: 21, suffix: "+", label: "Countries and territories coordinated" },
 ];
 
 /* ─────────────────────────── Clients ─────────────────────────── */
