@@ -85,17 +85,14 @@ export const practiceAreas: readonly PracticeArea[] = [
     icon: "spark",
     name: "Coaching",
     summary: "Helping people move from insight to meaningful action.",
-    body: "Coaching creates space to think more deeply, see new possibilities and navigate the moments where change becomes personal. I work with individuals who are stepping into something new, facing complex decisions, questioning what comes next, or wanting to translate awareness into different choices and behaviours. Development is not about fixing what is wrong. It is about expanding what is possible.",
+    body: "Coaching creates space to think more deeply, see new possibilities and navigate moments of change. I work with individuals who are stepping into something new, facing complex decisions, questioning what comes next, or wanting to translate awareness into different choices and behaviours. Development is not about fixing what is wrong. It is about expanding what is possible.",
   },
   {
-    // Not in Carla's Sept 2026 rewrite, which listed five areas ending with
-    // Coaching. Kept because she asked for it to be cut nowhere, and the CV
-    // proof behind it is real – Cambridge Judge, FutureLearn, Bristol.
     slug: "digital-learning",
     icon: "screen",
-    name: "Digital, Blended & EdTech Design",
-    summary: "Specialist content turned into learning that works at a distance.",
-    body: "I've designed digital learning for Cambridge Judge Business School, FutureLearn and the University of Bristol, and built UCT GSB's first blended programme. Where an organisation is moving learning online, the question is rarely the platform – it's the design.",
+    name: "Digital and Blended Learning Design",
+    summary: "Specialist content to scale the learning experience.",
+    body: "I've designed digital learning for Cambridge Judge Business School, FutureLearn and the University of Bristol at Hubble Studios, and built the UCT GSB's first blended programme. Where an organisation is moving learning online, the question is rarely the platform – it's the design.",
   },
 ];
 
@@ -122,15 +119,18 @@ export const heroStats: readonly {
  * – short lines, stated flatly, no hedging. */
 
 export const manifesto = {
-  kicker: "I'm not here to run training. I'm here to build capability.",
+  kicker: "From strategic priority to meaningful capability.",
   body: [
     "Organisations struggle when strategy doesn't translate into what people need to know, do and change.",
     "A new strategy might require different leadership behaviours. A transformation might require new capabilities. But somewhere between the strategy document and organisational reality, things get complicated.",
-    "Learning is not a department or a set of interventions. It is how an organisation becomes able to do what it needs to do next.",
-    "That's where I come in. I work with organisations to make sense of the challenge, identify the capabilities that matter, and design programmes and experiences that connect learning to the real work of the organisation.",
+  ],
+  /** Set on its own line, in ink rather than soft ink. */
+  pivot: "This is where I come in.",
+  after: [
+    "I work with organisations to make sense of the challenge, identify the capabilities that matter, and design programmes and experiences that connect learning to the real work of the organisation.",
     "And I particularly love working with mission-driven organisations tackling complex systems challenges – creating learning environments where people don't just talk about the problem, but work on it. Through action learning, participants apply what they're learning to real organisational challenges, generating insight, building capability and, ideally, leaving something useful behind.",
   ],
-  pullquote: "Sometimes the answer is a leadership programme. Sometimes it's an action learning project. And sometimes it's realising that a training programme isn't the answer at all.",
+  pullquote: "Learning is not a department or a set of interventions. It is how an organisation becomes able to do what it needs to do next.",
 } as const;
 
 /* ─────────────────────────── Audiences ───────────────────────────
@@ -159,8 +159,8 @@ export const audiences: readonly Audience[] = [
     heading: "For leaders",
     icon: "conversation",
     punch: ["Think differently.", "Then act on it."],
-    body: "Integral coaching for leaders stepping into something bigger, carrying a decision they keep circling, or navigating a transformation they didn't design. Developmental, not remedial: new capacities rather than more advice.",
-    close: "Space to think. Accountability to move.",
+    body: "I work with individuals who want to understand themselves more deeply, challenge the stories and patterns that shape their choices, and develop new capacities for what comes next. Coaching is not about providing more advice. It is about creating the space to think differently, act with greater intention, and move towards possibilities that were previously out of reach.",
+    close: "Space to think. Courage to act.",
     cta: { label: "About coaching", href: "/coaching" },
   },
   {
@@ -236,7 +236,7 @@ export const caseStudies: readonly CaseStudy[] = [
     slug: "african-leaders-agriculture",
     name: "Centre for African Leaders in Agriculture",
     meta: "Leadership development · Africa · Multi-country",
-    body: "Designed and led the development of a major leadership initiative with AGRA, extending its reach across 8 African countries and introducing Executive and Junior Leadership Development tiers.",
+    body: "Designed and led the development of a major leadership initiative with AMI in partnership with AGRA, extending its reach across 8 African countries.",
   },
   {
     slug: "executive-education-immersions",
@@ -248,7 +248,7 @@ export const caseStudies: readonly CaseStudy[] = [
     slug: "digital-blended-learning",
     name: "Digital & Blended Learning",
     meta: "Learning innovation · Digital transformation",
-    body: "Designed digital and blended learning experiences for leading educational institutions and organisations, including Cambridge Judge Business School, FutureLearn and the University of Bristol.",
+    body: "Designed digital and blended learning experiences for leading educational institutions and organisations, including the University of Cape Town Graduate School of Business, the African Management Institute, Cambridge Judge Business School, FutureLearn and the University of Bristol.",
   },
 ];
 
