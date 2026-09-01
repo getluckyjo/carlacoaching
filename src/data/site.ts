@@ -141,7 +141,7 @@ export const audiences: readonly Audience[] = [
     icon: "network",
     punch: ["Build the capability.", "Not just the programme."],
     body: "Leadership development, executive education and organisational change designed around the challenge you're actually facing – from understanding the strategic problem, through programme architecture, to delivery and what makes it stick.",
-    close: "From strategic priority to capability that holds.",
+    close: "From strategy to capability that holds.",
     cta: { label: "See the work", href: "/work" },
   },
   {
@@ -149,7 +149,7 @@ export const audiences: readonly Audience[] = [
     icon: "conversation",
     punch: ["Think differently.", "Then act on it."],
     body: "Integral coaching for leaders stepping into something bigger, carrying a decision they keep circling, or navigating a transformation they didn't design. Developmental, not remedial: new capacities rather than more advice.",
-    close: "Space to think, and the accountability to move.",
+    close: "Space to think. Accountability to move.",
     cta: { label: "About coaching", href: "/coaching" },
   },
   {
