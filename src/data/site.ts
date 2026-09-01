@@ -128,7 +128,7 @@ export const manifesto = {
 
 export type Audience = {
   heading: string;
-  icon: "network" | "conversation" | "bridge";
+  icon: "network" | "conversation" | "convene";
   punch: readonly string[];
   body: string;
   close: string;
@@ -154,7 +154,7 @@ export const audiences: readonly Audience[] = [
   },
   {
     heading: "For institutions that convene change",
-    icon: "bridge",
+    icon: "convene",
     punch: ["The hardest problems", "can't be solved alone."],
     body: "Some organisations exist to bring people together – across sectors, countries, disciplines and perspectives – to tackle challenges that are bigger than any one institution. This is work I love: helping create the platforms, programmes and action-learning experiences that turn different perspectives into shared understanding, and shared understanding into action.",
     close: "Build the platform. Shift the system.",

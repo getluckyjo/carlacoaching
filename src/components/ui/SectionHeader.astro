@@ -10,7 +10,7 @@ interface Props {
 const { eyebrow, title, lead, spaced = true, class: className = "" } = Astro.props;
 // The tracked-out form changes how a screen reader pronounces the string,
 // so the accessible name always carries the plain text.
-const display = spaced ? (title.endsWith(".") ? title : title + ".") : title;
+const display = spaced ? (/[.?!]$/.test(title) ? title : title + ".") : title;
 ---
 <header class:list={["reveal", className]}>
   {eyebrow && <p class="eyebrow mb-5">{eyebrow}</p>}

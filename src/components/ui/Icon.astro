@@ -21,7 +21,7 @@
 type IconName =
   | "compass" | "layers" | "network" | "globe" | "screen"
   | "conversation" | "room" | "bridge" | "spark" | "starEight"
-  | "sunrise" | "value";
+  | "sunrise" | "value" | "convene";
 
 interface Props {
   name: IconName;
@@ -96,6 +96,13 @@ const paths: Record<IconName, string[]> = {
     "M2.5 19.5h19",
     "M6.5 19.5A5.5 5.5 0 0117.5 19.5",
     "M12 3.5v3.4M4.9 6.4l2.4 2.4M19.1 6.4l-2.4 2.4M2.5 13.5h3.4M18.1 13.5h3.4",
+  ],
+  /* Separate lines gathered into one stem – convening, drawn as a deco fan. */
+  convene: [
+    "M2.5 20.5h19",
+    "M12 20.5v-4.5",
+    "M12 16L5.5 9.5M12 16l6.5-6.5M12 16V6.5",
+    "M3.5 8.5h4M16.5 8.5h4M10 5.5h4",
   ],
   /* Ascending tiers – scale, stated as a skyline. */
   value: [
