@@ -20,7 +20,7 @@
  */
 type IconName =
   | "compass" | "layers" | "network" | "globe" | "screen"
-  | "conversation" | "room" | "bridge" | "spark" | "starEight"
+  | "conversation" | "spark" | "starEight"
   | "africa" | "value" | "convene" | "system";
 
 interface Props {
@@ -68,19 +68,6 @@ const paths: Record<IconName, string[]> = {
     "M4.5 15V9.5A7.5 7.5 0 0119.5 9.5V15Z",
     "M8.5 15L6 20l5.5-5",
     "M9 9.5v3.5M12 9v4M15 9.5v3.5",
-  ],
-  /* A stepped portal – the room you get let into, drawn as a deco doorway. */
-  room: [
-    "M3.5 20.5V6.5h17v14",
-    "M8 20.5v-6h1.5V11h5v3.5H16v6",
-    "M3.5 6.5h17",
-  ],
-  /* Stepped arch on fluted piers. */
-  bridge: [
-    "M2.5 15.5h19",
-    "M5.5 15.5v4M18.5 15.5v4",
-    "M5.5 15.5v-2.5h3.5v-3h6v3h3.5v2.5",
-    "M12 15.5v-5.5",
   ],
   /* Four-point star with the deco elongation on the vertical. */
   spark: [

@@ -45,7 +45,7 @@ export type PracticeArea = {
   summary: string;
   body: string;
   /** Icon name from src/components/ui/Icon.astro – represents the deliverable. */
-  icon: "compass" | "layers" | "system" | "globe" | "screen";
+  icon: "compass" | "layers" | "system" | "globe" | "screen" | "spark";
 };
 
 /** Five areas. The first four are verbatim from Website.pdf § WHAT I DO.
@@ -55,31 +55,42 @@ export const practiceAreas: readonly PracticeArea[] = [
     slug: "leadership-development",
     icon: "compass",
     name: "Leadership Development",
-    summary: "Development that responds to the organisation you're actually in.",
-    body: "Not a generic competency framework. From emerging leaders to senior executives, I design experiences that build the capabilities, mindsets and behaviours an organisation needs for what comes next.",
+    summary: "Building the capabilities organisations need for what comes next.",
+    body: "Leadership development should respond to the organisation you are actually in – not a generic competency framework. From emerging talent to senior executives, I design experiences that help people develop the mindsets, behaviours and capabilities required to navigate complexity, lead change and turn strategic priorities into action.",
   },
   {
+    // Slug kept: /work#executive-education is already an anchor and a schema @id.
     slug: "executive-education",
     icon: "layers",
-    name: "Executive Education & Programme Design",
-    summary: "For organisations that need more than a collection of workshops.",
-    body: "Multi-format learning journeys designed across the full programme lifecycle – understanding the strategic challenge, defining the architecture, then design, stakeholder alignment and delivery.",
+    name: "Programme Design",
+    summary: "Learning journeys designed around real organisational challenges.",
+    body: "Organisations rarely need another collection of workshops. They need thoughtfully designed experiences that connect learning to the work that matters. I work across the full programme lifecycle – from understanding the strategic challenge and defining the learning architecture, through stakeholder alignment, design, facilitation and delivery.",
   },
   {
     slug: "organisational-capability",
     icon: "system",
     name: "Organisational Capability & Change",
-    summary: "Connecting learning to the broader organisational system.",
-    body: "Where new strategy, transformation or growth requires people to work differently, I help identify the capabilities, behaviours, structures and experiences that enable the change.",
+    summary: "Turning strategy into the ability to execute.",
+    body: "When organisations transform, grow or pursue new strategic directions, the question is not simply what people need to know – but what they need to be able to do differently. I help identify the capabilities, behaviours, systems and experiences required to support meaningful change.",
   },
   {
     slug: "immersive-learning",
     icon: "globe",
     name: "Immersive Learning",
-    summary: "Experiences that take learning beyond the classroom.",
-    body: "International immersions, organisational visits and carefully curated encounters – powerful ways for leaders to challenge assumptions, see systems differently, and carry new possibilities back into their organisations.",
+    summary: "Creating experiences that shift perspective and expand possibility.",
+    body: "Learning does not only happen in classrooms. International immersions, organisational visits and carefully curated encounters create opportunities for people to challenge assumptions, see systems differently and return with new insights, questions and possibilities.",
   },
   {
+    slug: "coaching",
+    icon: "spark",
+    name: "Coaching",
+    summary: "Helping people move from insight to meaningful action.",
+    body: "Coaching creates space to think more deeply, see new possibilities and navigate the moments where change becomes personal. I work with individuals who are stepping into something new, facing complex decisions, questioning what comes next, or wanting to translate awareness into different choices and behaviours. Development is not about fixing what is wrong. It is about expanding what is possible.",
+  },
+  {
+    // Not in Carla's Sept 2026 rewrite, which listed five areas ending with
+    // Coaching. Kept because she asked for it to be cut nowhere, and the CV
+    // proof behind it is real – Cambridge Judge, FutureLearn, Bristol.
     slug: "digital-learning",
     icon: "screen",
     name: "Digital, Blended & EdTech Design",

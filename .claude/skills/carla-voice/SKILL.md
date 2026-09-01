@@ -108,6 +108,9 @@ not.
 trained in at the Centre for Coaching, UCT GSB, and confirmed by her in Aug
 2026. Never "integrative", which is a different and vaguer thing.
 
+learning journey – hers as a design noun ("learning journeys designed around
+real organisational challenges", Sept 2026). Banned only as uplift.
+
 container (a coaching engagement) · capacities · practice ·
 self-observation · way of being · meaning-making · herewith · gently · actually
 (once per piece, to separate the real problem from the stated one) · go well
