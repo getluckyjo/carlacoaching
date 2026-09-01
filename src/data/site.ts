@@ -99,8 +99,11 @@ export const heroStats: readonly {
   icon: "sunrise" | "value" | "globe";
 }[] = [
   { value: "8", icon: "sunrise", label: "African countries reached through CALA, with AMI and AGRA" },
-  { value: "R10M+", icon: "value", label: "Programme budgets led at UCT Graduate School of Business" },
-  { value: "3", icon: "globe", label: "Continents – Africa, Europe and the UK" },
+  { value: "R10M+", icon: "value", label: "Programme budgets led at UCT GSB" },
+  // 3 → 2: the UK is in Europe, so three was not defensible. The hero lead
+  // still says "Africa, Europe and the UK", which is fine as market shorthand
+  // in prose but not as a counted figure.
+  { value: "2", icon: "globe", label: "Continents – Africa and Europe" },
 ];
 
 /* ─────────────────────────── Manifesto ───────────────────────────
