@@ -98,7 +98,7 @@ export const heroStats: readonly {
   /** Icon name from src/components/ui/Icon.astro. */
   icon: "sunrise" | "value" | "globe";
 }[] = [
-  { value: "8", icon: "sunrise", label: "African countries reached through CALA, with AMI and AGRA" },
+  { value: "8", icon: "sunrise", label: "African countries reached with the Centre for African Leaders in Agriculture (CALA)" },
   { value: "R10M+", icon: "value", label: "Programme budgets led at UCT GSB" },
   // 3 → 2: the UK is in Europe, so three was not defensible. The hero lead
   // still says "Africa, Europe and the UK", which is fine as market shorthand
@@ -256,7 +256,7 @@ export const metrics: readonly Metric[] = [
   { value: 10, suffix: "+", label: "Years designing learning programmes and developing capabilities" },
   // Carla's own revision, Sept 2026: the AGRA work is named for CALA, the
   // Centre for African Leaders in Agriculture, and credits both partners.
-  { value: 8, label: "African countries reached through CALA (in partnership with AMI and AGRA)" },
+  { value: 8, label: "African countries reached through CALA, in partnership with AMI and AGRA" },
   { value: 10, prefix: "R", suffix: "M+", label: "Programme budgets led at UCT GSB" },
   // 14+ → 21+ on her instruction.
   { value: 21, suffix: "+", label: "Countries and territories coordinated" },
