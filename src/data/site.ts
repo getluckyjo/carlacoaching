@@ -45,7 +45,7 @@ export type PracticeArea = {
   summary: string;
   body: string;
   /** Icon name from src/components/ui/Icon.astro – represents the deliverable. */
-  icon: "compass" | "layers" | "network" | "globe" | "screen";
+  icon: "compass" | "layers" | "system" | "globe" | "screen";
 };
 
 /** Five areas. The first four are verbatim from Website.pdf § WHAT I DO.
@@ -67,7 +67,7 @@ export const practiceAreas: readonly PracticeArea[] = [
   },
   {
     slug: "organisational-capability",
-    icon: "network",
+    icon: "system",
     name: "Organisational Capability & Change",
     summary: "Connecting learning to the broader organisational system.",
     body: "Where new strategy, transformation or growth requires people to work differently, I help identify the capabilities, behaviours, structures and experiences that enable the change.",
@@ -96,9 +96,9 @@ export const heroStats: readonly {
   value: string;
   label: string;
   /** Icon name from src/components/ui/Icon.astro. */
-  icon: "sunrise" | "value" | "globe";
+  icon: "africa" | "value" | "globe";
 }[] = [
-  { value: "8", icon: "sunrise", label: "African countries reached with the Centre for African Leaders in Agriculture (CALA)" },
+  { value: "8", icon: "africa", label: "African countries reached with the Centre for African Leaders in Agriculture (CALA)" },
   { value: "R10M+", icon: "value", label: "Programme budgets led at UCT GSB" },
   // 3 → 2: the UK is in Europe, so three was not defensible. The hero lead
   // still says "Africa, Europe and the UK", which is fine as market shorthand

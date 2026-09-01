@@ -21,7 +21,7 @@
 type IconName =
   | "compass" | "layers" | "network" | "globe" | "screen"
   | "conversation" | "room" | "bridge" | "spark" | "starEight"
-  | "sunrise" | "value" | "convene";
+  | "africa" | "value" | "convene" | "system";
 
 interface Props {
   name: IconName;
@@ -91,11 +91,19 @@ const paths: Record<IconName, string[]> = {
   starEight: [
     "M12 2.7l1.38 5.97 5.2-3.25-3.25 5.2 5.97 1.38-5.97 1.38 3.25 5.2-5.2-3.25L12 21.3l-1.38-5.97-5.2 3.25 3.25-5.2L2.7 12l5.97-1.38-3.25-5.2 5.2 3.25z",
   ],
-  /* Rising sun over a horizon – reach, in the most deco motif there is. */
-  sunrise: [
-    "M2.5 19.5h19",
-    "M6.5 19.5A5.5 5.5 0 0117.5 19.5",
-    "M12 3.5v3.4M4.9 6.4l2.4 2.4M19.1 6.4l-2.4 2.4M2.5 13.5h3.4M18.1 13.5h3.4",
+  /* Africa, faceted. Drawn as a straight-edged polygon rather than a traced
+     coastline: it keeps the deco language of the set and survives being shrunk
+     to 22px, where a faithful outline turns to mush. Madagascar is the second
+     path – small, but it is most of what makes the shape read as Africa. */
+  africa: [
+    "M5.3 2.7L9.9 2.4L15.6 4L17 6.4L21.6 9.2L19.9 11.7L18.4 13.3L18.4 17.1L16.5 19.2L12.7 21.6L11 18.4L10.5 13.9L9.3 11.2L7 10.8L2.2 8.3L3.3 5.1Z",
+    "M20.4 15.5L21.3 16.5L19.9 19L19.6 17.6Z",
+  ],
+  /* Concentric squares – an organisation as a system of nested parts. */
+  system: [
+    "M3.5 3.5h17v17h-17Z",
+    "M7.5 7.5h9v9h-9Z",
+    "M11 11h2v2h-2Z",
   ],
   /* Separate lines gathered into one stem – convening, drawn as a deco fan. */
   convene: [
