@@ -97,7 +97,11 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
   </section>
 
   <!-- The four dimensions -->
-  <section class="bg-[var(--color-cream)] paper-texture border-y border-[var(--color-rule)]">
+  <section class="bg-[var(--color-cream)] paper-texture border-y border-[var(--color-rule)] relative isolate overflow-hidden">
+    <div
+      aria-hidden="true"
+      class="seigaiha-backdrop pointer-events-none absolute inset-0 -z-10"
+    ></div>
     <div class="container-page section">
       <div class="grid gap-12 md:grid-cols-12">
         <div class="md:col-span-5">
@@ -209,3 +213,17 @@ const credentials = development.filter((d) => d.name.includes("Coaching"));
     body="A first conversation is just that – a conversation. We'll work out whether coaching is the right thing, and whether I'm the right person for it."
   />
 </BaseLayout>
+
+<style>
+  /* The seigaiha wave-scale motif, as on the client wall and About – it ties
+     the coaching page into the same material world. Lighter than the client
+     wall (0.22) because this sits behind body copy rather than wordmarks. */
+  .seigaiha-backdrop {
+    background-image: url("/img/art/seigaiha.svg");
+    background-repeat: repeat;
+    background-size: 120px 120px;
+    opacity: 0.055;
+    mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  }
+</style>

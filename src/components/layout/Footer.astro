@@ -28,7 +28,24 @@ const columns = [
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[var(--color-rule)] bg-[var(--color-cream)] paper-texture">
+<footer class="border-t border-[var(--color-rule)] bg-[var(--color-cream)] paper-texture relative isolate overflow-hidden">
+  <picture
+    aria-hidden="true"
+    class="bookcase-backdrop pointer-events-none absolute inset-0 -z-10"
+  >
+    <source
+      type="image/webp"
+      srcset="/img/art/bookcase-960.webp 960w, /img/art/bookcase-1440.webp 1440w, /img/art/bookcase-1920.webp 1920w"
+      sizes="100vw"
+    />
+    <img
+      src="/img/art/bookcase.jpg"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover object-[50%_45%]"
+    />
+  </picture>
   <div class="container-page py-16 md:py-20">
     <div class="grid gap-12 md:grid-cols-12">
       <div class="md:col-span-5">
@@ -76,3 +93,20 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<style>
+  /*
+    A bookcase behind the footer. It arrives as a full-colour photograph with
+    legible spines, which would fight every link in here, so it is treated
+    rather than dropped in: desaturated most of the way, warmed back toward the
+    cream palette, blurred until the spines read as bands of colour rather than
+    titles, and faded in from the top so the rule at the footer's edge stays
+    clean. The point is a suggestion of a wall of books, not a picture of one.
+  */
+  .bookcase-backdrop {
+    opacity: 0.32;
+    filter: grayscale(0.4) sepia(0.22) blur(3px);
+    mask-image: linear-gradient(to bottom, transparent, black 26%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 26%);
+  }
+</style>
