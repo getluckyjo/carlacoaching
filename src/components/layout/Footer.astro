@@ -28,24 +28,7 @@ const columns = [
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[var(--color-rule)] bg-[var(--color-cream)] paper-texture relative isolate overflow-hidden">
-  <picture
-    aria-hidden="true"
-    class="bookcase-backdrop pointer-events-none absolute inset-0 -z-10"
-  >
-    <source
-      type="image/webp"
-      srcset="/img/art/bookcase-960.webp 960w, /img/art/bookcase-1440.webp 1440w, /img/art/bookcase-1920.webp 1920w"
-      sizes="100vw"
-    />
-    <img
-      src="/img/art/bookcase.jpg"
-      alt=""
-      loading="lazy"
-      decoding="async"
-      class="h-full w-full object-cover object-[50%_45%]"
-    />
-  </picture>
+<footer class="footer-blue border-t border-[var(--color-blue-deep)] bg-[var(--color-blue-deep)]">
   <div class="container-page py-16 md:py-20">
     <div class="grid gap-12 md:grid-cols-12">
       <div class="md:col-span-5">
@@ -96,17 +79,26 @@ const year = new Date().getFullYear();
 
 <style>
   /*
-    A bookcase behind the footer. It arrives as a full-colour photograph with
-    legible spines, which would fight every link in here, so it is treated
-    rather than dropped in: desaturated most of the way, warmed back toward the
-    cream palette, blurred until the spines read as bands of colour rather than
-    titles, and faded in from the top so the rule at the footer's edge stays
-    clean. The point is a suggestion of a wall of books, not a picture of one.
+    A solid bar in the wave blue rather than a photograph. The palette rule
+    holds here as it does everywhere: `blue` (#4C8394) decorates and cannot
+    carry text – white on it is 3.9:1, under the 4.5:1 AA needs for the 15px
+    links in this footer – so the bar is `blue-deep` (#1F4E5C), where paper
+    sits at about 14:1.
+
+    Rather than restyling every child, the ink tokens are redefined for the
+    scope of the footer, so the existing utility classes keep working and come
+    out light. Gold and pink both go pale for the same contrast reason: the
+    text-safe members of those families are tuned for cream grounds and go
+    muddy on deep blue.
   */
-  .bookcase-backdrop {
-    opacity: 0.32;
-    filter: grayscale(0.4) sepia(0.22) blur(3px);
-    mask-image: linear-gradient(to bottom, transparent, black 26%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 26%);
+  .footer-blue {
+    --color-ink: #FFFDF9;
+    --color-ink-soft: #DCE7EA;
+    --color-muted: #B6CBD1;
+    --color-rule: rgba(255, 253, 249, 0.18);
+    --color-rule-strong: rgba(255, 253, 249, 0.3);
+    --color-gold: #E7C98D;
+    --color-pink-deep: #FFFDF9;
+    color: var(--color-ink-soft);
   }
 </style>
