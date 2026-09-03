@@ -27,39 +27,65 @@ const files = existsSync(dir) ? readdirSync(dir) : [];
 /** SVG first – it stays crisp at any size on the marquee. */
 const EXTENSIONS = ["svg", "webp", "png", "jpg"] as const;
 
-const wall = clients.map((c) => {
+/*
+ * Wordmarks are set in a rotating cycle of styles rather than one uniform
+ * weight – the two families the site already owns (Geist and Instrument Serif),
+ * alternating roman and italic. A wall of identical bold names reads as a list;
+ * varying the setting makes it read as a collection of marks, which is the job
+ * a logo wall is doing. The cycle is fixed by position, so it is stable between
+ * builds and the duplicated marquee track stays in step.
+ */
+const STYLES = [
+  "font-[family-name:var(--font-serif)] font-normal text-[34px] text-[var(--color-ink)]",
+  "font-bold text-[30px] tracking-[-0.01em] text-[var(--color-ink-soft)]",
+  "font-[family-name:var(--font-serif)] font-normal italic text-[34px] text-[var(--color-ink-soft)]",
+  "font-medium text-[27px] tracking-[0.01em] text-[var(--color-ink)]",
+  "font-[family-name:var(--font-serif)] font-normal text-[32px] text-[var(--color-ink-soft)]",
+  "font-semibold text-[28px] italic tracking-[-0.01em] text-[var(--color-ink-soft)]",
+];
+
+const wall = clients.map((c, i) => {
   const file = c.cleared
     ? EXTENSIONS.map((ext) => `${c.slug}.${ext}`).find((f) => files.includes(f))
     : undefined;
-  return { name: c.name, src: file ? `/img/clients/${file}` : undefined };
+  return {
+    name: c.name,
+    src: file ? `/img/clients/${file}` : undefined,
+    style: STYLES[i % STYLES.length],
+  };
 });
 ---
 <div class="marquee py-2">
   <div class="marquee-track">
     {[0, 1].map((copy) => (
       <ul
-        class="flex items-center gap-16 pr-16 shrink-0"
+        class="flex items-center gap-10 pr-10 shrink-0"
         aria-hidden={copy === 1 ? "true" : undefined}
         aria-label={copy === 0 ? "Selected clients" : undefined}
       >
-        {wall.map((c) => (
-          <li class="shrink-0">
-            {c.src ? (
-              <img
-                src={c.src}
-                alt={c.name}
-                loading="lazy"
-                decoding="async"
-                class="client-logo"
-              />
-            ) : (
-              <span
-                class="whitespace-nowrap text-[30px] font-bold tracking-[0.01em] text-[var(--color-ink-soft)]"
-              >
-                {c.name}
-              </span>
+        {wall.map((c, i) => (
+          <>
+            {i > 0 && (
+              <li aria-hidden="true" class="shrink-0 select-none text-[var(--color-gold)] text-[18px] leading-none">
+                ·
+              </li>
             )}
-          </li>
+            <li class="shrink-0">
+              {c.src ? (
+                <img
+                  src={c.src}
+                  alt={c.name}
+                  loading="lazy"
+                  decoding="async"
+                  class="client-logo"
+                />
+              ) : (
+                <span class:list={["whitespace-nowrap leading-none", c.style]}>
+                  {c.name}
+                </span>
+              )}
+            </li>
+          </>
         ))}
       </ul>
     ))}
