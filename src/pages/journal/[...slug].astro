@@ -24,6 +24,7 @@ const related = (await getCollection("journal", ({ data }) => !data.draft))
   .slice(0, 2);
 ---
 <BaseLayout
+  noindex
   title={post.data.title}
   description={post.data.description}
   jsonLd={[

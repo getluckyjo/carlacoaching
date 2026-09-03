@@ -372,8 +372,9 @@ export const capabilities: readonly { name: string; body: string }[] = [
   { name: "Strategic thinking", body: "Understanding the organisational challenge behind the brief." },
   { name: "Learning expertise", body: "Knowing how adults actually develop capability." },
   { name: "Systems thinking", body: "Seeing learning as part of a wider organisational system." },
-  { name: "Programme leadership", body: "Turning ideas into complex, deliverable programmes." },
+  { name: "Programme leadership", body: "Coordinating with multiple stakeholders to create programmes with lasting impact." },
   { name: "Coaching", body: "Creating the conditions for people to think, reflect and change." },
+  { name: "Platform creation", body: "Building platforms where diverse perspectives become shared understanding and collective action." },
 ];
 
 /* ─────────────────────────── Who I work with ─────────────────────────── */
@@ -434,7 +435,7 @@ export const experience: readonly Role[] = [
     years: "2019 – 2020",
     points: [
       "Built university partnerships and developed avenues to increase international student mobility.",
-      "Directed the Lisbon programme, leading the execution team across operations, participant experience and legal compliance.",
+      "Programme Director for Lisbon, leading the academic and execution team across content, operations, participant experience and legal compliance.",
     ],
   },
   {

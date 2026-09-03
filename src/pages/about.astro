@@ -24,8 +24,9 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
         <h1 class="display-xl mt-8 reveal">Hi, I'm Carla.</h1>
         <p class="lead mt-8 reveal">
           I'm a learning and capability strategist, programme designer and coach.
-          For the past decade I've helped organisations turn complex ideas into
-          development that changes something.
+          For the past decade I've helped organisations turn a complex set of
+          training needs and talent requirements into learning experiences that
+          change something.
         </p>
       </div>
       <div class="md:col-span-4 md:col-start-9 reveal">
@@ -46,15 +47,8 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
     <div class="grid gap-12 md:grid-cols-12">
       <div class="md:col-span-6 md:col-start-4 space-y-6 text-[var(--color-ink-soft)] reveal">
         <p>
-          I'm a learning and capability strategist, programme designer and coach.
           Underneath all of it is one question I have never quite stopped asking:
           what actually enables people to change?
-        </p>
-        <p>
-          Before any of this I was an editor at one of South Africa's largest
-          fiction and non-fiction publishers. It was the same job: taking
-          something complex and shaping it into a story people can understand and
-          act on.
         </p>
         <p>
           Today? I'm still interested in that messy, human middle – where strategy
@@ -66,44 +60,13 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
     </div>
   </section>
 
-  <!-- The arc -->
-  <section class="bg-[var(--color-cream)] paper-texture border-y border-[var(--color-rule)]">
-    <div class="container-page section">
-      <div class="grid gap-12 md:grid-cols-12">
-        <div class="md:col-span-5">
-          <SectionHeader eyebrow="The arc" title="I started as an editor." />
-        </div>
-        <div class="md:col-span-6 md:col-start-7 space-y-6 text-[var(--color-ink-soft)] measure reveal">
-          <p>
-            Before any of this there was an MA in English from Stellenbosch and four
-            years editing fiction and non-fiction – freelance, and for Random House
-            Struik and NB Publishers. Then an Honours in Creative Brand Leadership at
-            Vega, and a move into instructional design.
-          </p>
-          <p>
-            People treat that as a career change. It doesn't feel like one. Editing,
-            brand, instructional design, programme architecture, coaching – it's the
-            same problem approached from different angles: taking something complex
-            and making it land with a human being.
-          </p>
-          <p>
-            It's also why I'm sceptical of learning that is well-produced and
-            forgettable. A beautifully built programme that changes nothing is a
-            manuscript nobody finishes.
-          </p>
-          <p>
-            The same thread runs through
-            <a href="/modern-muse" class="link">Modern Muse</a>, where I read tarot:
-            symbols, and what people do with them when they finally have the room
-            to think.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- What I bring -->
-  <section class="container-page section">
+  <section class="section relative isolate overflow-hidden">
+    <div
+      aria-hidden="true"
+      class="seigaiha-backdrop pointer-events-none absolute inset-0 -z-10"
+    ></div>
+    <div class="container-page">
     <SectionHeader eyebrow="What I bring" title="Structure for ambiguity." />
     <dl class="mt-14 grid gap-px bg-[var(--color-rule)] border border-[var(--color-rule)] rounded-[var(--radius-lg)] overflow-hidden md:grid-cols-2 lg:grid-cols-3">
       {capabilities.map((c) => (
@@ -113,6 +76,7 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
         </div>
       ))}
     </dl>
+    </div>
   </section>
 
   <!-- Experience -->
@@ -173,3 +137,14 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
 
   <BigCTA />
 </BaseLayout>
+
+<style>
+  /* The same seigaiha wave-scale motif as the client wall, tiled low behind
+     "What I bring" – Carla asked for texture on this page (Sept 2026). */
+  .seigaiha-backdrop {
+    background-image: url("/img/art/seigaiha.svg");
+    background-repeat: repeat;
+    background-size: 96px 96px;
+    opacity: 0.18;
+  }
+</style>

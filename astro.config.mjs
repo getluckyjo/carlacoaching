@@ -18,8 +18,13 @@ export default defineConfig({
       changefreq: "monthly",
       priority: 0.7,
       lastmod: new Date(),
+      // Workshops, Modern Muse and Journal are unlisted until they go live.
       filter: (page) =>
-        !page.includes("/thanks") && !page.includes("/404"),
+        !page.includes("/thanks") &&
+        !page.includes("/404") &&
+        !page.includes("/workshops") &&
+        !page.includes("/modern-muse") &&
+        !page.includes("/journal"),
       serialize(item) {
         const url = item.url;
         if (/\.com\/$/.test(url)) return { ...item, priority: 1.0, changefreq: "monthly" };

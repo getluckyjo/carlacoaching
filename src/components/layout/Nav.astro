@@ -1,13 +1,13 @@
 ---
 import { site } from "~/data/site";
 
+// Workshops, Modern Muse and Journal are unlisted until they go live
+// (Sept 2026). The pages still build and can be previewed by URL; they carry
+// noindex and are out of the sitemap. Restore these three lines to relaunch.
 const links = [
   { href: "/work", label: "Work" },
   { href: "/coaching", label: "Coaching" },
-  { href: "/workshops", label: "Workshops" },
-  { href: "/modern-muse", label: "Modern Muse" },
   { href: "/about", label: "About" },
-  { href: "/journal", label: "Journal" },
 ];
 
 const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
