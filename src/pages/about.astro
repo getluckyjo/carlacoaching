@@ -144,7 +144,13 @@ import { breadcrumbSchema, personSchema } from "~/lib/seo";
   .seigaiha-backdrop {
     background-image: url("/img/art/seigaiha.svg");
     background-repeat: repeat;
-    background-size: 96px 96px;
-    opacity: 0.18;
+    background-size: 112px 112px;
+    /* Much lighter than the client wall's 0.22: that sits on cream behind
+       30px wordmarks, this sits on near-white behind body copy, where the
+       same value reads as wallpaper rather than texture. Masked at both
+       edges so it fades in and out rather than stopping at a hard line. */
+    opacity: 0.07;
+    mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 22%, black 78%, transparent);
   }
 </style>
